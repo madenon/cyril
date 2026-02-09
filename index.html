@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyril BTP | Expertise & Sécurité</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-block">
+                <div class="logo-square"><img src="images/logo2.png" alt="Logo"></div>
+                <div class="logo-text">
+                    <h1>CYRIL <span>BTP</span></h1>
+                    <p>EXPERTISE & RIGUEUR</p>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="#accueil">ACCUEIL</a></li>
+                <li><a href="about.html">A PROPOS</a></li>
+                <li><a href="service.html">SERVICES</a></li>
+                <li><a href="realisation.html">RÉALISATIONS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+
+            <div class="nav-contact-wrapper">
+                <a href="tel:+212600000000" class="nav-phone">
+                    <i data-lucide="phone"></i>
+                    <span>+212 600 000 000</span>
+                </a>
+                <a href="#" class="nav-btn-devis">Contact d'urgenc</a>
+                <button class="burger" id="openMenu"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="drawer" id="mobileDrawer">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <div class="drawer-logo">
+                    <img src="images/logo2.png" alt="Logo">
+                    <span>MENU</span>
+                </div>
+                <button class="close-btn" id="closeMenu"><i data-lucide="x"></i></button>
+            </div>
+            <div class="drawer-body">
+                <ul class="mobile-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#realisations">Réalisations</a></li>
+                </ul>
+                <a href="tel:+212600000000" class="cta-mobile"><i data-lucide="phone"></i> NOUS APPELER</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h3 class="hero-subtitle">EXPERTISE & SÉCURITÉ</h3>
+            <h1 class="hero-title">TRAVAUX BTP<br><span>PAR CYRIL</span></h1>
+            <div class="hero-desc-container">
+                <p class="hero-desc">"Du terrassement à la démolition, nous bâtissons l'avenir avec précision et rigueur."</p>
+            </div>
+            <a href="#" class="btn-devis">DEMANDER UN DEVIS <i data-lucide="arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="services-cards" id="services">
+        <div class="container grid-3">
+            <div class="card">
+                <div class="card-icon"><i data-lucide="building-2"></i></div>
+                <h2>DÉMOLITION</h2>
+                <p>Démolition sélective et totale de bâtiments avec gestion des gravats.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i data-lucide="ruler"></i></div>
+                <h2>AMÉNAGEMENT</h2>
+                <p>Optimisation de vos espaces extérieurs et préparation des sols.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i data-lucide="wrench"></i></div>
+                <h2>RÉNOVATION</h2>
+                <p>Remise à neuf complète de vos structures et maçonnerie générale.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="realisations" id="realisations">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="font-anton">NOS RÉALISATIONS</h3>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-image-wrapper">
+                    <div class="image-card">
+                        <img src="images/img1.png" alt="Démolition Industrielle">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <span class="project-id">01</span>
+                    <h3 class="project-title">DÉMOLITION INDUSTRIELLE</h3>
+                    <div class="project-desc-wrapper">
+                        <div class="accent-line"></div>
+                        <p class="project-desc">Déconstruction de structures métalliques et béton avec gestion des déchets.</p>
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>SÉCURISATION</span></div>
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>TRI SÉLECTIF</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-row reverse">
+                <div class="project-image-wrapper">
+                    <div class="image-card">
+                        <img src="images/img2.png" alt="Terrassement">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <span class="project-id">02</span>
+                    <h3 class="project-title">TERRASSEMENT & FOUILLES</h3>
+                    <div class="project-desc-wrapper">
+                        <div class="accent-line"></div>
+                        <p class="project-desc">Préparation des sols pour fondations et réseaux divers (VRD).</p>
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>NIVELLEMENT</span></div>
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>EXCAVATION</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-image-wrapper">
+                    <div class="image-card">
+                        <img src="images/img3.png" alt="Aménagement">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <span class="project-id">03</span>
+                    <h3 class="project-title">AMÉNAGEMENT URBAIN</h3>
+                    <div class="project-desc-wrapper">
+                        <div class="accent-line"></div>
+                        <p class="project-desc">Création d'espaces publics, pose de bordures et pavage professionnel.</p>
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>PAVAGE</span></div>
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>ACCESSIBILITÉ</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-row reverse">
+                <div class="project-image-wrapper">
+                    <div class="image-card">
+                        <img src="images/img4.png" alt="Gros Œuvre">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <span class="project-id">04</span>
+                    <h3 class="project-title">GROS ŒUVRE & MAÇONNERIE</h3>
+                    <div class="project-desc-wrapper">
+                        <div class="accent-line"></div>
+                        <p class="project-desc">Construction de murs porteurs et structures en béton armé.</p>
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>COFFRAGE</span></div>
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>FERRAILLAGE</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-image-wrapper">
+                    <div class="image-card">
+                        <img src="images/img5.png" alt="VRD">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <span class="project-id">05</span>
+                    <h3 class="project-title">VOIRIE ET RÉSEAUX (VRD)</h3>
+                    <div class="project-desc-wrapper">
+                        <div class="accent-line"></div>
+                        <p class="project-desc">Installation de réseaux d'assainissement et préparation de chaussées.</p>
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>CANALISATIONS</span></div>
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>ENROBÉS</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-row reverse">
+                <div class="project-image-wrapper">
+                    <div class="image-card">
+                        <img src="images/img6.png" alt="Façades">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <span class="project-id">06</span>
+                    <h3 class="project-title">RÉNOVATION DE FAÇADES</h3>
+                    <div class="project-desc-wrapper">
+                        <div class="accent-line"></div>
+                        <p class="project-desc">Remise en état esthétique et thermique des murs extérieurs.</p>
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>NETTOYAGE</span></div>
+                        <div class="tag"><i data-lucide="check-circle-2"></i><span>ENDUITS</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column about">
+                <div class="logo-footer">CYRIL <span>BTP</span></div>
+                <p class="footer-desc">
+                    Expertise en démolition, terrassement et rénovation. 
+                    Nous bâtissons vos projets avec rigueur et sécurité.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="camera"></i></a> </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>NOS EXPERTISES</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Démolition de précision</a></li>
+                    <li><a href="#">Massif de terrassement</a></li>
+                    <li><a href="#">Aménagement extérieur</a></li>
+                    <li><a href="#">Gros œuvre & Maçonnerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>CONTACT</h4>
+                <ul class="footer-info">
+                    <li><i data-lucide="phone"></i> 06 22 89 29 16</li>
+                    <li><i data-lucide="mail"></i> cyrilbenony@gmail.com</li>
+                    <li><i data-lucide="hash"></i> SIRET: 494 262 371</li>
+                    <li><i data-lucide="map-pin"></i> 33380 Marcheprime, France</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>LÉGAL</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Déclaration d'accessibilité</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 CYRIL BTP. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        lucide.createIcons();
+        const drawer = document.getElementById('mobileDrawer');
+        const openMenu = document.getElementById('openMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        openMenu.onclick = () => drawer.classList.add('active');
+        closeMenu.onclick = () => drawer.classList.remove('active');
+        
+        document.querySelectorAll('.mobile-links a').forEach(link => {
+            link.onclick = () => drawer.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

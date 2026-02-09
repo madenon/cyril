@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | Cyril BTP</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-block" style="text-decoration: none; color: inherit;">
+                <div class="logo-square"><img src="images/logo2.png" alt="Logo"></div>
+                <div class="logo-text">
+                    <h1>CYRIL <span>BTP</span></h1>
+                    <p>EXPERTISE & RIGUEUR</p>
+                </div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">ACCUEIL</a></li>
+                <li><a href="realisation.html">RÉALISATIONS</a></li>
+                                <li><a href="service.html">SERVICES</a></li>
+
+                <li><a href="about.html" class="active">A PROPOS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+
+            <div class="nav-contact-wrapper">
+                <a href="tel:+212600000000" class="nav-phone">
+                    <i data-lucide="phone"></i>
+                    <span>+212 600 000 000</span>
+                </a>
+                <a href="contact.html" class="nav-btn-devis">Contact d'urgenc</a>
+                <button class="burger" id="openMenu"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="drawer" id="mobileDrawer">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <div class="drawer-logo">
+                    <img src="images/logo2.png" alt="Logo">
+                    <span>MENU</span>
+                </div>
+                <button class="close-btn" id="closeMenu"><i data-lucide="x"></i></button>
+            </div>
+            <div class="drawer-body">
+                <ul class="mobile-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="realisation.html">Réalisations</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="tel:+212600000000" class="cta-mobile"><i data-lucide="phone"></i> NOUS APPELER</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-page">
+        <div class="container">
+            
+            <div class="about-hero">
+                <div class="about-content">
+                    <h2 class="about-title">
+                        Bâtir l'avenir avec <br>
+                        <span class="text-orange">Rigueur & Passion</span>
+                    </h2>
+                    <div class="orange-bar"></div>
+                    <p class="about-text">
+                        Depuis plus de 15 ans, <strong>Cyril BTP</strong> s'impose comme un acteur majeur de la construction. Notre savoir-faire s'étend du gros œuvre complexe à la rénovation d'intérieur haut de gamme.
+                    </p>
+                    <p class="about-text">
+                        Nous ne nous contentons pas de construire des murs ; nous créons des espaces de vie durables et sécurisés, en plaçant l'innovation et l'écoute client au cœur de chaque chantier.
+                    </p>
+                </div>
+
+                <div class="about-image-wrapper">
+                    <div class="main-img-card">
+                        <img src="images/img1.png" alt="Équipe Cyril BTP">
+                    </div>
+                    <div class="experience-badge">
+                        <span class="exp-number">15</span>
+                        <span class="exp-label">Ans de Savoir-Faire</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-divider">
+                <div class="stat-item">
+                    <span class="stat-value">15+</span>
+                    <span class="stat-label">Années d'expérience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">350+</span>
+                    <span class="stat-label">Projets terminés</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">12</span>
+                    <span class="stat-label">Collaborateurs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">Garantie décennale</span>
+                </div>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i data-lucide="shield-check" size="32"></i></div>
+                    <h3>Qualité Certifiée</h3>
+                    <p>Nous utilisons des matériaux premium pour assurer la longévité de vos ouvrages.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i data-lucide="hard-hat" size="32"></i></div>
+                    <h3>Expertise Terrain</h3>
+                    <p>Nos équipes sont formées aux dernières techniques de construction durable.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i data-lucide="award" size="32"></i></div>
+                    <h3>Respect des Délais</h3>
+                    <p>La ponctualité est le pilier de notre relation client.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column about">
+                <div class="logo-footer">CYRIL <span>BTP</span></div>
+                <p class="footer-desc">
+                    Expertise en démolition, terrassement et rénovation. 
+                    Nous bâtissons vos projets avec rigueur et sécurité.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="camera"></i></a> </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>NOS EXPERTISES</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Démolition de précision</a></li>
+                    <li><a href="#">Massif de terrassement</a></li>
+                    <li><a href="#">Aménagement extérieur</a></li>
+                    <li><a href="#">Gros œuvre & Maçonnerie</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>CONTACT</h4>
+                <ul class="footer-info">
+                    <li><i data-lucide="phone"></i> 06 22 89 29 16</li>
+                    <li><i data-lucide="mail"></i> cyrilbenony@gmail.com</li>
+                    <li><i data-lucide="hash"></i> SIRET: 494 262 371</li>
+                    <li><i data-lucide="map-pin"></i> 33380 Marcheprime, France</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>LÉGAL</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Déclaration d'accessibilité</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 CYRIL BTP. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Initialisation des icônes Lucide
+        lucide.createIcons();
+
+        // Gestion du menu mobile
+        const drawer = document.getElementById('mobileDrawer');
+        const openMenu = document.getElementById('openMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        openMenu.onclick = () => drawer.classList.add('active');
+        closeMenu.onclick = () => drawer.classList.remove('active');
+        
+        document.querySelectorAll('.mobile-links a').forEach(link => {
+            link.onclick = () => drawer.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

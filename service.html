@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyril BTP | Nos Services</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --orange: #ff6600;
+            --dark-bg: #0a0f1d;
+            --text-gray: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- NAVBAR --- */
+        .navbar { background: var(--dark-bg); padding: 20px 0; color: white; position: sticky; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-block { display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit; }
+        .logo-img { width: 50px; height: 50px; border: 2px solid white; border-radius: 8px; object-fit: cover; }
+        .logo-text h1 { font-family: 'Anton'; font-size: 28px; line-height: 1; letter-spacing: 1px; }
+        .logo-text h1 span { color: var(--orange); }
+        .logo-text p { font-size: 10px; letter-spacing: 2px; color: var(--text-gray); text-transform: uppercase; margin-top: 4px; }
+        
+        .nav-menu { display: none; list-style: none; gap: 25px; }
+        .nav-menu a { color: white; text-decoration: none; font-size: 13px; font-weight: 800; transition: 0.3s; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--orange); }
+        
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-phone { display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-weight: 700; font-size: 15px; }
+        .btn-urgence { background: var(--orange); color: white; padding: 12px 25px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 14px; transition: 0.3s; }
+
+        @media (min-width: 768px) { .nav-menu { display: flex; } }
+
+        /* --- HERO --- */
+        .hero-small { background: var(--dark-bg); padding: 80px 0; text-align: center; color: white; border-top: 1px solid rgba(255,255,255,0.05); }
+        .hero-small h1 { font-family: 'Anton'; font-size: 50px; text-transform: uppercase; }
+        .hero-small h1 span { color: var(--orange); }
+
+        /* --- SERVICES SECTION --- */
+        .services-section { padding: 100px 0; }
+        .service-row { display: flex; flex-direction: column; gap: 50px; margin-bottom: 100px; align-items: center; }
+        
+        @media (min-width: 768px) {
+            .service-row { flex-direction: row; }
+            .service-row.reverse { flex-direction: row-reverse; }
+        }
+
+        .service-image { flex: 1; width: 100%; }
+        .service-image img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        .service-content { flex: 1; }
+        .service-number { font-family: 'Anton'; font-size: 60px; color: rgba(255, 102, 0, 0.1); line-height: 1; }
+        .service-tag { background: var(--orange); color: white; padding: 5px 12px; border-radius: 5px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+        .service-title { font-family: 'Anton'; font-size: 38px; margin: 15px 0; color: var(--dark-bg); }
+        .service-description { color: #64748b; font-size: 16px; margin-bottom: 25px; line-height: 1.8; }
+
+        .btn-details { background: #f1f5f9; border: none; padding: 12px 20px; border-radius: 10px; cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .btn-details:hover { background: var(--orange); color: white; }
+        
+        .details-panel { max-height: 0; opacity: 0; overflow: hidden; transition: 0.4s ease; background: #fafafa; border-radius: 15px; margin-top: 20px; }
+        .details-panel.active { max-height: 350px; opacity: 1; padding: 25px; border-left: 5px solid var(--orange); }
+
+        /* --- FOOTER --- */
+        .footer { background: #000; color: white; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
+        .footer-logo h2 { font-family: 'Anton'; font-size: 28px; margin-bottom: 20px; }
+        .footer-logo h2 span { color: var(--orange); }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 40px; height: 40px; background: #1a1a1a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
+        .social-icons a:hover { background: var(--orange); }
+        
+        .footer-column h3 { font-family: 'Anton'; font-size: 18px; margin-bottom: 25px; color: var(--orange); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-gray); text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-links a:hover { color: white; padding-left: 5px; }
+        
+        .contact-info { list-style: none; }
+        .contact-info li { display: flex; align-items: center; gap: 12px; color: var(--text-gray); font-size: 14px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-block">
+                <img src="images/logo2.png" alt="Logo" class="logo-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/50'">
+                <div class="logo-text">
+                    <h1>CYRIL <span>BTP</span></h1>
+                    <p>Expertise & Rigueur</p>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">ACCUEIL</a></li>
+                <li><a href="about.html">À PROPOS</a></li>
+                <li><a href="service.html" class="active">SERVICES</a></li>
+                <li><a href="realisation.html">RÉALISATIONS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="tel:0622892916" class="nav-phone"><i data-lucide="phone"></i> 06 22 89 29 16</a>
+                <a href="contact.html" class="btn-urgence">Contact d'urgence</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-small">
+        <div class="container">
+            <h1>Nos <span>Services</span></h1>
+            <p style="letter-spacing: 3px; font-weight: 700; font-size: 12px; color: var(--text-gray); margin-top: 10px;">VOTRE PROJET, NOTRE SAVOIR-FAIRE</p>
+        </div>
+    </header>
+
+    <section class="services-section">
+        <div class="container" id="services-list">
+            </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo"><h2>CYRIL <span>BTP</span></h2></div>
+                    <p style="color:var(--text-gray); font-size:14px; line-height: 1.6;">Spécialiste en démolition, terrassement et maçonnerie à Marcheprime. Expertise et rigueur pour tous vos projets de construction et rénovation.</p>
+                    <div class="social-icons">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>EXPERTISES</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Démolition de précision</a></li>
+                        <li><a href="#">Terrassement complet</a></li>
+                        <li><a href="#">Maçonnerie Générale</a></li>
+                        <li><a href="#">Aménagements extérieurs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONTACT</h3>
+                    <ul class="contact-info">
+                        <li><i data-lucide="phone"></i> 06 22 89 29 16</li>
+                        <li><i data-lucide="mail"></i> cyrilbenony@gmail.com</li>
+                        <li><i data-lucide="map-pin"></i> 33380 Marcheprime, France</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #1a1a1a; margin-top: 50px; padding-top: 25px; text-align: center; color: var(--text-gray); font-size: 13px;">
+                © 2026 CYRIL BTP. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // On attend que le document soit prêt pour éviter les erreurs de chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const servicesData = [
+                { id: "01", titre: "Démolition de précision", tag: "Expertise", desc: "Déconstruction sélective pour structures béton et métal.", img: "images/demoli.png", details: "Gestion complète des gravats, dépose soignée et sécurisation totale du chantier avant reconstruction." },
+                { id: "02", titre: "Terrassement complet", tag: "Gros Oeuvre", desc: "Préparation des sols pour fondations, piscines et accès.", img: "images/_amen.png", details: "Nivellement de précision, tranchées techniques pour réseaux et évacuation professionnelle des terres excédentaires." },
+                { id: "03", titre: "Déconstruction Sélective", tag: "Rénovation", desc: "Travaux de démolition intérieure et curage de bâtiments.", img: "images/desconst_.png", details: "Tri sélectif des matériaux (bois, métal, gravats) et respect strict des normes environnementales en vigueur." },
+                { id: "04", titre: "Dessouchage & Nettoyage", tag: "Extérieur", desc: "Préparation de terrain et retrait de souches encombrantes.", img: "images/desouchage.png", details: "Remise à nu de votre terrain, broyage de végétaux et mise en propreté pour vos futurs projets d'aménagement." },
+                { id: "05", titre: "Maçonnerie Générale", tag: "Structure", desc: "Construction de murs, dalles et structures porteuses.", img: "images/im_1.png", details: "Fondations solides, élévation de murs en parpaings ou briques, et coulage de dalles béton avec garantie décennale." },
+                { id: "06", titre: "Aménagements Durables", tag: "Finition", desc: "Création de terrasses, murets et accès extérieurs.", img: "images/_8ans.png", details: "Conception sur mesure de vos espaces de vie extérieurs alliant esthétique et durabilité dans le temps." }
+            ];
+
+            const list = document.getElementById('services-list');
+            let finalHTML = "";
+
+            servicesData.forEach((s, i) => {
+                const isReverse = i % 2 !== 0 ? 'reverse' : '';
+                finalHTML += `
+                    <div class="service-row ${isReverse}">
+                        <div class="service-image">
+                            <img src="${s.img}" alt="${s.titre}" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=Image+Indisponible'">
+                        </div>
+                        <div class="service-content">
+                            <span class="service-number">${s.id}</span><br>
+                            <span class="service-tag">${s.tag}</span>
+                            <h2 class="service-title">${s.titre}</h2>
+                            <p class="service-description">${s.desc}</p>
+                            <button class="btn-details" onclick="toggleDetails(this)">
+                                <i data-lucide="plus-circle"></i> <span>Voir les détails</span>
+                            </button>
+                            <div class="details-panel"><p>${s.details}</p></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Injection massive du HTML (plus rapide)
+            list.innerHTML = finalHTML;
+
+            // Initialisation des icônes Lucide UNE SEULE FOIS
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        // Fonction pour ouvrir/fermer les détails
+        function toggleDetails(btn) {
+            const panel = btn.nextElementSibling;
+            const textSpan = btn.querySelector('span');
+            const icon = btn.querySelector('i');
+            
+            panel.classList.toggle('active');
+            const isActive = panel.classList.contains('active');
+
+            // Changement de texte et d'icône
+            textSpan.textContent = isActive ? 'Masquer' : 'Voir les détails';
+            
+            // Mise à jour de l'icône Lucide
+            if (isActive) {
+                icon.setAttribute('data-lucide', 'minus-circle');
+            } else {
+                icon.setAttribute('data-lucide', 'plus-circle');
+            }
+            
+            lucide.createIcons(); // On rafraîchit uniquement l'icône modifiée
+        }
+    </script>
+</body>
+</html>
