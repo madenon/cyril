@@ -1,0 +1,123 @@
+/* ==========================================================================
+   PAGE À PROPOS - STYLES SPÉCIFIQUES
+   ========================================================================== */
+
+.about-page {
+    padding: 140px 0 80px; /* Espace pour la navbar fixe */
+    background: var(--slate-bg);
+}
+
+.about-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.about-title {
+    font-family: 'Anton';
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--navy);
+}
+
+.text-orange { color: var(--orange); }
+
+.orange-bar {
+    width: 80px;
+    height: 6px;
+    background: var(--orange);
+    margin-bottom: 30px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--slate-text);
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+/* Image et Badge */
+.about-image-wrapper {
+    position: relative;
+}
+
+.main-img-card {
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+}
+
+.main-img-card img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    background: var(--orange);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+}
+
+.exp-number { font-family: 'Anton'; font-size: 3rem; line-height: 1; }
+.exp-label { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; text-align: center; }
+
+/* Stats Divider */
+.stats-divider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    background: var(--navy);
+    padding: 60px 40px;
+    border-radius: 30px;
+    margin-bottom: 100px;
+}
+
+.stat-item { text-align: center; color: white; }
+.stat-value { display: block; font-family: 'Anton'; font-size: 3.5rem; color: var(--orange); }
+.stat-label { font-size: 0.9rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
+
+/* Values Section */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.value-card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.value-card:hover { transform: translateY(-10px); }
+.value-icon { color: var(--orange); margin-bottom: 20px; }
+.value-card h3 { font-family: 'Anton'; margin-bottom: 15px; font-size: 1.5rem; }
+
+/* Responsive About */
+@media (max-width: 992px) {
+    .about-hero { grid-template-columns: 1fr; gap: 80px; }
+    .about-content { order: 2; }
+    .about-image-wrapper { order: 1; max-width: 500px; margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+    .about-page { padding-top: 100px; }
+    .about-title { font-size: 2.2rem; }
+    .experience-badge { padding: 20px; bottom: -20px; left: 0; }
+    .exp-number { font-size: 2rem; }
+    .stat-value { font-size: 2.5rem; }
+}

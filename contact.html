@@ -4,25 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Cyril BTP</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* CORRECTIF DIRECT POUR LE BOUTON ET LE MENU MOBILE SUR CETTE PAGE */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; 
+                width: 75%;
+                height: 100vh;
+                background: #0f172a; 
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: all 0.4s ease-in-out;
+                z-index: 999;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .nav-menu.active {
+                right: 0 !important;
+            }
+
+            .menu-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                background: #ff6b00; 
+                border: none;
+                color: white;
+                width: 45px;
+                height: 45px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .nav-menu li a {
+                color: white !important;
+                font-size: 1.5rem;
+                font-family: 'Anton', sans-serif;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            /* On cache le bouton "Contact d'urgence" sur mobile pour laisser la place au burger */
+            .nav-btn-devis {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo-block" style="text-decoration: none;">
-                <div class="logo-square">
-                    <img src="images/logo2.png" alt="Logo Cyril BTP">
-                </div>
+            <a href="index.html" class="logo-block" style="text-decoration: none; color: inherit;">
+                <div class="logo-square"><img src="images/logo2.png" alt="Logo"></div>
                 <div class="logo-text">
                     <h1>CYRIL <span>BTP</span></h1>
                     <p>EXPERTISE & RIGUEUR</p>
                 </div>
             </a>
             
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">ACCUEIL</a></li>
                 <li><a href="about.html">À PROPOS</a></li>
                 <li><a href="service.html">SERVICES</a></li>
@@ -31,147 +86,170 @@
             </ul>
 
             <div class="nav-contact-wrapper">
-                <a href="tel:+212600000000" class="nav-phone">
+                <a href="tel:+33622892916" class="nav-phone">
                     <i data-lucide="phone"></i>
-                    <span>+212 600 000 000</span>
+                    <span>06 22 89 29 16</span>
                 </a>
-                <a href="contact.html" class="nav-btn-devis">Contact d'urgenc</a>
+                <a href="contact.html" class="nav-btn-devis">Contact d'urgence</a>
+                
+                <button class="menu-toggle" id="mobile-menu">
+                    <i data-lucide="menu"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section class="contact-section">
+    <section class="contact-hero">
         <div class="container">
-            <div class="contact-grid">
-                
-                <div class="contact-info-side">
-                    <div class="info-card">
-                        <div class="info-icon"><i data-lucide="map-pin"></i></div>
-                        <div>
-                            <h3>SIÈGE SOCIAL</h3>
-                            <p>123 Boulevard des Entreprises<br>Casablanca, Maroc</p>
-                        </div>
-                    </div>
+            <div class="contact-header-text">
+                <h2 class="fade-in">Parlons de votre <span>Projet</span></h2>
+                <div class="orange-bar-center"></div>
+                <p class="fade-in-delay">Une question ? Un devis ? Nos experts sont à votre écoute pour vous accompagner dans vos travaux de construction et rénovation.</p>
+            </div>
 
-                    <div class="info-card highlight-border">
-                        <div class="info-icon"><i data-lucide="phone-call"></i></div>
-                        <div>
-                            <h3>URGENCE / DEVIS</h3>
-                            <p>+212 600 000 000<br>contact@cyrilbtp.com</p>
-                        </div>
-                    </div>
-
-                    <div class="hours-card">
-                        <div class="hours-header">
-                            <i data-lucide="clock"></i>
-                            <h3>HORAIRES D'OUVERTURE</h3>
-                        </div>
-                        <div class="hours-row">
-                            <span>Lundi - Vendredi</span>
-                            <span>08:00 - 18:00</span>
-                        </div>
-                        <div class="hours-row">
-                            <span>Samedi</span>
-                            <span>09:00 - 12:00</span>
-                        </div>
-                        <div class="btp-watermark">BTP</div>
-                    </div>
+            <div class="contact-cards-container">
+                <div class="contact-card slide-up">
+                    <div class="card-icon"><i data-lucide="phone-call"></i></div>
+                    <h3>TÉLÉPHONE</h3>
+                    <p>Conseils & Devis gratuits</p>
+                    <a href="tel:+33622892916" class="card-link">06 22 89 29 16</a>
                 </div>
 
-                <div class="form-container">
-                    <form action="#" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>NOM COMPLET</label>
-                                <input type="text" placeholder="Jean Dupont" required>
-                            </div>
-                            <div class="form-group">
-                                <label>TÉLÉPHONE</label>
-                                <input type="text" placeholder="+212 600..." required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>TYPE DE TRAVAUX</label>
-                            <select>
-                                <option>Rénovation complète</option>
-                                <option>Gros œuvre</option>
-                                <option>Terrassement / Aménagement</option>
-                                <option>Autre projet</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>VOTRE MESSAGE</label>
-                            <textarea rows="5" placeholder="Parlez-nous de votre projet..."></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">
-                            ENVOYER MA DEMANDE <i data-lucide="arrow-right"></i>
-                        </button>
-                    </form>
+                <div class="contact-card slide-up" style="animation-delay: 0.2s;">
+                    <div class="card-icon"><i data-lucide="mail"></i></div>
+                    <h3>EMAIL</h3>
+                    <p>Réponse sous 24h</p>
+                    <a href="mailto:cyrilbenony@gmail.com" class="card-link">cyrilbenony@gmail.com</a>
                 </div>
 
+                <div class="contact-card slide-up" style="animation-delay: 0.4s;">
+                    <div class="card-icon"><i data-lucide="map-pin"></i></div>
+                    <h3>LOCALISATION</h3>
+                    <p>Intervention : Gironde (33)</p>
+                    <span class="card-text">33380 Marcheprime, France</span>
+                </div>
+            </div>
+
+            <div class="info-footer-contact fade-in-up">
+                <div class="info-item">
+                    <i data-lucide="clock"></i>
+                    <span><strong>Lundi - Vendredi :</strong> 08:00 - 18:00</span>
+                </div>
+                <div class="info-item">
+                    <i data-lucide="hash"></i>
+                    <span><strong>SIRET :</strong> 494 262 371</span>
+                </div>
             </div>
         </div>
     </section>
 
-<footer class="footer">
+   <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-column about">
-                <div class="logo-footer">CYRIL <span>BTP</span></div>
+            <div class="footer-column brand-info">
+                <div class="logo-footer">
+                    <img src="images/logo2.png" alt="Logo Cyril BTP">
+                    <span>CYRIL <strong>BTP</strong></span>
+                </div>
                 <p class="footer-desc">
-                    Expertise en démolition, terrassement et rénovation. 
-                    Nous bâtissons vos projets avec rigueur et sécurité.
+                    Expertise en démolition, terrassement et rénovation. Nous bâtissons vos projets avec la rigueur et la sécurité d'un artisan passionné.
                 </p>
-                <div class="social-icons">
+                <div class="social-links">
                     <a href="#"><i data-lucide="facebook"></i></a>
                     <a href="#"><i data-lucide="instagram"></i></a>
                     <a href="#"><i data-lucide="twitter"></i></a>
-                    <a href="#"><i data-lucide="camera"></i></a> </div>
+                </div>
             </div>
 
             <div class="footer-column">
-                <h4>NOS EXPERTISES</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Démolition de précision</a></li>
-                    <li><a href="#">Massif de terrassement</a></li>
-                    <li><a href="#">Aménagement extérieur</a></li>
-                    <li><a href="#">Gros œuvre & Maçonnerie</a></li>
+                <h4 class="footer-title">NOS EXPERTISES</h4>
+                <ul class="footer-list">
+                    <li>Démolition de précision</li>
+                    <li>Terrassement massif</li>
+                    <li>Aménagement extérieur</li>
+                    <li>Gros œuvre & Maçonnerie</li>
                 </ul>
             </div>
 
             <div class="footer-column">
-                <h4>CONTACT</h4>
-                <ul class="footer-info">
-                    <li><i data-lucide="phone"></i> 06 22 89 29 16</li>
-                    <li><i data-lucide="mail"></i> cyrilbenony@gmail.com</li>
-                    <li><i data-lucide="hash"></i> SIRET: 494 262 371</li>
-                    <li><i data-lucide="map-pin"></i> 33380 Marcheprime, France</li>
-                </ul>
+                <h4 class="footer-title">INFORMATIONS</h4>
+                <div class="info-block">
+                    <div class="info-item-footer">
+                        <i data-lucide="clock"></i>
+                        <div>
+                            <strong>Horaires d'ouverture</strong>
+                            <span>Lun - Ven: 08:00 - 18:00</span>
+                        </div>
+                    </div>
+                    <div class="info-item-footer">
+                        <i data-lucide="hash"></i>
+                        <div>
+                            <strong>Identification</strong>
+                            <span>SIRET: 494 262 371</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="footer-column">
-                <h4>LÉGAL</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">Déclaration d'accessibilité</a></li>
-                    <li><a href="#">Conditions générales</a></li>
-                    <li><a href="#">Mentions légales</a></li>
-                </ul>
+                <h4 class="footer-title">CONTACT DIRECT</h4>
+                <div class="contact-box-footer">
+                    <a href="tel:+33622892916" class="contact-item">
+                        <div class="icon-wrap"><i data-lucide="phone"></i></div>
+                        <span>06 22 89 29 16</span>
+                    </a>
+                    <a href="mailto:cyrilbenony@gmail.com" class="contact-item">
+                        <div class="icon-wrap"><i data-lucide="mail"></i></div>
+                        <span>cyrilbenony@gmail.com</span>
+                    </a>
+                    <div class="contact-item">
+                        <div class="icon-wrap"><i data-lucide="map-pin"></i></div>
+                        <span>33380 Marcheprime, France</span>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 CYRIL BTP. Tous droits réservés.</p>
+            <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
+            <div class="legal-links">
+                <a href="#">CONFIDENTIALITÉ</a>
+                <a href="#">ACCESSIBILITÉ</a>
+                <a href="#">CONDITIONS</a>
+                <a href="#">MENTIONS LÉGALES</a>
+            </div>
         </div>
     </div>
 </footer>
 
     <script>
-        // Initialisation des icônes Lucide
+        // Initialisation Lucide
         lucide.createIcons();
+        
+        // SCRIPT IDENTIQUE À LA PAGE RÉALISATION
+        const menuBtn = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('navMenu');
+
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                
+                const isOpen = navMenu.classList.contains('active');
+                menuBtn.innerHTML = isOpen ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+                
+                lucide.createIcons();
+            });
+        }
+
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            });
+        });
     </script>
 </body>
 </html>

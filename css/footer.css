@@ -1,0 +1,228 @@
+/* ==========================================================================
+   FOOTER GLOBAL MODERNE - VERSION OPTIMISÉE
+   ========================================================================== */
+.footer {
+    background-color: #05070a; /* Noir très profond pour finir la page sur une note forte */
+    color: #ffffff;
+    padding: 100px 0 40px; 
+    font-family: 'Montserrat', sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr;
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+/* Titres des colonnes */
+.footer-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+    color: #ffffff;
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* Barre orange sous le titre */
+.footer-title::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background: #ff6b00;
+}
+
+/* Colonne Marque */
+.logo-footer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.logo-footer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Le petit carré blanc qui contient ton logo noir */
+.logo-square-footer {
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border-radius: 10px; /* Coins arrondis comme sur ton image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo-square-footer img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-text-footer {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    color: #ffffff; /* Texte blanc pour le footer noir */
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.logo-text-footer span {
+    color: var(--orange-btp); /* Le "BTP" en orange */
+}
+.logo-footer img { 
+    width: 40px; 
+    filter: brightness(1.1);
+}
+
+.logo-footer span { 
+    font-family: 'Anton'; 
+    font-size: 1.7rem; 
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.logo-footer strong { color: #ff6b00; }
+
+.footer-desc { 
+    color: #94a3b8; 
+    line-height: 1.8; 
+    font-size: 0.9rem; 
+    margin-bottom: 30px; 
+}
+
+/* Réseaux Sociaux */
+.social-links { display: flex; gap: 12px; }
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links a:hover { 
+    background: #ff6b00; 
+    border-color: #ff6b00;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 107, 0, 0.2);
+}
+
+/* Liens de navigation */
+.footer-list { list-style: none; padding: 0; }
+.footer-list li { margin-bottom: 16px; }
+
+.footer-list a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.footer-list a:hover { 
+    color: #ff6b00; 
+    padding-left: 8px; /* Petit décalage élégant */
+}
+
+/* Bloc Infos Pratiques */
+.info-item-footer { display: flex; gap: 15px; margin-bottom: 25px; }
+.info-item-footer i { color: #ff6b00; width: 20px; font-size: 1.2rem; }
+.info-item-footer strong { display: block; font-size: 0.85rem; color: #fff; margin-bottom: 4px; text-transform: uppercase; }
+.info-item-footer span { color: #94a3b8; font-size: 0.9rem; }
+
+/* Bloc Contact (Glassmorphism) */
+.contact-box-footer {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.contact-item:last-child { margin-bottom: 0; }
+
+.icon-wrap {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 107, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff6b00;
+    transition: 0.3s;
+}
+
+.contact-item:hover { color: #ff6b00; }
+.contact-item:hover .icon-wrap {
+    background: #ff6b00;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.contact-item span { font-size: 0.9rem; font-weight: 700; }
+
+/* Bas de page */
+.footer-bottom {
+    margin-top: 80px;
+    padding-top: 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.legal-links a { 
+    color: #64748b; 
+    margin-left: 25px;
+    text-decoration: none; 
+    transition: 0.3s; 
+}
+
+.legal-links a:hover { color: #ff6b00; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 50px; }
+}
+
+@media (max-width: 768px) {
+    .footer { padding-top: 60px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column-reverse; gap: 25px; text-align: center; }
+    .legal-links { display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .legal-links a { margin: 5px 10px; }
+}

@@ -1,0 +1,237 @@
+/* ==========================================================================
+   1. VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --orange-btp: #ff6b00;
+    --dark-blue: #0f172a;
+    --bg-blank: #ffffff;
+    --bg-soft: #f8fafc;
+    --text-main: #1e293b; 
+    --text-light: #64748b;
+    --white: #ffffff;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Style de base des icônes Lucide */
+[data-lucide] {
+    color: var(--orange-btp);
+    stroke-width: 2px;
+}
+
+/* ==========================================================================
+   2. NAVIGATION & BURGER (LOGIQUE DESKTOP VS MOBILE)
+   ========================================================================== */
+
+/* CACHER LE BURGER SUR ORDINATEUR */
+.menu-toggle {
+    display: none !important; /* Totalement invisible sur PC */
+}
+
+/* CONFIGURATION MOBILE (MAX 1024px) */
+@media (max-width: 1024px) {
+    .nav-btn-devis {
+        display: none !important; /* Cache le bouton texte pour libérer de la place */
+    }
+
+    .menu-toggle {
+        display: flex !important; /* Apparaît uniquement sur mobile/tablette */
+        background: var(--orange-btp);
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        z-index: 1100;
+        padding: 0;
+    }
+
+    /* FORCE L'AFFICHAGE DES TRAITS BLANCS DANS LE CARRÉ ORANGE */
+    .menu-toggle svg {
+        width: 26px !important;
+        height: 26px !important;
+        stroke: white !important; /* Traits blancs pour être visibles */
+        stroke-width: 2.5px;
+        display: block !important;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 75%;
+        height: 100vh;
+        background-color: var(--dark-blue);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: var(--transition);
+        z-index: 1000;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+        display: flex !important; 
+    }
+
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    .nav-menu li a {
+        font-size: 1.6rem;
+        color: white !important;
+        font-family: 'Anton', sans-serif;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================================================
+   3. CONTACT HERO
+   ========================================================================== */
+.contact-hero {
+    padding: 160px 0 100px;
+    background-color: var(--bg-blank);
+    color: var(--dark-blue);
+    min-height: 80vh;
+    text-align: center;
+}
+
+.contact-header-text h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+}
+
+.contact-header-text h2 span {
+    color: var(--orange-btp);
+}
+
+.orange-bar-center {
+    width: 60px;
+    height: 5px;
+    background: var(--orange-btp);
+    margin: 0 auto 30px;
+}
+
+.contact-header-text p {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   4. GRILLE DE CARTES
+   ========================================================================== */
+.contact-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+    padding: 0 20px;
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    background: var(--bg-soft);
+    transform: translateY(-10px);
+    border-color: var(--orange-btp);
+    box-shadow: 0 20px 40px rgba(255, 107, 0, 0.1);
+}
+
+.card-icon {
+    margin-bottom: 25px;
+    display: inline-block;
+    padding: 20px;
+    background: rgba(255, 107, 0, 0.08); 
+    border-radius: 50%;
+}
+
+.contact-card h3 {
+    font-family: 'Anton';
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    color: var(--dark-blue);
+}
+
+.contact-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.card-link, .card-text {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-link:hover {
+    color: var(--orange-btp);
+}
+
+/* ==========================================================================
+   5. INFOS COMPLÉMENTAIRES (FOOTER DE SECTION)
+   ========================================================================== */
+.info-footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   6. ANIMATIONS & RESPONSIVE FINAL
+   ========================================================================== */
+.fade-in { animation: fadeIn 1s ease-out; }
+.fade-in-delay { animation: fadeIn 1.5s ease-out; }
+.slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .contact-hero { padding-top: 120px; }
+    .contact-cards-container { gap: 20px; }
+    .info-footer-contact { 
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px; 
+    }
+}
