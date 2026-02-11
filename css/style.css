@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. CONFIGURATION & VARIABLES
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap');
 
 :root {
     --orange: #ff6b00;
@@ -12,7 +12,7 @@
     --slate-bg: #f8fafc;     
     --slate-text: #64748b;
     --white: #ffffff;
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     --shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -32,13 +32,13 @@ body {
     overflow-x: hidden;
 }
 
-/* Scrollbar */
+/* Scrollbar Style */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 10px; }
 
 /* ==========================================================================
-   2. NAVIGATION (Version Logo Impact)
+   2. NAVIGATION (Logo Impact & Fixed Nav)
    ========================================================================== */
 .navbar {
     height: 90px;
@@ -61,45 +61,43 @@ body {
     align-items: center;
 }
 
-/* LOGO : L'ÉLÉMENT DÉCLENCHEUR */
 .logo-block { 
     display: flex; 
     align-items: center; 
     gap: 15px; 
-    background: var(--white); /* Fond blanc pour détacher le logo */
+    background: var(--white);
     padding: 12px 20px;
-    border-radius: 0 0 12px 12px; /* Arrondi seulement en bas */
+    border-radius: 0 0 12px 12px;
     position: relative;
-    top: 10px; /* Le logo descend un peu de la barre */
+    top: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     transition: var(--transition);
+    text-decoration: none;
 }
 
-.logo-block:hover {
-    transform: translateY(5px);
-}
+.logo-block:hover { transform: translateY(5px); }
 
 .logo-square {
     width: 50px; height: 50px;
-    background: var(--navy); /* Contraste inverse */
+    background: var(--navy);
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
 }
 .logo-square img { width: 85%; object-fit: contain; }
 
-.logo-text h1 { 
+.logo-text span { 
     font-family: 'Anton'; 
     font-size: 1.7rem; 
-    color: var(--navy); /* Texte sombre sur fond blanc */
+    color: var(--navy); 
     line-height: 1; 
 }
-.logo-text h1 span { color: var(--orange); }
+.logo-text span span { color: var(--orange); }
 .logo-text p { 
     font-size: 0.6rem; 
     font-weight: 800;
     letter-spacing: 1.5px; 
-    color: var(--orange); /* Baseline orange pour flasher */
+    color: var(--orange);
     text-transform: uppercase; 
 }
 
@@ -114,14 +112,6 @@ body {
 .nav-contact-wrapper { display: flex; align-items: center; gap: 20px; }
 .nav-phone { display: flex; align-items: center; gap: 8px; color: white; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
 .nav-phone i { color: var(--orange); width: 18px; }
-
-.nav-btn-devis {
-    background: var(--orange); color: white;
-    padding: 12px 25px; border-radius: 8px;
-    text-decoration: none; font-weight: 900; font-size: 0.8rem;
-    transition: var(--transition);
-}
-.nav-btn-devis:hover { background: white; color: var(--navy); }
 
 .burger { background: none; border: none; color: white; cursor: pointer; display: flex; }
 
@@ -138,21 +128,6 @@ body {
 }
 .drawer-overlay.active { display: block; }
 
-.drawer-content { padding: 40px 25px; height: 100%; display: flex; flex-direction: column; }
-.drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
-.drawer-title { color: white; font-family: 'Anton'; letter-spacing: 1px; font-size: 1.4rem; }
-.close-btn { background: none; border: none; color: white; cursor: pointer; }
-
-.mobile-links { list-style: none; }
-.mobile-links li { border-bottom: 1px solid rgba(255,255,255,0.05); }
-.mobile-links a { 
-    color: white; text-decoration: none; font-family: 'Anton'; 
-    font-size: 1.3rem; display: flex; justify-content: space-between;
-    align-items: center; padding: 18px 0; transition: 0.3s;
-}
-.mobile-links a i { color: var(--orange); width: 18px; }
-.mobile-links a:hover { color: var(--orange); padding-left: 10px; }
-
 /* ==========================================================================
    3. HERO SECTION
    ========================================================================== */
@@ -163,56 +138,159 @@ body {
     background-size: cover; background-position: center;
     display: flex; align-items: center; padding-top: 90px;
 }
-
 .hero-content { width: 90%; max-width: 1200px; margin: 0 auto; }
 .hero-subtitle { color: var(--orange); letter-spacing: 0.3em; font-size: 0.9rem; font-weight: 900; margin-bottom: 15px; }
-.hero-title { 
-    font-family: 'Anton'; font-size: clamp(3rem, 10vw, 6.5rem); 
-    line-height: 0.9; color: white; text-transform: uppercase; 
-}
+.hero-title { font-family: 'Anton'; font-size: clamp(3rem, 10vw, 6.5rem); line-height: 0.9; color: white; text-transform: uppercase; }
 .hero-title span { color: var(--orange); }
-.hero-desc { 
-    margin: 30px 0; color: #e2e8f0; font-size: 1.2rem; max-width: 600px; 
-    border-left: 5px solid var(--orange); padding-left: 25px;
-}
+.hero-desc { margin: 30px 0; color: #e2e8f0; font-size: 1.2rem; max-width: 600px; border-left: 5px solid var(--orange); padding-left: 25px; }
+
+.hero-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+.btn-devis { background: var(--orange); color: white; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 800; display: flex; align-items: center; gap: 10px; transition: var(--transition); border: none; cursor: pointer; }
+.btn-devis:hover { background: var(--white); color: var(--navy); transform: translateY(-3px); }
+.btn-secondary { border: 2px solid white; color: white; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 800; transition: var(--transition); }
+.btn-secondary:hover { background: white; color: var(--navy); }
 
 /* ==========================================================================
    4. SERVICES & CARDS
    ========================================================================== */
-.services-cards { padding: 120px 0; background: var(--bg-blank); }
+.services-cards { padding: 100px 0; background: var(--bg-blank); }
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-.card {
-    background: var(--white); padding: 50px 40px; border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04); transition: var(--transition);
-    border: 1px solid #f1f5f9;
+.card { 
+    background: var(--white); padding: 40px; border-radius: 15px; 
+    border: 1px solid #f1f5f9; box-shadow: var(--shadow); 
+    transition: var(--transition); 
 }
-.card:hover { transform: translateY(-12px); border-color: var(--orange); box-shadow: 0 20px 50px rgba(255, 107, 0, 0.1); }
-.card-icon { color: var(--orange); margin-bottom: 25px; }
-.card h2 { font-family: 'Anton'; margin-bottom: 15px; font-size: 1.8rem; color: var(--navy); }
+.card:hover { 
+    transform: translateY(-12px); 
+    border-color: var(--orange); 
+    box-shadow: 0 20px 50px rgba(255, 107, 0, 0.1); 
+}
+.card-icon { color: var(--orange); margin-bottom: 20px; font-size: 2.5rem; }
+.card h2 { font-family: 'Anton'; font-size: 1.8rem; margin-bottom: 15px; color: var(--navy); }
 .card p { color: var(--slate-text); font-size: 0.95rem; }
 
 /* ==========================================================================
-   5. RÉALISATIONS
+   5. RÉALISATIONS (With Active Animations)
    ========================================================================== */
-.realisations { padding: 120px 0; background: var(--bg-blank); }
-.section-header { text-align: center; margin-bottom: 100px; }
+.realisations { padding: 100px 0; background: var(--white); }
+.section-header { text-align: center; margin-bottom: 80px; }
 .section-header h3 { font-family: 'Anton'; font-size: clamp(2.5rem, 6vw, 4rem); text-transform: uppercase; }
 .header-line { width: 80px; height: 6px; background: var(--orange); margin: 20px auto; }
 
-.project-row { 
-    display: flex; flex-direction: column; gap: 60px; margin-bottom: 120px; 
-}
-.image-card { background: #f8fafc; padding: 10px; border-radius: 20px; box-shadow: var(--shadow); }
-.image-card img { width: 100%; height: 500px; object-fit: cover; border-radius: 15px; display: block; }
+.project-row { display: flex; flex-direction: column; gap: 60px; margin-bottom: 100px; }
 
-.project-id { font-family: 'Anton'; font-size: 6rem; color: #f1f5f9; line-height: 0.8; margin-bottom: -15px; display: block; }
-.project-title { font-family: 'Anton'; font-size: 2.5rem; color: var(--navy); margin-bottom: 25px; text-transform: uppercase; }
-.project-desc { color: var(--slate-text); font-size: 1.1rem; line-height: 1.8; }
+/* Image Container with Zoom Effect */
+.image-card { 
+    background: #f8fafc; padding: 12px; border-radius: 20px; 
+    box-shadow: var(--shadow); overflow: hidden; 
+    transition: var(--transition);
+}
+.image-card img { 
+    width: 100%; height: 500px; object-fit: cover; 
+    border-radius: 15px; display: block; 
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover Effects for Realisations */
+.image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(255, 107, 0, 0.15);
+}
+.image-card:hover img {
+    transform: scale(1.08); /* Re-activated Zoom */
+}
+
+.project-text { padding: 20px 0; }
+.project-id { font-family: 'Anton'; font-size: 5rem; color: #f1f5f9; line-height: 0.8; margin-bottom: -10px; display: block; }
+.project-title { font-family: 'Anton'; font-size: 2.5rem; color: var(--navy); margin-bottom: 20px; text-transform: uppercase; }
+.project-desc { color: var(--slate-text); font-size: 1.1rem; margin-bottom: 25px; }
+
+.tech-tags { display: flex; gap: 15px; flex-wrap: wrap; }
+.tag { 
+    font-size: 0.8rem; font-weight: 700; color: var(--orange); 
+    background: rgba(255,107,0,0.08); padding: 6px 15px; 
+    border-radius: 50px; display: flex; align-items: center; gap: 8px; 
+}
 
 /* ==========================================================================
-   6. RESPONSIVE
+   6. FOOTER PREMIUM (Look Image 1)
+   ========================================================================== */
+.footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 80px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    position: relative;
+    text-transform: uppercase;
+}
+.footer-title::after {
+    content: ''; position: absolute; bottom: -10px; left: 0;
+    width: 40px; height: 3px; background: var(--orange);
+}
+
+.logo-footer { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.logo-footer img { width: 40px; filter: brightness(0) invert(1); }
+.logo-footer span { font-family: 'Anton'; font-size: 1.5rem; }
+.footer-desc { color: #94a3b8; font-size: 0.9rem; margin-bottom: 25px; max-width: 300px; }
+
+.footer-list { list-style: none; }
+.footer-list li { color: #94a3b8; font-size: 0.9rem; margin-bottom: 12px; padding-left: 20px; position: relative; transition: 0.3s; }
+.footer-list li:hover { color: var(--orange); padding-left: 25px; }
+.footer-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); }
+
+.info-item-footer { display: flex; gap: 15px; margin-bottom: 20px; }
+.info-item-footer i { color: var(--orange); width: 20px; margin-top: 4px; }
+.info-item-footer strong { font-size: 0.75rem; color: var(--white); text-transform: uppercase; letter-spacing: 1px; }
+.info-item-footer span { color: #94a3b8; font-size: 0.85rem; }
+
+/* Dark Contact Box */
+.contact-box-footer {
+    background: var(--navy-dark);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,107,0,0.1);
+}
+.contact-item {
+    display: flex; align-items: center; gap: 15px;
+    text-decoration: none; color: #cbd5e1;
+    margin-bottom: 20px; transition: var(--transition);
+}
+.contact-item:hover { color: var(--orange); transform: translateX(5px); }
+.icon-wrap {
+    width: 40px; height: 40px;
+    background: rgba(255, 107, 0, 0.1);
+    border-radius: 8px; display: flex; align-items: center;
+    justify-content: center; color: var(--orange); flex-shrink: 0;
+}
+
+.social-links { display: flex; gap: 15px; margin-top: 20px; }
+.social-links a {
+    width: 35px; height: 35px; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: white; transition: var(--transition); text-decoration: none;
+}
+.social-links a:hover { background: var(--orange); border-color: var(--orange); transform: translateY(-3px); }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; text-align: center; font-size: 0.8rem; color: #64748b; }
+.footer-bottom a { color: var(--orange); text-decoration: none; font-weight: 700; }
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN
    ========================================================================== */
 @media (min-width: 992px) {
     .nav-menu { display: flex; }
@@ -225,11 +303,13 @@ body {
 @media (max-width: 768px) {
     .navbar { height: 80px; }
     .nav-phone, .nav-btn-devis { display: none; }
-    /* Mobile : on réduit le dépassement du logo */
     .logo-block { padding: 8px 15px; top: 5px; }
-    .logo-text h1 { font-size: 1.3rem; }
+    .logo-text span { font-size: 1.3rem; }
     
     .hero { padding-top: 80px; }
-    .hero-title { font-size: 3.5rem; }
+    .hero-title { font-size: 3.2rem; }
     .image-card img { height: 320px; }
+    
+    .footer-grid { grid-template-columns: 1fr; }
+    .section-header h3 { font-size: 2.5rem; }
 }

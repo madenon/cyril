@@ -1,59 +1,90 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyril BTP | Expertise & Sécurité</title>
     
+    <title>Cyril BTP | Démolition & Terrassement à Marcheprime (33)</title>
+    <meta name="description" content="Cyril BTP : expert en démolition, terrassement et aménagement extérieur à Marcheprime. Profitez d'une expertise locale et d'un devis gratuit pour vos travaux en Gironde.">
+    <meta name="keywords" content="BTP, démolition Marcheprime, terrassement 33, Cyril BTP, travaux bâtiment Gironde, assainissement">
+    <link rel="canonical" href="https://www.cyril-btp.fr/">
+
+    <link rel="icon" type="image/png" href="images/logo2.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cyril BTP | Expertise en Démolition & Terrassement">
+    <meta property="og:description" content="Expert en travaux publics à Marcheprime. Démolition et terrassement.">
+    <meta property="og:image" content="https://www.cyril-btp.fr/images/og-image.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Cyril BTP",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Marcheprime",
+        "postalCode": "33380",
+        "addressCountry": "FR"
+      },
+      "telephone": "+33622892916",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo-block" style="text-decoration: none;">
-                <div class="logo-square">
-                    <img src="images/logo2.png" alt="Logo Cyril BTP">
-                </div>
-                <div class="logo-text">
-                    <h1>CYRIL <span>BTP</span></h1>
-                    <p>EXPERTISE & RIGUEUR</p>
-                </div>
-            </a>
-
-            <ul class="nav-menu">
-                <li><a href="#accueil">ACCUEIL</a></li>
-                <li><a href="about.html">A PROPOS</a></li>
-                <li><a href="service.html">SERVICES</a></li>
-                <li><a href="realisation.html">RÉALISATIONS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-
-            <div class="nav-contact-wrapper">
-                <a href="tel:+33622892916" class="nav-phone">
-                    <i data-lucide="phone"></i>
-                    <span>06 22 89 29 16</span>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Menu principal">
+            <div class="nav-container">
+                <a href="index.html" class="logo-block" title="Retour à l'accueil">
+                    <div class="logo-square">
+                        <img src="images/logo2.png" alt="Logo Cyril BTP">
+                    </div>
+                    <div class="logo-text">
+                        <span class="h1-style">CYRIL <span>BTP</span></span>
+                        <p>EXPERTISE & RIGUEUR</p>
+                    </div>
                 </a>
-                <a href="contact.html" class="nav-btn-devis">DEVIS GRATUIT</a>
-                
-                <button class="burger" id="openMenu" aria-label="Ouvrir le menu">
-                    <i data-lucide="menu"></i>
-                </button>
+
+                <ul class="nav-menu">
+                    <li><a href="#accueil">ACCUEIL</a></li>
+                    <li><a href="about.html">À PROPOS</a></li>
+                    <li><a href="service.html">SERVICES</a></li>
+                    <li><a href="realisation.html">RÉALISATIONS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+
+                <div class="nav-contact-wrapper">
+                    <a href="tel:+33622892916" class="nav-phone">
+                        <i data-lucide="phone"></i>
+                        <span>06 22 89 29 16</span>
+                    </a>
+                    
+                    <button class="burger" id="openMenu" aria-label="Ouvrir le menu mobile">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <div class="drawer-overlay" id="drawerOverlay"></div> 
-    <div class="drawer" id="mobileDrawer">
+    <aside class="drawer" id="mobileDrawer" aria-hidden="true">
         <div class="drawer-content">
             <div class="drawer-header">
-                <h2 class="drawer-title">NAVIGATION</h2>
-                <button class="close-btn" id="closeMenu">
+                <span class="drawer-title">NAVIGATION</span>
+                <button class="close-btn" id="closeMenu" aria-label="Fermer le menu">
                     <i data-lucide="x"></i>
                 </button>
             </div>
@@ -72,201 +103,177 @@
                 </a>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <section class="hero" id="accueil">
-        <div class="hero-content">
-            <h3 class="hero-subtitle">EXPERTISE & SÉCURITÉ</h3>
-            <h1 class="hero-title">TRAVAUX BTP<br><span>PAR CYRIL</span></h1>
-            <div class="hero-desc-container">
-                <p class="hero-desc">"Du terrassement à la démolition, nous bâtissons l'avenir avec précision et rigueur."</p>
+    <main>
+        <section class="hero" id="accueil">
+            <div class="hero-content">
+                <p class="hero-subtitle animate__animated animate__fadeInDown">PROXIMITÉ & RÉACTIVITÉ À MARCHEPRIME</p>
+                <h1 class="hero-title animate__animated animate__fadeInUp animate__delay-1s">TRAVAUX BTP<br><span>PAR CYRIL</span></h1>
+                <div class="hero-desc-container">
+                    <p class="hero-desc">Spécialiste du <strong>terrassement</strong> et de la <strong>démolition</strong>, nous bâtissons vos projets avec précision et rigueur en Gironde.</p>
+                </div>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn-devis">DEMANDER UN DEVIS <i data-lucide="arrow-right"></i></a>
+                    <a href="#realisations" class="btn-secondary">VOIR NOS CHANTIERS</a>
+                </div>
             </div>
-            <a href="contact.html" class="btn-devis">DEMANDER UN DEVIS <i data-lucide="arrow-right"></i></a>
-        </div>
-    </section>
+        </section>
 
-    <section class="services-cards" id="services">
-        <div class="container grid-3">
-            <div class="card">
-                <div class="card-icon"><i data-lucide="building-2"></i></div>
-                <h2>DÉMOLITION</h2>
-                <p>Démolition sélective et totale de bâtiments avec gestion des gravats.</p>
+        <section class="services-cards" id="services">
+            <div class="container grid-3">
+                <article class="card">
+                    <div class="card-icon"><i data-lucide="building-2"></i></div>
+                    <h2>DÉMOLITION</h2>
+                    <p>Démolition totale ou sélective de bâtiments avec gestion responsable des gravats.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon"><i data-lucide="ruler"></i></div>
+                    <h2>AMÉNAGEMENT</h2>
+                    <p>Optimisation des extérieurs, préparation des sols et nivellement précis pour vos projets.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon"><i data-lucide="wrench"></i></div>
+                    <h2>RÉNOVATION</h2>
+                    <p>Maçonnerie générale et remise à neuf de structures avec une finition impeccable.</p>
+                </article>
             </div>
-            <div class="card">
-                <div class="card-icon"><i data-lucide="ruler"></i></div>
-                <h2>AMÉNAGEMENT</h2>
-                <p>Optimisation de vos espaces extérieurs et préparation des sols.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i data-lucide="wrench"></i></div>
-                <h2>RÉNOVATION</h2>
-                <p>Remise à neuf complète de vos structures et maçonnerie générale.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="realisations" id="realisations">
+        <section class="realisations" id="realisations">
+            <div class="container">
+                <div class="section-header">
+                    <h3>NOS RÉALISATIONS</h3>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="project-row">
+                    <div class="project-image-wrapper">
+                        <div class="image-card">
+                            <img src="images/img1.png" alt="Démolition industrielle" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-text">
+                        <span class="project-id">01</span>
+                        <h3 class="project-title">DÉMOLITION INDUSTRIELLE</h3>
+                        <p class="project-desc">Déconstruction complète avec tri sélectif et sécurisation totale du périmètre.</p>
+                        <div class="tech-tags">
+                            <span class="tag"><i data-lucide="check-circle-2"></i> SÉCURISATION</span>
+                            <span class="tag"><i data-lucide="check-circle-2"></i> RECYCLAGE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-row reverse">
+                    <div class="project-image-wrapper">
+                        <div class="image-card">
+                            <img src="images/img2.png" alt="Terrassement résidentiel" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="project-text">
+                        <span class="project-id">02</span>
+                        <h3 class="project-title">TERRASSEMENT & VRD</h3>
+                        <p class="project-desc">Préparation de terrain pour villa et raccordements aux réseaux publics.</p>
+                        <div class="tech-tags">
+                            <span class="tag"><i data-lucide="check-circle-2"></i> NIVELLEMENT</span>
+                            <span class="tag"><i data-lucide="check-circle-2"></i> PRÉCISION</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
         <div class="container">
-            <div class="section-header">
-                <h3>NOS RÉALISATIONS</h3>
-                <div class="header-line"></div>
-            </div>
+            <div class="footer-grid">
+                <div class="footer-column brand-info">
+                    <div class="logo-footer">
+                        <img src="images/logo2.png" alt="Cyril BTP">
+                        <span>CYRIL <strong>BTP</strong></span>
+                    </div>
+                    <p class="footer-desc">Expertise en démolition, terrassement et rénovation à Marcheprime. Nous bâtissons vos projets avec rigueur et passion.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
 
-            <div class="project-row">
-                <div class="project-image-wrapper">
-                    <div class="image-card">
-                        <img src="images/img1.png" alt="Démolition Industrielle">
-                    </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">NOS EXPERTISES</h4>
+                    <ul class="footer-list">
+                        <li>Démolition de précision</li>
+                        <li>Terrassement massif</li>
+                        <li>Aménagement extérieur</li>
+                        <li>Gros œuvre & Maçonnerie</li>
+                    </ul>
                 </div>
-                <div class="project-text">
-                    <span class="project-id">01</span>
-                    <h3 class="project-title">DÉMOLITION INDUSTRIELLE</h3>
-                    <div class="project-desc-wrapper">
-                        <div class="accent-line"></div>
-                        <p class="project-desc">Déconstruction de structures métalliques et béton avec gestion des déchets.</p>
-                    </div>
-                    <div class="tech-tags">
-                        <div class="tag"><i data-lucide="check-circle-2"></i><span>SÉCURISATION</span></div>
-                        <div class="tag"><i data-lucide="check-circle-2"></i><span>TRI SÉLECTIF</span></div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="project-row reverse">
-                <div class="project-image-wrapper">
-                    <div class="image-card">
-                        <img src="images/img2.png" alt="Terrassement">
-                    </div>
-                </div>
-                <div class="project-text">
-                    <span class="project-id">02</span>
-                    <h3 class="project-title">TERRASSEMENT & FOUILLES</h3>
-                    <div class="project-desc-wrapper">
-                        <div class="accent-line"></div>
-                        <p class="project-desc">Préparation des sols pour fondations et réseaux divers (VRD).</p>
-                    </div>
-                    <div class="tech-tags">
-                        <div class="tag"><i data-lucide="check-circle-2"></i><span>NIVELLEMENT</span></div>
-                        <div class="tag"><i data-lucide="check-circle-2"></i><span>EXCAVATION</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-column brand-info">
-                <div class="logo-footer">
-                    <img src="images/logo2.png" alt="Logo Cyril BTP">
-                    <span>CYRIL <strong>BTP</strong></span>
-                </div>
-                <p class="footer-desc">
-                    Expertise en démolition, terrassement et rénovation. Nous bâtissons vos projets avec la rigueur et la sécurité d'un artisan passionné.
-                </p>
-                <div class="social-links">
-                    <a href="#"><i data-lucide="facebook"></i></a>
-                    <a href="#"><i data-lucide="instagram"></i></a>
-                    <a href="#"><i data-lucide="twitter"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-column">
-                <h4 class="footer-title">NOS EXPERTISES</h4>
-                <ul class="footer-list">
-                    <li>Démolition de précision</li>
-                    <li>Terrassement massif</li>
-                    <li>Aménagement extérieur</li>
-                    <li>Gros œuvre & Maçonnerie</li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4 class="footer-title">INFORMATIONS</h4>
-                <div class="info-block">
+                <div class="footer-column">
+                    <h4 class="footer-title">INFORMATIONS</h4>
                     <div class="info-item-footer">
                         <i data-lucide="clock"></i>
                         <div>
-                            <strong>Horaires d'ouverture</strong>
+                            <strong>HORAIRES D'OUVERTURE</strong>
                             <span>Lun - Ven: 08:00 - 18:00</span>
                         </div>
                     </div>
                     <div class="info-item-footer">
                         <i data-lucide="hash"></i>
                         <div>
-                            <strong>Identification</strong>
+                            <strong>IDENTIFICATION</strong>
                             <span>SIRET: 494 262 371</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">CONTACT DIRECT</h4>
+                    <div class="contact-box-footer">
+                        <a href="tel:+33622892916" class="contact-item">
+                            <div class="icon-wrap"><i data-lucide="phone"></i></div>
+                            <span>06 22 89 29 16</span>
+                        </a>
+                        <a href="mailto:cyrilbenony@gmail.com" class="contact-item">
+                            <div class="icon-wrap"><i data-lucide="mail"></i></div>
+                            <span>cyrilbenony@gmail.com</span>
+                        </a>
+                        <div class="contact-item">
+                            <div class="icon-wrap"><i data-lucide="map-pin"></i></div>
+                            <span>33380 Marcheprime, France</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-column">
-                <h4 class="footer-title">CONTACT DIRECT</h4>
-                <div class="contact-box-footer">
-                    <a href="tel:+33622892916" class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="phone"></i></div>
-                        <span>06 22 89 29 16</span>
-                    </a>
-                    <a href="mailto:cyrilbenony@gmail.com" class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="mail"></i></div>
-                        <span>cyrilbenony@gmail.com</span>
-                    </a>
-                    <div class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="map-pin"></i></div>
-                        <span>33380 Marcheprime, France</span>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>© 2026 CYRIL BTP - Tous droits réservés | <a href="#">Mentions Légales</a></p>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
-            <div class="legal-links">
-                <a href="#">CONFIDENTIALITÉ</a>
-                <a href="#">ACCESSIBILITÉ</a>
-                <a href="#">CONDITIONS</a>
-                <a href="#">MENTIONS LÉGALES</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Icônes
+            // Initialisation des icônes
             lucide.createIcons();
 
-            // 2. Éléments
+            // Gestion du menu mobile
             const drawer = document.getElementById('mobileDrawer');
             const overlay = document.getElementById('drawerOverlay');
             const openBtn = document.getElementById('openMenu');
             const closeBtn = document.getElementById('closeMenu');
 
-            // 3. Fonction Toggle
             const toggleMenu = (state) => {
-                if (state === 'open') {
-                    drawer.classList.add('active');
-                    overlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    drawer.classList.remove('active');
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
+                const isOpen = state === 'open';
+                drawer.classList.toggle('active', isOpen);
+                overlay.classList.toggle('active', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
             };
 
-            // 4. Écouteurs d'événements
-            if(openBtn) openBtn.addEventListener('click', () => toggleMenu('open'));
-            if(closeBtn) closeBtn.addEventListener('click', () => toggleMenu('close'));
-            if(overlay) overlay.addEventListener('click', () => toggleMenu('close'));
-
-            // Fermer si on clique sur un lien mobile
-            document.querySelectorAll('.mobile-links a').forEach(link => {
-                link.addEventListener('click', () => toggleMenu('close'));
-            });
+            openBtn?.addEventListener('click', () => toggleMenu('open'));
+            closeBtn?.addEventListener('click', () => toggleMenu('close'));
+            overlay?.addEventListener('click', () => toggleMenu('close'));
         });
     </script>
 </body>
