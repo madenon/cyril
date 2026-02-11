@@ -265,35 +265,38 @@ body {
    6. RESPONSIVE
    ========================================================================== */
 
-@media (max-width: 992px) {
-    .project-image img { height: 400px; }
-}
-
-@media (max-width: 768px) {
-    .page-title-section { padding: 110px 0 50px; } 
-    
-    .project-row, .project-row.reverse { 
-        flex-direction: column !important; 
-        text-align: center; 
-        margin-bottom: 80px;
-        gap: 30px;
-    }
-    
-    .project-description { 
-        border-left: none; 
-        border-top: 4px solid var(--orange-btp); 
-        padding: 20px 0 0; 
-    }
-
-    .project-image img { height: 350px; }
-
-    .project-footer {
-        flex-direction: column-reverse;
+/* Remplace ton bloc @media (max-width: 1024px) actuel par celui-ci */
+@media (max-width: 1024px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 300px; /* Largeur fixe plus élégante */
+        height: 100vh;
+        background: #0f172a; 
+        display: flex !important;
+        flex-direction: column;
+        
+        /* CORRECTION ICI : On aligne en haut */
+        justify-content: flex-start !important; 
+        align-items: flex-start !important;
+        
+        /* Espace pour ne pas coller au plafond */
+        padding: 80px 30px 0 30px !important; 
         gap: 20px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        list-style: none;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
-}
 
-@media (max-width: 480px) {
-    .main-title { font-size: 2.5rem; }
-    .project-image img { height: 280px; }
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding-bottom: 10px;
+    }
 }
