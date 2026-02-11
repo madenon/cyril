@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PAGE À PROPOS - STYLES SPÉCIFIQUES
+   PAGE À PROPOS - VERSION COMPLÈTE UNIFIÉE
    ========================================================================== */
 
 .about-page {
@@ -39,27 +39,105 @@
     max-width: 600px;
 }
 
-/* Image et Badge */
+.italic-quote {
+    font-style: italic;
+    color: var(--navy);
+    font-weight: 500;
+}
+
+/* --- LE SLIDER (IMAGE ET NAVIGATION) --- */
 .about-image-wrapper {
     position: relative;
+    z-index: 1;
 }
 
 .main-img-card {
+    position: relative;
+    height: 600px;
     border-radius: 40px;
     overflow: hidden;
     box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+    background: #e2e8f0;
 }
 
-.main-img-card img {
+.slider-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    display: block;
-    transition: transform 0.5s;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
 }
 
+.slider-img.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+/* Boutons de navigation */
+.slider-nav {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+}
+
+.slider-nav button {
+    background: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--navy);
+}
+
+.slider-nav button:hover {
+    background: var(--orange);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Barres de progression verticales */
+.slider-progress {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bar {
+    width: 5px;
+    height: 35px;
+    background: #cbd5e1;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.bar.active {
+    height: 65px;
+    background: var(--orange);
+}
+
+/* Badge d'expérience */
 .experience-badge {
     position: absolute;
     bottom: -30px;
-    left: -30px;
+    left: 40px; /* Décalé pour laisser place aux barres du slider */
     background: var(--orange);
     color: white;
     padding: 30px;
@@ -68,12 +146,13 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+    z-index: 20;
 }
 
 .exp-number { font-family: 'Anton'; font-size: 3rem; line-height: 1; }
 .exp-label { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; text-align: center; }
 
-/* Stats Divider */
+/* --- SECTION STATISTIQUES (DIVIDER) --- */
 .stats-divider {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -85,10 +164,29 @@
 }
 
 .stat-item { text-align: center; color: white; }
-.stat-value { display: block; font-family: 'Anton'; font-size: 3.5rem; color: var(--orange); }
-.stat-label { font-size: 0.9rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
 
-/* Values Section */
+.stat-value { 
+    display: inline-block; 
+    font-family: 'Anton'; 
+    font-size: 3.5rem; 
+    color: var(--orange); 
+}
+
+.stat-plus {
+    font-family: 'Anton';
+    font-size: 2.5rem;
+    color: var(--orange);
+}
+
+.stat-label { 
+    display: block;
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    color: #94a3b8; 
+    text-transform: uppercase; 
+}
+
+/* --- SECTION VALEURS --- */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -107,17 +205,21 @@
 .value-icon { color: var(--orange); margin-bottom: 20px; }
 .value-card h3 { font-family: 'Anton'; margin-bottom: 15px; font-size: 1.5rem; }
 
-/* Responsive About */
+/* --- RESPONSIVE --- */
 @media (max-width: 992px) {
     .about-hero { grid-template-columns: 1fr; gap: 80px; }
     .about-content { order: 2; }
     .about-image-wrapper { order: 1; max-width: 500px; margin: 0 auto; }
+    .slider-progress { left: 15px; } /* Rentré à l'intérieur sur tablettes */
+    .experience-badge { left: 40px; }
 }
 
 @media (max-width: 768px) {
     .about-page { padding-top: 100px; }
     .about-title { font-size: 2.2rem; }
-    .experience-badge { padding: 20px; bottom: -20px; left: 0; }
+    .main-img-card { height: 450px; }
+    .experience-badge { padding: 20px; bottom: -20px; left: 20px; }
     .exp-number { font-size: 2rem; }
     .stat-value { font-size: 2.5rem; }
+    .stat-plus { font-size: 1.8rem; }
 }

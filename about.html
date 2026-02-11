@@ -6,9 +6,55 @@
     <title>À Propos | Cyril BTP</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
-        <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Styles spécifiques au Slider (à mettre dans about.css idéalement) */
+        .about-image-wrapper { position: relative; }
+        .main-img-card { 
+            position: relative; 
+            height: 550px; 
+            overflow: hidden; 
+            border-radius: 2rem; 
+            background: #eee;
+        }
+        .slider-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
+        }
+        .slider-img.active { opacity: 1; transform: scale(1); z-index: 1; }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+        .slider-nav button {
+            background: white; border: none; width: 45px; height: 45px;
+            border-radius: 50%; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .slider-nav button:hover { background: #ff6600; color: white; }
+
+        .slider-progress {
+            position: absolute; left: -15px; top: 50%;
+            transform: translateY(-50%); z-index: 10;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .bar { width: 4px; height: 30px; background: #cbd5e1; border-radius: 10px; transition: 0.5s; }
+        .bar.active { height: 60px; background: #ff6600; }
+    </style>
 </head>
 <body>
 
@@ -21,7 +67,6 @@
                     <p>EXPERTISE & RIGUEUR</p>
                 </div>
             </a>
-
             <ul class="nav-menu">
                 <li><a href="index.html">ACCUEIL</a></li>
                 <li><a href="realisation.html">RÉALISATIONS</a></li>
@@ -29,7 +74,6 @@
                 <li><a href="about.html" class="active">A PROPOS</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
             </ul>
-
             <div class="nav-contact-wrapper">
                 <a href="tel:+33622892916" class="nav-phone">
                     <i data-lucide="phone"></i>
@@ -55,9 +99,6 @@
                 <li><a href="about.html">À Propos <i data-lucide="chevron-right"></i></a></li>
                 <li><a href="contact.html">Contact <i data-lucide="chevron-right"></i></a></li>
             </ul>
-            <div class="drawer-footer">
-                <a href="tel:+33622892916" class="cta-mobile"><i data-lucide="phone"></i> NOUS APPELER</a>
-            </div>
         </div>
     </div>
 
@@ -71,16 +112,29 @@
                     </h2>
                     <div class="orange-bar"></div>
                     <p class="about-text">
-                        Depuis plus de 15 ans, <strong>Cyril BTP</strong> s'impose comme un acteur majeur de la construction. Notre savoir-faire s'étend du gros œuvre complexe à la rénovation d'intérieur haut de gamme.
+                        Basée à <strong>Marcheprime</strong>, l'entreprise <span class="text-orange">Cyril BTP</span> incarne la rigueur du bâtiment en Gironde. Nous transformons vos visions en structures solides.
                     </p>
-                    <p class="about-text">
-                        Nous ne nous contentons pas de construire des murs ; nous créons des espaces de vie durables et sécurisés, en plaçant l'innovation et l'écoute client au cœur de chaque chantier.
+                    <p class="about-text italic-quote" style="border-left: 4px solid #ff6600; padding-left: 20px; font-style: italic; background: #f8fafc; padding-top: 15px; padding-bottom: 15px; border-radius: 0 15px 15px 0;">
+                        "De la démolition au gros œuvre, notre engagement reste le même : la perfection technique et le respect des normes de sécurité."
                     </p>
                 </div>
 
                 <div class="about-image-wrapper">
-                    <div class="main-img-card">
-                        <img src="images/img1.png" alt="Équipe Cyril BTP">
+                    <div class="main-img-card" id="slider-container">
+                        <img src="https://static.wixstatic.com/media/9587f9_007442dfbc0f4591aa84cc91772c371a~mv2.jpeg/v1/fill/w_427,h_533,al_c,lg_1,q_80,enc_avif,quality_auto/image0.jpeg" class="slider-img active" alt="Chantier 1">
+                        <img src="https://static.wixstatic.com/media/9587f9_29c63c059f2d45c6bba910ea0d3a4789~mv2.jpeg/v1/fill/w_576,h_645,al_c,lg_1,q_85,enc_avif,quality_auto/9587f9_29c63c059f2d45c6bba910ea0d3a4789~mv2.jpeg" class="slider-img" alt="Chantier 2">
+                        <img src="https://static.wixstatic.com/media/9587f9_b29916837d91449592011743f6e40291~mv2.png/v1/fill/w_514,h_386,fp_0.50_0.50,q_95,enc_avif,quality_auto/9587f9_b29916837d91449592011743f6e40291~mv2.png" class="slider-img" alt="Chantier 3">
+                        
+                        <div class="slider-nav">
+                            <button id="prevSlide"><i data-lucide="chevron-left"></i></button>
+                            <button id="nextSlide"><i data-lucide="chevron-right"></i></button>
+                        </div>
+
+                        <div class="slider-progress">
+                            <div class="bar active"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
                     </div>
                     <div class="experience-badge">
                         <span class="exp-number">15</span>
@@ -91,44 +145,44 @@
 
             <div class="stats-divider">
                 <div class="stat-item">
-                    <span class="stat-value">15+</span>
+                    <span class="stat-value" data-target="15">0</span><span class="stat-plus">+</span>
                     <span class="stat-label">Années d'expérience</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">350+</span>
+                    <span class="stat-value" data-target="350">0</span><span class="stat-plus">+</span>
                     <span class="stat-label">Projets terminés</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">12</span>
+                    <span class="stat-value" data-target="12">0</span>
                     <span class="stat-label">Collaborateurs</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">100%</span>
-                    <span class="stat-label">Garantie décennale</span>
+                    <span class="stat-value" data-target="100">0</span><span class="stat-plus">%</span>
+                    <span class="stat-label">Satisfaction</span>
                 </div>
             </div>
 
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon"><i data-lucide="shield-check" size="40"></i></div>
+                    <div class="value-icon"><i data-lucide="shield-check"></i></div>
                     <h3>Qualité Certifiée</h3>
-                    <p>Nous utilisons des matériaux premium pour assurer la longévité de vos ouvrages.</p>
+                    <p>Matériaux premium et respect des normes DTU en vigueur.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon"><i data-lucide="hard-hat" size="40"></i></div>
-                    <h3>Expertise Terrain</h3>
-                    <p>Nos équipes sont formées aux dernières techniques de construction durable.</p>
+                    <div class="value-icon"><i data-lucide="hard-hat"></i></div>
+                    <h3>Sécurité Terrain</h3>
+                    <p>Protocoles stricts pour la protection de nos équipes et de vos sites.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon"><i data-lucide="award" size="40"></i></div>
+                    <div class="value-icon"><i data-lucide="timer"></i></div>
                     <h3>Respect des Délais</h3>
-                    <p>La ponctualité est le pilier de notre relation client.</p>
+                    <p>Une organisation millimétrée pour garantir la livraison à date.</p>
                 </div>
             </div>
         </div>
     </section>
 
-<footer class="footer">
+   <footer class="footer">
     <div class="container">
         <div class="footer-grid">
             <div class="footer-column brand-info">
@@ -142,7 +196,6 @@
                 <div class="social-links">
                     <a href="#"><i data-lucide="facebook"></i></a>
                     <a href="#"><i data-lucide="instagram"></i></a>
-                    <a href="#"><i data-lucide="twitter"></i></a>
                 </div>
             </div>
 
@@ -162,7 +215,7 @@
                     <div class="info-item-footer">
                         <i data-lucide="clock"></i>
                         <div>
-                            <strong>Horaires d'ouverture</strong>
+                            <strong>Horaires</strong>
                             <span>Lun - Ven: 08:00 - 18:00</span>
                         </div>
                     </div>
@@ -187,10 +240,6 @@
                         <div class="icon-wrap"><i data-lucide="mail"></i></div>
                         <span>cyrilbenony@gmail.com</span>
                     </a>
-                    <div class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="map-pin"></i></div>
-                        <span>33380 Marcheprime, France</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -198,19 +247,60 @@
         <div class="footer-bottom">
             <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
             <div class="legal-links">
-                <a href="#">CONFIDENTIALITÉ</a>
-                <a href="#">ACCESSIBILITÉ</a>
-                <a href="#">CONDITIONS</a>
                 <a href="#">MENTIONS LÉGALES</a>
+                <a href="#">CONFIDENTIALITÉ</a>
             </div>
         </div>
     </div>
 </footer>
 
-
     <script>
         lucide.createIcons();
 
+        // 1. LOGIQUE DU SLIDER
+        const slides = document.querySelectorAll('.slider-img');
+        const bars = document.querySelectorAll('.bar');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        let current = 0;
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            bars.forEach(b => b.classList.remove('active'));
+            current = (index + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            bars[current].classList.add('active');
+        }
+
+        nextBtn.onclick = () => showSlide(current + 1);
+        prevBtn.onclick = () => showSlide(current - 1);
+        setInterval(() => showSlide(current + 1), 5000);
+
+        // 2. COMPTEURS ANIMÉS (Intersection Observer)
+        const stats = document.querySelectorAll('.stat-value');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    const count = () => {
+                        const val = +entry.target.innerText;
+                        const speed = target / 50;
+                        if(val < target) {
+                            entry.target.innerText = Math.ceil(val + speed);
+                            setTimeout(count, 30);
+                        } else {
+                            entry.target.innerText = target;
+                        }
+                    };
+                    count();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stats.forEach(s => observer.observe(s));
+
+        // 3. MENU MOBILE
         const drawer = document.getElementById('mobileDrawer');
         const overlay = document.getElementById('drawerOverlay');
         const openMenu = document.getElementById('openMenu');
