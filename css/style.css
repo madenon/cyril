@@ -140,7 +140,7 @@ body {
 }
 .hero-content { width: 90%; max-width: 1200px; margin: 0 auto; }
 .hero-subtitle { color: var(--orange); letter-spacing: 0.3em; font-size: 0.9rem; font-weight: 900; margin-bottom: 15px; }
-.hero-title { font-family: 'Anton'; font-size: clamp(3rem, 10vw, 6.5rem); line-height: 0.9; color: white; text-transform: uppercase; }
+.hero-title { font-family: 'Anton'; font-size: clamp(2rem, 10vw, 3.5rem); line-height: 0.9; color: white; text-transform: uppercase; }
 .hero-title span { color: var(--orange); }
 .hero-desc { margin: 30px 0; color: #e2e8f0; font-size: 1.2rem; max-width: 600px; border-left: 5px solid var(--orange); padding-left: 25px; }
 
@@ -307,7 +307,7 @@ body {
     .logo-text span { font-size: 1.3rem; }
     /* kka */
     .hero { padding-top: 80px; }
-    .hero-title { font-size: 2.1rem; }
+    .hero-title { font-size: 2rem; }
     .image-card img { height: 320px; }
     
     .footer-grid { grid-template-columns: 1fr; }
