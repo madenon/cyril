@@ -24,17 +24,16 @@
 
 /* CACHER LE BURGER SUR ORDINATEUR */
 .menu-toggle {
-    display: none !important; /* Totalement invisible sur PC */
+    display: none !important; 
 }
 
-/* CONFIGURATION MOBILE (MAX 1024px) */
 @media (max-width: 1024px) {
     .nav-btn-devis {
-        display: none !important; /* Cache le bouton texte pour libérer de la place */
+        display: none !important; 
     }
 
     .menu-toggle {
-        display: flex !important; /* Apparaît uniquement sur mobile/tablette */
+        display: flex !important; 
         background: var(--orange-btp);
         border: none;
         width: 45px;
@@ -47,11 +46,10 @@
         padding: 0;
     }
 
-    /* FORCE L'AFFICHAGE DES TRAITS BLANCS DANS LE CARRÉ ORANGE */
     .menu-toggle svg {
         width: 26px !important;
         height: 26px !important;
-        stroke: white !important; /* Traits blancs pour être visibles */
+        stroke: white !important; 
         stroke-width: 2.5px;
         display: block !important;
     }
@@ -89,112 +87,177 @@
    3. CONTACT HERO
    ========================================================================== */
 .contact-hero {
-    padding: 160px 0 100px;
+    padding: 160px 0 80px;
     background-color: var(--bg-blank);
     color: var(--dark-blue);
-    min-height: 80vh;
     text-align: center;
+    position: relative;
+}
+
+/* Cercles décoratifs en arrière-plan */
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.03) 0%, transparent 40%);
+    pointer-events: none;
 }
 
 .contact-header-text h2 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.5rem, 6vw, 5rem);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    font-style: italic;
+    letter-spacing: -1px;
     margin-bottom: 20px;
     color: var(--dark-blue);
 }
 
 .contact-header-text h2 span {
     color: var(--orange-btp);
-}
-
-.orange-bar-center {
-    width: 60px;
-    height: 5px;
-    background: var(--orange-btp);
-    margin: 0 auto 30px;
+    position: relative;
 }
 
 .contact-header-text p {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto 60px;
-    line-height: 1.6;
+    max-width: 650px;
+    margin: 40px auto 60px;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
 /* ==========================================================================
-   4. GRILLE DE CARTES
+   4. GRILLE DE CARTES (DESIGN REACT-STYLE)
    ========================================================================== */
 .contact-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-bottom: 80px;
-    padding: 0 20px;
+    margin-bottom: 60px;
 }
 
 .contact-card {
     background: var(--white);
-    padding: 40px;
-    border-radius: 20px;
+    padding: 50px 40px;
+    border-radius: 40px; /* Bords très arrondis comme demandé */
     border: 1px solid #f1f5f9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style spécifique pour la carte Localisation (Fond Sombre) */
+.contact-card:last-child {
+    background: var(--dark-blue);
+    color: white;
+}
+
+.contact-card:last-child h3, 
+.contact-card:last-child .card-text { 
+    color: white; 
 }
 
 .contact-card:hover {
-    background: var(--bg-soft);
-    transform: translateY(-10px);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(255, 107, 0, 0.1);
     border-color: var(--orange-btp);
-    box-shadow: 0 20px 40px rgba(255, 107, 0, 0.1);
 }
 
 .card-icon {
-    margin-bottom: 25px;
-    display: inline-block;
-    padding: 20px;
+    width: 80px;
+    height: 80px;
     background: rgba(255, 107, 0, 0.08); 
-    border-radius: 50%;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    transition: var(--transition);
+}
+
+.contact-card:hover .card-icon {
+    background: var(--orange-btp);
+}
+
+.contact-card:hover .card-icon svg {
+    color: white;
 }
 
 .contact-card h3 {
     font-family: 'Anton';
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
     letter-spacing: 1px;
-    color: var(--dark-blue);
 }
 
 .contact-card p {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
     color: var(--text-light);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .card-link, .card-text {
-    display: block;
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 800;
     color: var(--dark-blue);
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.card-link:hover {
-    color: var(--orange-btp);
 }
 
 /* ==========================================================================
-   5. INFOS COMPLÉMENTAIRES (FOOTER DE SECTION)
+   5. GOOGLE MAPS SECTION
+   ========================================================================== */
+.map-section {
+    padding-bottom: 100px;
+    background-color: var(--bg-blank);
+}
+
+.map-container {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 10px solid white;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    display: block;
+    filter: grayscale(0.2);
+}
+
+.map-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: var(--dark-blue);
+    color: white;
+    padding: 18px 28px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* ==========================================================================
+   6. INFOS COMPLÉMENTAIRES & ANIMATIONS
    ========================================================================== */
 .info-footer-contact {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding-top: 40px;
+    gap: 50px;
+    padding-top: 50px;
     border-top: 1px solid #f1f5f9;
 }
 
@@ -202,36 +265,35 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    color: var(--text-light);
-    font-weight: 500;
+    color: var(--dark-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   6. ANIMATIONS & RESPONSIVE FINAL
-   ========================================================================== */
-.fade-in { animation: fadeIn 1s ease-out; }
-.fade-in-delay { animation: fadeIn 1.5s ease-out; }
+/* Animations */
 .slide-up {
-    animation: slideUp 0.8s ease-out forwards;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ==========================================================================
+   7. RESPONSIVE
+   ========================================================================== */
 @media (max-width: 768px) {
     .contact-hero { padding-top: 120px; }
-    .contact-cards-container { gap: 20px; }
-    .info-footer-contact { 
-        flex-direction: column; 
-        align-items: center;
-        gap: 20px; 
+    .contact-card { padding: 40px 25px; border-radius: 30px; }
+    .map-badge { 
+        left: 15px; 
+        right: 15px; 
+        bottom: 15px; 
+        font-size: 0.75rem; 
+        padding: 15px;
     }
+    .info-footer-contact { flex-direction: column; align-items: center; gap: 20px; }
 }

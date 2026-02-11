@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Réalisations | Cyril BTP</title>
+    <title>Nos Réalisations | Cyril BTP - Expert en Gironde</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/footer.css">
 
     <style>
-        /* CORRECTIF DIRECT POUR LE BOUTON ET LE MENU */
+        /* CORRECTIF NAVIGATION MOBILE & BOUTON BURGER */
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
@@ -21,17 +21,18 @@
                 right: -100%; 
                 width: 75%;
                 height: 100vh;
-                background: #0f172a; /* var(--dark-blue) */
+                background: #0f172a; 
                 display: flex !important;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 30px;
-                transition: all 0.4s ease-in-out;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 z-index: 999;
                 padding: 0;
                 margin: 0;
                 list-style: none;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
             }
 
             .nav-menu.active {
@@ -43,13 +44,18 @@
                 align-items: center;
                 justify-content: center;
                 z-index: 1000;
-                background: #ff6b00; /* var(--orange-btp) */
+                background: #ff6b00; 
                 border: none;
                 color: white;
                 width: 45px;
                 height: 45px;
-                border-radius: 5px;
+                border-radius: 8px;
                 cursor: pointer;
+                transition: transform 0.2s;
+            }
+
+            .menu-toggle:active {
+                transform: scale(0.9);
             }
 
             .nav-menu li a {
@@ -58,7 +64,35 @@
                 font-family: 'Anton', sans-serif;
                 text-decoration: none;
                 text-transform: uppercase;
+                letter-spacing: 1px;
             }
+        }
+
+        /* EFFET HOVER ROBUSTE SUR LES IMAGES */
+        .project-image {
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+            background: #e2e8f0; /* Skeleton color */
+        }
+
+        .project-image img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-row:hover .project-image img {
+            transform: scale(1.08);
+        }
+
+        /* ANIMATION DE CHARGEMENT INITIALE */
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s ease-out;
         }
     </style>
 </head>
@@ -66,9 +100,9 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo-block" style="text-decoration: none;">
+            <a href="index.html" class="logo-block" aria-label="Retour accueil">
                 <div class="logo-square">
-                    <img src="images/logo2.png" alt="Logo Cyril BTP">
+                    <img src="images/logo2.png" alt="Cyril BTP Logo">
                 </div>
                 <div class="logo-text">
                     <h1>CYRIL <span>BTP</span></h1>
@@ -89,231 +123,158 @@
                     <i data-lucide="phone"></i>
                     <span>06 22 89 29 16</span>
                 </a>
-                <button class="menu-toggle" id="mobile-menu">
+                <button class="menu-toggle" id="mobile-menu" aria-label="Ouvrir le menu">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <section class="page-title-section">
+    <header class="page-title-section">
         <div class="container">
             <h1 class="main-title">NOS <span>RÉALISATIONS</span></h1>
             <div class="orange-divider"></div>
             <p class="subtitle">L'EXCELLENCE AU SERVICE DE VOS PROJETS EN GIRONDE</p>
         </div>
-    </section>
+    </header>
 
-    <section class="projects-list">
+    <main class="projects-list">
         <div class="container">
 
-            <div class="project-row slide-up">
+            <article class="project-row slide-up">
                 <div class="project-image">
-                    <img src="images/img1.png" alt="Villa Moderne">
+                    <img src="images/img1.png" alt="Construction de Villa Moderne en Gironde" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-tag">CONSTRUCTION</span>
                     <h2 class="project-name">VILLA MODERNE</h2>
-                    <p class="project-description">Construction complète d'une villa contemporaine. Maçonnerie de précision et finitions haut de gamme.</p>
+                    <p class="project-description">Construction complète d'une villa contemporaine. Maçonnerie de précision, intégration domotique et finitions haut de gamme.</p>
                     <div class="project-footer">
                         <span class="project-number">01</span>
-                        <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
+                        <a href="contact.html" class="details-link">DEMANDER UN DEVIS</a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="project-row reverse slide-up">
+            <article class="project-row reverse slide-up">
                 <div class="project-image">
-                    <img src="images/img2.png" alt="Entrepôt Logistique">
+                    <img src="images/img2.png" alt="Gros oeuvre entrepôt industriel" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-tag">INDUSTRIEL</span>
                     <h2 class="project-name">ENTREPÔT LOGISTIQUE</h2>
-                    <p class="project-description">Gros œuvre pour une structure industrielle. Dallage renforcé et terrassement massif.</p>
+                    <p class="project-description">Gros œuvre pour une structure industrielle de 1200m². Dallage quartz renforcé et terrassement massif.</p>
                     <div class="project-footer">
                         <span class="project-number">02</span>
                         <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="project-row slide-up">
+            <article class="project-row slide-up">
                 <div class="project-image">
-                    <img src="images/img3.png" alt="Rénovation Maison">
+                    <img src="images/img3.png" alt="Rénovation complète maison ancienne" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-tag">RÉNOVATION</span>
                     <h2 class="project-name">RÉNOVATION COMPLÈTE</h2>
-                    <p class="project-description">Transformation totale d'une ancienne bâtisse : démolition intérieure et renforcement structurel.</p>
+                    <p class="project-description">Transformation totale d'une ancienne bâtisse : démolition intérieure, renforcement IPN et isolation par l'extérieur.</p>
                     <div class="project-footer">
                         <span class="project-number">03</span>
-                        <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
+                        <a href="contact.html" class="details-link">PROJET RÉNOVATION</a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="project-row reverse slide-up">
+            <article class="project-row reverse slide-up">
                 <div class="project-image">
-                    <img src="images/img4.png" alt="Terrassement">
+                    <img src="images/img4.png" alt="Terrassement piscine de luxe" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-tag">EXTÉRIEUR</span>
                     <h2 class="project-name">TERRASSEMENT PISCINE</h2>
-                    <p class="project-description">Préparation de terrain complexe et évacuation des gravats pour aménagement paysager de luxe.</p>
+                    <p class="project-description">Préparation de terrain complexe sur sol argileux et évacuation de 150m3 de gravats pour piscine à débordement.</p>
                     <div class="project-footer">
                         <span class="project-number">04</span>
-                        <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
+                        <a href="contact.html" class="details-link">DEVIS TERRASSEMENT</a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="project-row slide-up">
+            <article class="project-row slide-up">
                 <div class="project-image">
-                    <img src="images/img5.png" alt="Démolition">
+                    <img src="images/img5.png" alt="Démolition villa zone urbaine" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-tag">DÉMOLITION</span>
                     <h2 class="project-name">DÉCONSTRUCTION VILLA</h2>
-                    <p class="project-description">Démolition contrôlée en zone urbaine dense avec tri sélectif et recyclage des matériaux.</p>
+                    <p class="project-description">Démolition contrôlée avec robot de démolition. Gestion complète du tri sélectif et valorisation des gravats.</p>
                     <div class="project-footer">
                         <span class="project-number">05</span>
-                        <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
+                        <a href="contact.html" class="details-link">CONTACT EXPERT</a>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="project-row reverse slide-up">
+            <article class="project-row reverse slide-up">
                 <div class="project-image">
-                    <img src="images/img6.png" alt="Gros Oeuvre">
+                    <img src="images/img6.png" alt="Extension de maison bois et béton" loading="lazy">
                 </div>
                 <div class="project-content">
                     <span class="project-tag">CONSTRUCTION</span>
                     <h2 class="project-name">EXTENSION MAISON</h2>
-                    <p class="project-description">Agrandissement de 40m² avec raccordement à la structure existante et création d'une toiture terrasse.</p>
+                    <p class="project-description">Agrandissement de 40m² en RT2020. Raccordement structurel invisible et création d'une toiture terrasse accessible.</p>
                     <div class="project-footer">
                         <span class="project-number">06</span>
-                        <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
+                        <a href="contact.html" class="details-link">DEVIS EXTENSION</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="project-row slide-up">
-                <div class="project-image">
-                    <img src="images/_amen.png" alt="Maçonnerie">
-                </div>
-                <div class="project-content">
-                    <span class="project-tag">MAÇONNERIE</span>
-                    <h2 class="project-name">MUR DE CLÔTURE</h2>
-                    <p class="project-description">Réalisation technique de murets en parpaings et piliers massifs pour portails motorisés.</p>
-                    <div class="project-footer">
-                        <span class="project-number">07</span>
-                        <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-row reverse slide-up">
-                <div class="project-image">
-                    <img src="images/_8ans.png" alt="Aménagement">
-                </div>
-                <div class="project-content">
-                    <span class="project-tag">RÉNOVATION</span>
-                    <h2 class="project-name">APPARTEMENT CENTRE-VILLE</h2>
-                    <p class="project-description">Réfection lourde des sols et reprise des éléments porteurs en milieu urbain restreint.</p>
-                    <div class="project-footer">
-                        <span class="project-number">08</span>
-                        <a href="contact.html" class="details-link">DEVIS SIMILAIRE</a>
-                    </div>
-                </div>
-            </div>
+            </article>
 
         </div>
-    </section>
+    </main>
 
-  <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-column brand-info">
-                <div class="logo-footer">
-                    <img src="images/logo2.png" alt="Logo Cyril BTP">
-                    <span>CYRIL <strong>BTP</strong></span>
-                </div>
-                <p class="footer-desc">
-                    Expertise en démolition, terrassement et rénovation. Nous bâtissons vos projets avec la rigueur et la sécurité d'un artisan passionné.
-                </p>
-                <div class="social-links">
-                    <a href="#"><i data-lucide="facebook"></i></a>
-                    <a href="#"><i data-lucide="instagram"></i></a>
-                    <a href="#"><i data-lucide="twitter"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-column">
-                <h4 class="footer-title">NOS EXPERTISES</h4>
-                <ul class="footer-list">
-                    <li>Démolition de précision</li>
-                    <li>Terrassement massif</li>
-                    <li>Aménagement extérieur</li>
-                    <li>Gros œuvre & Maçonnerie</li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4 class="footer-title">INFORMATIONS</h4>
-                <div class="info-block">
-                    <div class="info-item-footer">
-                        <i data-lucide="clock"></i>
-                        <div>
-                            <strong>Horaires d'ouverture</strong>
-                            <span>Lun - Ven: 08:00 - 18:00</span>
-                        </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column brand-info">
+                    <div class="logo-footer">
+                        <img src="images/logo2.png" alt="Logo Cyril BTP">
+                        <span>CYRIL <strong>BTP</strong></span>
                     </div>
-                    <div class="info-item-footer">
-                        <i data-lucide="hash"></i>
-                        <div>
-                            <strong>Identification</strong>
-                            <span>SIRET: 494 262 371</span>
-                        </div>
+                    <p class="footer-desc">Expertise en démolition, terrassement et rénovation. Nous bâtissons vos projets avec rigueur.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">NOS EXPERTISES</h4>
+                    <ul class="footer-list">
+                        <li>Démolition de précision</li>
+                        <li>Terrassement massif</li>
+                        <li>Gros œuvre & Maçonnerie</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">CONTACT DIRECT</h4>
+                    <div class="contact-box-footer">
+                        <a href="tel:+33622892916" class="contact-item"><i data-lucide="phone"></i> 06 22 89 29 16</a>
+                        <a href="mailto:cyrilbenony@gmail.com" class="contact-item"><i data-lucide="mail"></i> Email</a>
                     </div>
                 </div>
             </div>
-
-            <div class="footer-column">
-                <h4 class="footer-title">CONTACT DIRECT</h4>
-                <div class="contact-box-footer">
-                    <a href="tel:+33622892916" class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="phone"></i></div>
-                        <span>06 22 89 29 16</span>
-                    </a>
-                    <a href="mailto:cyrilbenony@gmail.com" class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="mail"></i></div>
-                        <span>cyrilbenony@gmail.com</span>
-                    </a>
-                    <div class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="map-pin"></i></div>
-                        <span>33380 Marcheprime, France</span>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
-            <div class="legal-links">
-                <a href="#">CONFIDENTIALITÉ</a>
-                <a href="#">ACCESSIBILITÉ</a>
-                <a href="#">CONDITIONS</a>
-                <a href="#">MENTIONS LÉGALES</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 
     <script>
-        // 1. Initialisation des icônes au chargement
+        // Initialisation Lucide
         lucide.createIcons();
         
+        // Gestion Menu Mobile
         const menuBtn = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('navMenu');
 
@@ -321,35 +282,36 @@
             menuBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 navMenu.classList.toggle('active');
-                
-                // Correction de l'erreur "setAttribute of null"
-                // On recrée l'icône proprement à chaque bascule
                 const isOpen = navMenu.classList.contains('active');
                 menuBtn.innerHTML = isOpen ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
-                
-                // On demande à Lucide de transformer le nouveau <i> en SVG
                 lucide.createIcons();
+            });
+
+            // Fermeture au clic extérieur
+            document.addEventListener('click', () => {
+                if(navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    menuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                    lucide.createIcons();
+                }
             });
         }
 
-        // Fermer le menu au clic sur un lien
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuBtn.innerHTML = '<i data-lucide="menu"></i>';
-                lucide.createIcons();
-            });
-        });
+        // Animation au Scroll (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-        // Animation au scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = "1";
                     entry.target.style.transform = "translateY(0)";
+                    observer.unobserve(entry.target); // Animation lancée une seule fois
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
         document.querySelectorAll('.slide-up').forEach(row => {
             observer.observe(row);

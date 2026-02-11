@@ -8,20 +8,21 @@
     --text-main: #334155;     
     --text-light: #64748b;    
     --text-gray: #94a3b8;
-    --footer-black: #05070a; /* Noir plus profond pour le footer */
+    --footer-black: #05070a; 
     --white: #ffffff;
     --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Animation d'entrée */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+/* Animation d'entrée robuste */
 .slide-up {
     opacity: 0;
-    animation: fadeInUp 1s ease forwards;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -30,7 +31,7 @@
 .page-title-section {
     position: relative;
     padding: 180px 0 120px;
-    background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), 
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)), 
                 url('../images/img1.png') center/cover no-repeat fixed;
     text-align: center;
     border-bottom: 1px solid #f1f5f9;
@@ -38,10 +39,11 @@
 
 .main-title {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     color: var(--dark-blue);
     text-transform: uppercase;
-    line-height: 1;
+    font-style: italic;
+    line-height: 0.9;
     margin: 0;
 }
 
@@ -49,42 +51,46 @@
 
 .orange-divider {
     width: 80px;
-    height: 5px;
+    height: 6px;
     background: var(--orange-btp);
-    margin: 30px auto;
+    margin: 35px auto;
+    border-radius: 3px;
 }
 
 .subtitle {
     color: var(--text-light);
-    letter-spacing: 5px;
-    font-weight: 700;
-    font-size: 0.85rem;
+    letter-spacing: 6px;
+    font-weight: 800;
+    font-size: 0.9rem;
     text-transform: uppercase;
 }
 
 /* ==========================================================================
-   3. LISTE DES RÉALISATIONS
+   3. LISTE DES RÉALISATIONS (STRUCTURE ROBUSTE)
    ========================================================================== */
 .projects-list {
     background-color: var(--bg-blank);
     padding: 120px 0;
+    overflow: hidden;
 }
 
 .project-row {
     display: flex;
     align-items: center;
-    gap: 80px;
-    margin-bottom: 150px;
+    gap: clamp(40px, 8vw, 100px);
+    margin-bottom: 180px;
 }
 
 .project-row.reverse { flex-direction: row-reverse; }
 
+/* Image Container */
 .project-image {
-    flex: 1.3;
+    flex: 1.2;
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    border-radius: 24px; /* Plus arrondi pour look moderne */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    background: #f1f5f9;
 }
 
 .project-image img {
@@ -92,11 +98,11 @@
     height: 550px;
     object-fit: cover;
     display: block;
-    transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+    transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .project-row:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* Contenu Texte */
@@ -105,27 +111,29 @@
 .project-tag {
     color: var(--orange-btp);
     font-weight: 900;
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    display: block;
-    margin-bottom: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    display: inline-block;
+    margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
 .project-name {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
     color: var(--dark-blue);
-    line-height: 1.1;
+    line-height: 1;
     margin-bottom: 30px;
+    text-transform: uppercase;
 }
 
 .project-description {
     color: var(--text-main);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.8;
     margin-bottom: 50px;
-    border-left: 4px solid var(--orange-btp);
-    padding-left: 25px;
+    border-left: 5px solid var(--orange-btp);
+    padding-left: 30px;
 }
 
 .project-footer {
@@ -138,191 +146,139 @@
 
 .project-number {
     font-family: 'Anton', sans-serif;
-    font-size: 5rem;
+    font-size: 6rem;
     color: #f1f5f9; 
-    line-height: 0.8;
+    line-height: 0.7;
     user-select: none;
+    transition: var(--transition);
+}
+
+.project-row:hover .project-number {
+    color: rgba(255, 107, 0, 0.1);
 }
 
 .details-link {
-    background: transparent;
+    display: inline-block;
     border: 2px solid var(--orange-btp);
     color: var(--orange-btp);
-    padding: 14px 30px;
+    padding: 16px 35px;
     font-weight: 800;
     text-decoration: none;
     letter-spacing: 1px;
     transition: var(--transition);
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
 }
 
 .details-link:hover {
     background: var(--orange-btp);
     color: var(--white);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 107, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 107, 0, 0.25);
 }
 
 /* ==========================================================================
-   4. FOOTER (CORRIGÉ POUR LE LOGO NOIR)
+   4. FOOTER (OPTIMISATION LOGO & GRILLE)
    ========================================================================== */
 .footer {
     background-color: var(--footer-black);
     padding: 100px 0 40px;
     color: var(--white);
-    font-family: 'Montserrat', sans-serif;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-    gap: 60px;
+    gap: 50px;
 }
 
-/* LE LOGO DANS LE FOOTER (CARRÉ BLANC) */
 .logo-footer {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-.logo-square-footer {
-    width: 48px;
-    height: 48px;
-    background: #ffffff;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logo-footer img {
+    height: 50px;
+    width: auto;
+    filter: brightness(1);
+    background: white; /* Fond blanc pour faire ressortir le logo si besoin */
     padding: 5px;
+    border-radius: 8px;
 }
-
-.logo-square-footer img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.logo-footer span {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.7rem;
-    color: var(--white);
-    line-height: 1;
-}
-
-.logo-footer span strong { color: var(--orange-btp); }
 
 .footer-desc {
-    color: #94a3b8;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 .footer-column h4 {
     font-family: 'Anton', sans-serif;
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 35px;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    color: var(--white);
 }
 
-.footer-links, .footer-info {
-    list-style: none;
-    padding: 0;
-}
+.footer-list { list-style: none; padding: 0; }
+.footer-list li { margin-bottom: 15px; color: var(--text-gray); font-size: 0.9rem; }
 
-.footer-links li { margin-bottom: 12px; }
+.contact-box-footer { display: flex; flex-direction: column; gap: 20px; }
 
-.footer-links a {
-    color: #94a3b8;
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-gray);
     text-decoration: none;
     transition: 0.3s;
-    font-size: 0.9rem;
 }
 
-.footer-links a:hover { 
-    color: var(--orange-btp); 
-    padding-left: 5px; 
-}
+.contact-item:hover { color: var(--orange-btp); }
 
-.info-item-footer {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #94a3b8;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-}
-
-.info-item-footer i { color: var(--orange-btp); width: 18px; }
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    color: var(--white);
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    background: var(--orange-btp);
-    transform: translateY(-3px);
-}
-
-.footer-bottom {
-    margin-top: 80px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    text-align: center;
-    color: #475569;
-    font-size: 0.85rem;
-}
+.contact-item i { color: var(--orange-btp); }
 
 /* ==========================================================================
-   5. RESPONSIVE
+   5. RESPONSIVE ROBUSTE
    ========================================================================== */
 
-@media (max-width: 1024px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+@media (max-width: 1100px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 60px; }
     .project-row { gap: 40px; }
 }
 
-@media (max-width: 768px) {
-    .project-row { 
+@media (max-width: 850px) {
+    .project-row, .project-row.reverse { 
         flex-direction: column !important; 
         text-align: center; 
-        gap: 40px; 
-        margin-bottom: 100px;
+        margin-bottom: 120px;
     }
+    
     .project-description { 
         border-left: none; 
-        border-top: 4px solid var(--orange-btp); 
-        padding: 25px 0 0; 
+        border-top: 5px solid var(--orange-btp); 
+        padding: 30px 0 0; 
+        max-width: 600px;
+        margin: 0 auto 40px;
     }
-    .project-image img { height: 400px; }
+    
+    .project-image { width: 100%; }
+    .project-image img { height: 450px; }
+
+    .project-footer {
+        flex-direction: column-reverse;
+        gap: 25px;
+    }
 }
 
 @media (max-width: 600px) {
-    .page-title-section { padding: 140px 0 80px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-    .main-title { font-size: 2.8rem; }
-    .project-footer { 
-        flex-direction: column-reverse; 
-        gap: 20px; 
-    }
-    .project-number { font-size: 4rem; }
-    .project-image img { height: 300px; }
+    .page-title-section { padding: 150px 0 80px; }
+    .main-title { font-size: 3rem; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .logo-footer { justify-content: center; }
+    .contact-item { justify-content: center; }
+    .project-image img { height: 320px; }
 }
