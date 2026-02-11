@@ -1,12 +1,20 @@
 /* ==========================================================================
-   PAGE À PROPOS - VERSION COMPLÈTE UNIFIÉE
+   PAGE À PROPOS - VERSION COMPLÈTE & OPTIMISÉE MOBILE
    ========================================================================== */
 
+/* --- CONFIGURATION DE BASE --- */
 .about-page {
-    padding: 140px 0 80px; /* Espace pour la navbar fixe */
+    padding: 140px 0 80px;
     background: var(--slate-bg);
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HERO SECTION --- */
 .about-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,6 +29,7 @@
     line-height: 1.1;
     margin-bottom: 20px;
     color: var(--navy);
+    text-transform: uppercase;
 }
 
 .text-orange { color: var(--orange); }
@@ -37,12 +46,6 @@
     color: var(--slate-text);
     margin-bottom: 20px;
     max-width: 600px;
-}
-
-.italic-quote {
-    font-style: italic;
-    color: var(--navy);
-    font-weight: 500;
 }
 
 /* --- LE SLIDER (IMAGE ET NAVIGATION) --- */
@@ -77,7 +80,6 @@
     z-index: 1;
 }
 
-/* Boutons de navigation */
 .slider-nav {
     position: absolute;
     bottom: 30px;
@@ -98,17 +100,15 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.3s;
     color: var(--navy);
 }
 
 .slider-nav button:hover {
     background: var(--orange);
     color: white;
-    transform: scale(1.1);
 }
 
-/* Barres de progression verticales */
 .slider-progress {
     position: absolute;
     left: -20px;
@@ -133,11 +133,10 @@
     background: var(--orange);
 }
 
-/* Badge d'expérience */
 .experience-badge {
     position: absolute;
     bottom: -30px;
-    left: 40px; /* Décalé pour laisser place aux barres du slider */
+    left: 40px;
     background: var(--orange);
     color: white;
     padding: 30px;
@@ -152,7 +151,7 @@
 .exp-number { font-family: 'Anton'; font-size: 3rem; line-height: 1; }
 .exp-label { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; text-align: center; }
 
-/* --- SECTION STATISTIQUES (DIVIDER) --- */
+/* --- STATISTIQUES --- */
 .stats-divider {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -161,32 +160,15 @@
     padding: 60px 40px;
     border-radius: 30px;
     margin-bottom: 100px;
+    text-align: center;
 }
 
-.stat-item { text-align: center; color: white; }
+.stat-item { color: white; }
+.stat-value { font-family: 'Anton'; font-size: 3.5rem; color: var(--orange); }
+.stat-plus { font-family: 'Anton'; font-size: 2.5rem; color: var(--orange); }
+.stat-label { font-size: 0.9rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
 
-.stat-value { 
-    display: inline-block; 
-    font-family: 'Anton'; 
-    font-size: 3.5rem; 
-    color: var(--orange); 
-}
-
-.stat-plus {
-    font-family: 'Anton';
-    font-size: 2.5rem;
-    color: var(--orange);
-}
-
-.stat-label { 
-    display: block;
-    font-size: 0.9rem; 
-    font-weight: 700; 
-    color: #94a3b8; 
-    text-transform: uppercase; 
-}
-
-/* --- SECTION VALEURS --- */
+/* --- VALEURS --- */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -197,29 +179,85 @@
     background: white;
     padding: 40px;
     border-radius: 25px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
 }
 
 .value-card:hover { transform: translateY(-10px); }
 .value-icon { color: var(--orange); margin-bottom: 20px; }
-.value-card h3 { font-family: 'Anton'; margin-bottom: 15px; font-size: 1.5rem; }
+.value-card h3 { font-family: 'Anton'; margin-bottom: 15px; font-size: 1.5rem; text-transform: uppercase; }
 
-/* --- RESPONSIVE --- */
+/* ==========================================================================
+   CORRECTION CRITIQUE : MENU MOBILE (DRAWER)
+   ========================================================================== */
+
+/* On force la suppression des puces et le style propre du menu mobile */
+.mobile-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 40px 0 0 0 !important;
+}
+
+.mobile-links li {
+    list-style: none !important;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+}
+
+.mobile-links li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.mobile-links li a i {
+    color: var(--orange);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
 @media (max-width: 992px) {
-    .about-hero { grid-template-columns: 1fr; gap: 80px; }
+    .about-hero { grid-template-columns: 1fr; gap: 60px; text-align: center; }
     .about-content { order: 2; }
-    .about-image-wrapper { order: 1; max-width: 500px; margin: 0 auto; }
-    .slider-progress { left: 15px; } /* Rentré à l'intérieur sur tablettes */
-    .experience-badge { left: 40px; }
+    .about-image-wrapper { order: 1; max-width: 600px; margin: 0 auto; width: 100%; }
+    .orange-bar { margin: 0 auto 30px; }
+    .about-text { margin-left: auto; margin-right: auto; }
+    .slider-progress { left: 10px; }
 }
 
 @media (max-width: 768px) {
-    .about-page { padding-top: 100px; }
+    .about-page { padding-top: 110px; }
     .about-title { font-size: 2.2rem; }
-    .main-img-card { height: 450px; }
-    .experience-badge { padding: 20px; bottom: -20px; left: 20px; }
-    .exp-number { font-size: 2rem; }
-    .stat-value { font-size: 2.5rem; }
-    .stat-plus { font-size: 1.8rem; }
+    
+    .main-img-card { height: 400px; border-radius: 25px; }
+    
+    .experience-badge { 
+        padding: 15px 25px; 
+        bottom: -25px; 
+        left: 50%; 
+        transform: translateX(-50%); /* Centré sur mobile */
+        width: 180px;
+    }
+    
+    .exp-number { font-size: 2.2rem; }
+    .exp-label { font-size: 0.65rem; }
+
+    .stats-divider {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .stat-value { font-size: 2.8rem; }
+    
+    .slider-nav { bottom: 15px; right: 15px; }
+    .slider-nav button { width: 40px; height: 40px; }
 }

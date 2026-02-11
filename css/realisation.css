@@ -13,24 +13,103 @@
     --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Animation d'entrée robuste */
-.slide-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
-.slide-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 /* ==========================================================================
-   2. HEADER DE LA PAGE (HERO LUMINEUX)
+   2. NAVIGATION & DRAWER MOBILE (OPTIMISÉ POUR LE HAUT)
+   ========================================================================== */
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: var(--dark-blue);
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligne tout en haut */
+}
+
+.drawer.active { transform: translateX(0); }
+
+.drawer-header {
+    padding: 15px 20px; /* Réduit pour gagner de la place en haut */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.close-btn {
+    background: var(--orange-btp);
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Liens remontés au maximum */
+.mobile-links {
+    list-style: none !important;
+    padding: 10px 30px !important; /* Padding top réduit à 10px */
+    margin: 0 !important;
+}
+
+.mobile-links li {
+    list-style: none !important;
+    margin-bottom: 20px; /* Espace équilibré entre les liens */
+}
+
+.mobile-links li a {
+    text-decoration: none !important;
+    color: white !important;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.7rem; /* Taille légèrement ajustée pour mobile */
+    display: block;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.mobile-links li a:hover {
+    color: var(--orange-btp) !important;
+}
+
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1999;
+    display: none;
+    backdrop-filter: blur(4px);
+}
+
+.drawer-overlay.active { display: block; }
+
+/* ==========================================================================
+   3. HEADER DE LA PAGE (HERO)
    ========================================================================== */
 .page-title-section {
     position: relative;
-    padding: 180px 0 120px;
+    padding: 160px 0 100px;
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)), 
                 url('../images/img1.png') center/cover no-repeat fixed;
     text-align: center;
@@ -44,7 +123,6 @@
     text-transform: uppercase;
     font-style: italic;
     line-height: 0.9;
-    margin: 0;
 }
 
 .main-title span { color: var(--orange-btp); }
@@ -53,44 +131,46 @@
     width: 80px;
     height: 6px;
     background: var(--orange-btp);
-    margin: 35px auto;
+    margin: 30px auto;
     border-radius: 3px;
 }
 
 .subtitle {
     color: var(--text-light);
-    letter-spacing: 6px;
+    letter-spacing: 4px;
     font-weight: 800;
     font-size: 0.9rem;
     text-transform: uppercase;
 }
 
 /* ==========================================================================
-   3. LISTE DES RÉALISATIONS (STRUCTURE ROBUSTE)
+   4. LISTE DES RÉALISATIONS
    ========================================================================== */
 .projects-list {
     background-color: var(--bg-blank);
-    padding: 120px 0;
-    overflow: hidden;
+    padding: 100px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .project-row {
     display: flex;
     align-items: center;
-    gap: clamp(40px, 8vw, 100px);
-    margin-bottom: 180px;
+    gap: 60px;
+    margin-bottom: 150px;
 }
 
 .project-row.reverse { flex-direction: row-reverse; }
 
-/* Image Container */
 .project-image {
     flex: 1.2;
-    position: relative;
+    border-radius: 24px;
     overflow: hidden;
-    border-radius: 24px; /* Plus arrondi pour look moderne */
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-    background: #f1f5f9;
 }
 
 .project-image img {
@@ -101,184 +181,119 @@
     transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.project-row:hover .project-image img {
-    transform: scale(1.08);
-}
-
-/* Contenu Texte */
 .project-content { flex: 1; }
 
 .project-tag {
     color: var(--orange-btp);
     font-weight: 900;
     font-size: 0.8rem;
-    letter-spacing: 5px;
-    display: inline-block;
-    margin-bottom: 25px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
     text-transform: uppercase;
+    display: block;
 }
 
 .project-name {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 3.5rem);
     color: var(--dark-blue);
-    line-height: 1;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     text-transform: uppercase;
 }
 
 .project-description {
     color: var(--text-main);
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 50px;
-    border-left: 5px solid var(--orange-btp);
-    padding-left: 30px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    border-left: 4px solid var(--orange-btp);
+    padding-left: 25px;
 }
 
 .project-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 30px;
+    padding-top: 25px;
     border-top: 1px solid #f1f5f9;
 }
 
 .project-number {
-    font-family: 'Anton', sans-serif;
-    font-size: 6rem;
-    color: #f1f5f9; 
-    line-height: 0.7;
-    user-select: none;
-    transition: var(--transition);
-}
-
-.project-row:hover .project-number {
-    color: rgba(255, 107, 0, 0.1);
+    font-family: 'Anton';
+    font-size: 5rem;
+    color: #f1f5f9;
 }
 
 .details-link {
-    display: inline-block;
     border: 2px solid var(--orange-btp);
     color: var(--orange-btp);
-    padding: 16px 35px;
+    padding: 14px 30px;
     font-weight: 800;
     text-decoration: none;
-    letter-spacing: 1px;
-    transition: var(--transition);
     text-transform: uppercase;
-    font-size: 0.85rem;
-    border-radius: 4px;
-}
-
-.details-link:hover {
-    background: var(--orange-btp);
-    color: var(--white);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(255, 107, 0, 0.25);
+    font-size: 0.8rem;
+    border-radius: 6px;
+    transition: var(--transition);
 }
 
 /* ==========================================================================
-   4. FOOTER (OPTIMISATION LOGO & GRILLE)
+   5. FOOTER
    ========================================================================== */
 .footer {
     background-color: var(--footer-black);
-    padding: 100px 0 40px;
+    padding: 80px 0 30px;
     color: var(--white);
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-    gap: 50px;
-}
-
-.logo-footer {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
 }
 
 .logo-footer img {
-    height: 50px;
-    width: auto;
-    filter: brightness(1);
-    background: white; /* Fond blanc pour faire ressortir le logo si besoin */
+    height: 45px;
+    background: white;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
-.footer-desc {
-    color: var(--text-gray);
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-.footer-column h4 {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.2rem;
-    margin-bottom: 35px;
-    letter-spacing: 1px;
-    color: var(--white);
-}
-
-.footer-list { list-style: none; padding: 0; }
-.footer-list li { margin-bottom: 15px; color: var(--text-gray); font-size: 0.9rem; }
-
-.contact-box-footer { display: flex; flex-direction: column; gap: 20px; }
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: var(--text-gray);
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.contact-item:hover { color: var(--orange-btp); }
-
-.contact-item i { color: var(--orange-btp); }
+.footer-list { list-style: none; }
+.footer-list li { margin-bottom: 12px; color: var(--text-gray); font-size: 0.9rem; }
 
 /* ==========================================================================
-   5. RESPONSIVE ROBUSTE
+   6. RESPONSIVE
    ========================================================================== */
 
-@media (max-width: 1100px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 60px; }
-    .project-row { gap: 40px; }
+@media (max-width: 992px) {
+    .project-image img { height: 400px; }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 768px) {
+    .page-title-section { padding: 110px 0 50px; } 
+    
     .project-row, .project-row.reverse { 
         flex-direction: column !important; 
         text-align: center; 
-        margin-bottom: 120px;
+        margin-bottom: 80px;
+        gap: 30px;
     }
     
     .project-description { 
         border-left: none; 
-        border-top: 5px solid var(--orange-btp); 
-        padding: 30px 0 0; 
-        max-width: 600px;
-        margin: 0 auto 40px;
+        border-top: 4px solid var(--orange-btp); 
+        padding: 20px 0 0; 
     }
-    
-    .project-image { width: 100%; }
-    .project-image img { height: 450px; }
+
+    .project-image img { height: 350px; }
 
     .project-footer {
         flex-direction: column-reverse;
-        gap: 25px;
+        gap: 20px;
     }
 }
 
-@media (max-width: 600px) {
-    .page-title-section { padding: 150px 0 80px; }
-    .main-title { font-size: 3rem; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .logo-footer { justify-content: center; }
-    .contact-item { justify-content: center; }
-    .project-image img { height: 320px; }
+@media (max-width: 480px) {
+    .main-title { font-size: 2.5rem; }
+    .project-image img { height: 280px; }
 }
