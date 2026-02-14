@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité | Cyril BTP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --orange: #ff6600;
+            --navy: #0f172a;
+            --slate: #475569;
+        }
+        body { font-family: 'Montserrat', sans-serif; color: var(--navy); line-height: 1.6; }
+        
+        .policy-container {
+            max-width: 800px;
+            margin: 140px auto 80px;
+            padding: 40px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h1 { font-family: 'Anton'; font-size: 2.5rem; text-transform: uppercase; color: var(--navy); margin-bottom: 30px; }
+        h2 { color: var(--orange); font-size: 1.4rem; margin-top: 30px; }
+        
+        .important-note {
+            background: #fff7ed;
+            border-left: 4px solid var(--orange);
+            padding: 15px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: #9a3412;
+        }
+
+        .consent-section {
+            margin-top: 40px;
+            padding: 25px;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            background: #f8fafc;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper input {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--orange);
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background: var(--navy);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:disabled { background: #cbd5e1; cursor: not-allowed; }
+        .btn-submit:not(:disabled):hover { background: var(--orange); }
+    </style>
+</head>
+<body>
+
+    <div class="policy-container">
+        <h1>Politique de confidentialité</h1>
+
+        <div class="important-note">
+            <i data-lucide="alert-triangle" style="width: 18px; vertical-align: middle;"></i>
+            <strong>Note importante :</strong> Ce texte est un modèle. Il doit être adapté avec l'aide d'un conseiller juridique pour correspondre à votre activité réelle.
+        </div>
+
+        <section class="policy-content">
+            <h2>1. Informations recueillies</h2>
+            <p>Nous recueillons les informations que vous nous communiquez via le formulaire de contact (Nom, Email, Téléphone) afin de répondre à vos demandes de devis.</p>
+
+            <h2>2. Pourquoi nous les recueillons</h2>
+            <p>Ces données sont utilisées uniquement pour la gestion de la relation client et la réalisation des chantiers (terrassement, démolition, aménagement).</p>
+
+            <h2>3. Partage des informations</h2>
+            <p>Vos informations ne sont jamais vendues à des tiers. Elles ne sont partagées qu'avec nos partenaires strictement nécessaires à la réalisation de vos travaux.</p>
+        </section>
+
+        <div class="consent-section">
+            <h3>Consentement</h3>
+            <label class="checkbox-wrapper">
+                <input type="checkbox" id="acceptPolicy">
+                <span>J'ai lu et j'accepte la politique de confidentialité. Je consens à ce que Cyril BTP traite mes données pour répondre à ma demande.</span>
+            </label>
+            
+            <button id="btnConfirm" class="btn-submit" disabled>Confirmer mon choix</button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const checkbox = document.getElementById('acceptPolicy');
+        const btn = document.getElementById('btnConfirm');
+
+        // Active le bouton seulement si la case est cochée
+        checkbox.addEventListener('change', function() {
+            btn.disabled = !this.checked;
+        });
+
+        btn.onclick = function() {
+            alert('Merci, votre choix a été enregistré.');
+        };
+    </script>
+
+</body>
+</html>

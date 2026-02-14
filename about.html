@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Styles spécifiques au Slider (à mettre dans about.css idéalement) */
+        /* Styles spécifiques au Slider et aux listes */
         .about-image-wrapper { position: relative; }
         .main-img-card { 
             position: relative; 
@@ -42,7 +42,7 @@
         .slider-nav button {
             background: white; border: none; width: 45px; height: 45px;
             border-radius: 50%; cursor: pointer; display: flex;
-            align-items: center; justify-content: center; shadow: 0 4px 10px rgba(0,0,0,0.1);
+            align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: 0.3s;
         }
         .slider-nav button:hover { background: #ff6600; color: white; }
@@ -54,6 +54,29 @@
         }
         .bar { width: 4px; height: 30px; background: #cbd5e1; border-radius: 10px; transition: 0.5s; }
         .bar.active { height: 60px; background: #ff6600; }
+
+        /* Style des listes d'expertise */
+        .about-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+            text-align: left;
+        }
+        .about-list li {
+            font-size: 0.9rem;
+            color: #475569;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .about-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff6600;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -112,18 +135,19 @@
                     </h2>
                     <div class="orange-bar"></div>
                     <p class="about-text">
-                        Basée à <strong>Marcheprime</strong>, l'entreprise <span class="text-orange">Cyril BTP</span> incarne la rigueur du bâtiment en Gironde. Nous transformons vos visions en structures solides.
+                        Basée à <strong>Marcheprime</strong>, l'entreprise <span class="text-orange">Cyril BTP</span> incarne la rigueur du bâtiment en Gironde. Nous transformons vos visions en structures solides et durables.
                     </p>
                     <p class="about-text italic-quote" style="border-left: 4px solid #ff6600; padding-left: 20px; font-style: italic; background: #f8fafc; padding-top: 15px; padding-bottom: 15px; border-radius: 0 15px 15px 0;">
-                        "De la démolition au gros œuvre, notre engagement reste le même : la perfection technique et le respect des normes de sécurité."
+                        "De l'aménagement extérieur à la démolition complexe, notre engagement reste le même : la perfection technique et le respect total de vos exigences."
                     </p>
                 </div>
 
                 <div class="about-image-wrapper">
                     <div class="main-img-card" id="slider-container">
-                        <img src="https://static.wixstatic.com/media/9587f9_007442dfbc0f4591aa84cc91772c371a~mv2.jpeg/v1/fill/w_427,h_533,al_c,lg_1,q_80,enc_avif,quality_auto/image0.jpeg" class="slider-img active" alt="Chantier 1">
-                        <img src="https://static.wixstatic.com/media/9587f9_29c63c059f2d45c6bba910ea0d3a4789~mv2.jpeg/v1/fill/w_576,h_645,al_c,lg_1,q_85,enc_avif,quality_auto/9587f9_29c63c059f2d45c6bba910ea0d3a4789~mv2.jpeg" class="slider-img" alt="Chantier 2">
-                        <img src="https://static.wixstatic.com/media/9587f9_b29916837d91449592011743f6e40291~mv2.png/v1/fill/w_514,h_386,fp_0.50_0.50,q_95,enc_avif,quality_auto/9587f9_b29916837d91449592011743f6e40291~mv2.png" class="slider-img" alt="Chantier 3">
+                        <img src="images/nl.jpeg" class="slider-img active" alt="Chantier 1">
+                        <img src="images/img3.png" class="slider-img" alt="Chantier 2">
+                        <img src="images/img5.png" class="slider-img" alt="Chantier 3">
+                        <img src="images/n4.jpeg" class="slider-img" alt="Chantier 4">
                         
                         <div class="slider-nav">
                             <button id="prevSlide"><i data-lucide="chevron-left"></i></button>
@@ -132,6 +156,7 @@
 
                         <div class="slider-progress">
                             <div class="bar active"></div>
+                            <div class="bar"></div>
                             <div class="bar"></div>
                             <div class="bar"></div>
                         </div>
@@ -162,21 +187,34 @@
                 </div>
             </div>
 
-            <div class="values-grid">
+          <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon"><i data-lucide="shield-check"></i></div>
-                    <h3>Qualité Certifiée</h3>
-                    <p>Matériaux premium et respect des normes DTU en vigueur.</p>
+                    <div class="value-icon"><i data-lucide="pickaxe"></i></div>
+                    <h3>Emménagement extérieur</h3>
+                    <ul class="about-list">
+                        <li>Création parking avec caillot de finition</li>
+                        <li>Création d'une allée enrobée avec ses bordures</li>
+                        <li>Seuil de Portail</li>
+                        <li>Terrassement</li>
+                        <li>Création, terrasse, béton</li>
+                        <li>Nettoyage de terrain</li>
+                    </ul>
                 </div>
+                
                 <div class="value-card">
-                    <div class="value-icon"><i data-lucide="hard-hat"></i></div>
-                    <h3>Sécurité Terrain</h3>
-                    <p>Protocoles stricts pour la protection de nos équipes et de vos sites.</p>
+                    <div class="value-icon"><i data-lucide="shrub"></i></div>
+                    <h3>Terrain</h3>
+                    <ul class="about-list">
+                        <li>Dessouchage, élagage</li>
+                    </ul>
                 </div>
+
                 <div class="value-card">
-                    <div class="value-icon"><i data-lucide="timer"></i></div>
-                    <h3>Respect des Délais</h3>
-                    <p>Une organisation millimétrée pour garantir la livraison à date.</p>
+                    <div class="value-icon"><i data-lucide="anvil"></i></div>
+                    <h3>Démolition</h3>
+                    <ul class="about-list">
+                        <li>Démolition extérieure/intérieur</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -191,7 +229,7 @@
                     <span>CYRIL <strong>BTP</strong></span>
                 </div>
                 <p class="footer-desc">
-                    Expertise en démolition, terrassement et rénovation. Nous bâtissons vos projets avec la rigueur et la sécurité d'un artisan passionné.
+                    Expertise en démolition, terrassement et aménagement. Nous bâtissons vos projets avec la rigueur d'un artisan passionné à Marcheprime.
                 </p>
                 <div class="social-links">
                     <a href="#"><i data-lucide="facebook"></i></a>
@@ -202,10 +240,10 @@
             <div class="footer-column">
                 <h4 class="footer-title">NOS EXPERTISES</h4>
                 <ul class="footer-list">
-                    <li>Démolition de précision</li>
-                    <li>Terrassement massif</li>
+                    <li>Démolition & Curage</li>
                     <li>Aménagement extérieur</li>
-                    <li>Gros œuvre & Maçonnerie</li>
+                    <li>Enrobé & Bordures</li>
+                    <li>Terrassement & Maçonnerie</li>
                 </ul>
             </div>
 
@@ -245,12 +283,12 @@
         </div>
 
         <div class="footer-bottom">
-            <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
-            <div class="legal-links">
-                <a href="#">MENTIONS LÉGALES</a>
-                <a href="#">CONFIDENTIALITÉ</a>
-            </div>
-        </div>
+    <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
+    <div class="legal-links">
+        <a href="mentions-legales.html">MENTIONS LÉGALES & remboursement</a>
+        <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
+    </div>
+</div>
     </div>
 </footer>
 
@@ -276,7 +314,7 @@
         prevBtn.onclick = () => showSlide(current - 1);
         setInterval(() => showSlide(current + 1), 5000);
 
-        // 2. COMPTEURS ANIMÉS (Intersection Observer)
+        // 2. COMPTEURS ANIMÉS
         const stats = document.querySelectorAll('.stat-value');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
