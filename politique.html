@@ -1,103 +1,153 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité | Cyril BTP</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Politique de confidentialité | Cyril BTP</title>
+    
+    <link rel="icon" type="image/png" href="images/lg.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        :root {
-            --orange: #ff6600;
-            --navy: #0f172a;
-            --slate: #475569;
-        }
-        body { font-family: 'Montserrat', sans-serif; color: var(--navy); line-height: 1.6; }
-        
+        /* CSS spécifique pour la page politique */
         .policy-container {
             max-width: 800px;
-            margin: 140px auto 80px;
+            margin: 150px auto 80px; /* Espace pour la navbar fixe */
             padding: 40px;
-            background: #fff;
-            border-radius: 20px;
+            background: #ffffff;
+            border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            font-family: 'Montserrat', sans-serif;
         }
 
-        h1 { font-family: 'Anton'; font-size: 2.5rem; text-transform: uppercase; color: var(--navy); margin-bottom: 30px; }
-        h2 { color: var(--orange); font-size: 1.4rem; margin-top: 30px; }
-        
+        .policy-container h1 {
+            font-family: 'Anton', sans-serif;
+            color: #0f172a;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #ff6b00;
+            display: inline-block;
+        }
+
         .important-note {
             background: #fff7ed;
-            border-left: 4px solid var(--orange);
+            border-left: 4px solid #ff6b00;
             padding: 15px;
             margin-bottom: 30px;
-            font-size: 0.9rem;
             color: #9a3412;
+            font-size: 0.9rem;
+        }
+
+        .policy-content h2 {
+            font-family: 'Anton', sans-serif;
+            color: #0f172a;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+
+        .policy-content p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
         .consent-section {
             margin-top: 40px;
-            padding: 25px;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            background: #f8fafc;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
         }
 
         .checkbox-wrapper {
             display: flex;
+            gap: 15px;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 20px;
             cursor: pointer;
+            margin-bottom: 20px;
         }
 
         .checkbox-wrapper input {
             width: 20px;
             height: 20px;
-            accent-color: var(--orange);
-            cursor: pointer;
+            margin-top: 4px;
+            accent-color: #ff6b00;
         }
 
         .btn-submit {
-            background: var(--navy);
+            background: #ff6b00;
             color: white;
-            padding: 12px 30px;
             border: none;
+            padding: 15px 30px;
             border-radius: 8px;
-            font-weight: 600;
+            font-family: 'Anton', sans-serif;
             cursor: pointer;
             transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .btn-submit:disabled { background: #cbd5e1; cursor: not-allowed; }
-        .btn-submit:not(:disabled):hover { background: var(--orange); }
+        .btn-submit:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: #e65a00;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-block">
+                <div class="logo-square"><img src="images/lg.png" alt="Logo Cyril BTP"></div>
+                <div class="logo-text">
+                    <h1>CYRIL <span>BTP</span></h1>
+                    <p>EXPERTISE & RIGUEUR</p>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">ACCUEIL</a></li>
+                <li><a href="service.html">SERVICES</a></li>
+                <li><a href="realisation.html">RÉALISATIONS</a></li>
+                <li><a href="about.html">A PROPOS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="policy-container">
         <h1>Politique de confidentialité</h1>
 
         <div class="important-note">
             <i data-lucide="alert-triangle" style="width: 18px; vertical-align: middle;"></i>
-            <strong>Note importante :</strong> Ce texte est un modèle. Il doit être adapté avec l'aide d'un conseiller juridique pour correspondre à votre activité réelle.
+            <strong>Note :</strong> Cyril BTP s'engage à protéger vos données personnelles conformément au RGPD.
         </div>
 
         <section class="policy-content">
             <h2>1. Informations recueillies</h2>
-            <p>Nous recueillons les informations que vous nous communiquez via le formulaire de contact (Nom, Email, Téléphone) afin de répondre à vos demandes de devis.</p>
+            <p>Nous recueillons les informations que vous nous communiquez via le formulaire de contact (Nom, Email, Téléphone) afin de répondre à vos demandes de devis et d'information.</p>
 
             <h2>2. Pourquoi nous les recueillons</h2>
-            <p>Ces données sont utilisées uniquement pour la gestion de la relation client et la réalisation des chantiers (terrassement, démolition, aménagement).</p>
+            <p>Ces données sont utilisées uniquement pour la gestion de la relation client, l'établissement de vos devis et la réalisation de vos chantiers (terrassement, démolition, aménagement).</p>
 
-            <h2>3. Partage des informations</h2>
-            <p>Vos informations ne sont jamais vendues à des tiers. Elles ne sont partagées qu'avec nos partenaires strictement nécessaires à la réalisation de vos travaux.</p>
+            <h2>3. Conservation des données</h2>
+            <p>Vos données sont conservées pendant la durée nécessaire à la finalisation de votre projet et pendant la durée légale de conservation des factures et contrats.</p>
+
+            <h2>4. Partage des informations</h2>
+            <p>Vos informations ne sont jamais vendues à des tiers. Elles ne sont partagées qu'avec les collaborateurs de Cyril BTP ou partenaires strictement nécessaires à la réalisation de vos travaux.</p>
+
+            <h2>5. Vos droits</h2>
+            <p>Conformément à la loi informatique et libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez-nous par mail pour toute demande.</p>
         </section>
 
         <div class="consent-section">
-            <h3>Consentement</h3>
             <label class="checkbox-wrapper">
                 <input type="checkbox" id="acceptPolicy">
                 <span>J'ai lu et j'accepte la politique de confidentialité. Je consens à ce que Cyril BTP traite mes données pour répondre à ma demande.</span>
@@ -120,6 +170,7 @@
 
         btn.onclick = function() {
             alert('Merci, votre choix a été enregistré.');
+            window.location.href = 'index.html'; // Redirige vers l'accueil
         };
     </script>
 

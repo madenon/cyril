@@ -88,7 +88,7 @@ body {
 
 .logo-text span { 
     font-family: 'Anton'; 
-    font-size: 1.7rem; 
+    font-size: 1.3rem; 
     color: var(--navy); 
     line-height: 1; 
 }
@@ -113,7 +113,7 @@ body {
 .nav-phone { display: flex; align-items: center; gap: 8px; color: white; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
 .nav-phone i { color: var(--orange); width: 18px; }
 
-.burger { background: none; border: none; color: white; cursor: pointer; display: flex; }
+.burger { background: none; border: none; color: white; cursor: pointer; display: flex; font-size: 1.5rem; }
 
 /* ==========================================================================
    DRAWER MOBILE
@@ -141,16 +141,14 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .drawer-title { font-family: 'Anton'; color: white; letter-spacing: 2px; font-size: 1.2rem; }
-.close-btn { background: none; border: none; color: var(--orange); cursor: pointer; }
+.close-btn { background: none; border: none; color: var(--orange); cursor: pointer; font-size: 1.5rem; }
 
 .mobile-links {
     list-style: none;
     padding: 30px;
     margin: 0;
 }
-.mobile-links li {
-    margin-bottom: 25px;
-}
+.mobile-links li { margin-bottom: 25px; }
 .mobile-links li a {
     text-decoration: none;
     color: white;
@@ -162,12 +160,9 @@ body {
     text-transform: uppercase;
     transition: 0.3s;
 }
-.mobile-links li a:hover { color: var(--orange); }
+.mobile-links li a:hover { color: var(--orange); padding-left: 10px; }
 
-.drawer-footer {
-    margin-top: auto;
-    padding: 30px;
-}
+.drawer-footer { margin-top: auto; padding: 30px; }
 .cta-mobile {
     display: flex;
     align-items: center;
@@ -187,7 +182,7 @@ body {
    ========================================================================== */
 .hero {
     height: 100vh; min-height: 650px;
-    background: linear-gradient(to right, rgba(10, 15, 29, 0.85) 0%, rgba(10, 15, 29, 0.3) 50%, rgba(10, 15, 29, 0.1) 100%), 
+    background: linear-gradient(to right, rgba(10, 15, 29, 0.9) 0%, rgba(10, 15, 29, 0.4) 50%, rgba(10, 15, 29, 0.2) 100%), 
                 url('https://static.wixstatic.com/media/9587f9_29c63c059f2d45c6bba910ea0d3a4789~mv2.jpeg/v1/fill/w_576,h_645,al_c,lg_1,q_85,enc_avif,quality_auto/9587f9_29c63c059f2d45c6bba910ea0d3a4789~mv2.jpeg');
     background-size: cover; 
     background-position: center right;
@@ -206,27 +201,26 @@ body {
     font-weight: 900; 
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-transform: uppercase;
 }
 
 .hero-title { 
     font-family: 'Anton', sans-serif; 
     font-size: clamp(2.5rem, 10vw, 5rem); 
-    line-height: 1; 
+    line-height: 1.1; 
     color: white; 
     text-transform: uppercase;
     text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
 }
-
 .hero-title span { color: var(--orange); }
 
 .hero-desc { 
     margin: 30px 0; 
     color: #ffffff; 
-    font-size: 1.2rem; 
+    font-size: 1.1rem; 
     max-width: 600px; 
     border-left: 5px solid var(--orange); 
     padding: 10px 0 10px 25px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     background: rgba(10, 15, 29, 0.4);
 }
 
@@ -239,11 +233,7 @@ body {
 /* ==========================================================================
    4. SERVICES SLIDER
    ========================================================================== */
-.services-slider-section { 
-    padding: 100px 0; 
-    background: var(--slate-bg); 
-    overflow: hidden;
-}
+.services-slider-section { padding: 100px 0; background: var(--slate-bg); overflow: hidden; }
 
 .slider-wrapper {
     position: relative;
@@ -272,81 +262,38 @@ body {
     width: 100%;
     overflow: hidden;
 }
-
-.service-slide.active { 
-    display: block; 
-    animation: fadeInSlide 0.6s ease-out;
-}
+.service-slide.active { display: block; animation: fadeInSlide 0.6s ease-out; }
 
 .card-img-container img {
     width: 100%;
-    height: 80vh;
+    height: 400px; /* Ajusté car 80vh était trop grand pour une carte slider */
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.service-slide:hover .card-img-container img {
-    transform: scale(1.05);
-}
-
+.service-slide:hover .card-img-container img { transform: scale(1.05); }
 .card-body { padding: 40px; text-align: center; }
-
-.card-icon { 
-    color: var(--orange); 
-    margin-bottom: 20px; 
-    font-size: 2.5rem; 
-    display: flex;
-    justify-content: center;
-}
-
-.card-body h2 { 
-    font-family: 'Anton'; 
-    font-size: 2rem; 
-    margin-bottom: 15px; 
-    color: var(--navy); 
-    text-transform: uppercase;
-}
-
+.card-icon { color: var(--orange); margin-bottom: 20px; font-size: 2.5rem; display: flex; justify-content: center; }
+.card-body h2 { font-family: 'Anton'; font-size: 2rem; margin-bottom: 15px; color: var(--navy); text-transform: uppercase; }
 .card-body p { color: var(--slate-text); font-size: 1.05rem; }
 
 .slider-arrow {
     background: var(--orange);
     color: white;
     border: none;
-    width: 60px;
-    height: 60px;
+    width: 60px; height: 60px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     transition: var(--transition);
     flex-shrink: 0;
     box-shadow: 0 4px 15px rgba(255,107,0,0.3);
 }
+.slider-arrow:hover { background: var(--navy); transform: scale(1.1); }
 
-.slider-arrow:hover {
-    background: var(--navy);
-    transform: scale(1.1);
-}
-
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 40px;
-}
-
-.dot {
-    width: 12px; height: 12px; background: #cbd5e1; border-radius: 50%; cursor: pointer; transition: var(--transition);
-}
-
-.dot.active {
-    background: var(--orange);
-    transform: scale(1.4);
-    width: 25px;
-    border-radius: 10px;
-}
+.slider-dots { display: flex; justify-content: center; gap: 12px; margin-top: 40px; }
+.dot { width: 12px; height: 12px; background: #cbd5e1; border-radius: 50%; cursor: pointer; transition: var(--transition); }
+.dot.active { background: var(--orange); transform: scale(1.4); width: 25px; border-radius: 10px; }
 
 @keyframes fadeInSlide {
     from { opacity: 0; transform: translateY(20px); }
@@ -363,12 +310,7 @@ body {
 
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-.project-row { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 40px; 
-    margin-bottom: 80px; 
-}
+.project-row { display: flex; flex-direction: column; gap: 40px; margin-bottom: 80px; }
 
 .image-card { 
     background: #f8fafc; padding: 12px; border-radius: 20px; 
@@ -397,11 +339,7 @@ body {
 /* ==========================================================================
    6. FOOTER
    ========================================================================== */
-.footer {
-    background: var(--navy); color: var(--white);
-    padding: 80px 0 30px;
-}
-
+.footer { background: var(--navy); color: var(--white); padding: 80px 0 30px; }
 .footer-grid {
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -416,7 +354,6 @@ body {
     position: relative; 
     text-transform: uppercase;
 }
-
 .footer-title::after { 
     content: ''; position: absolute; bottom: -10px; left: 0; width: 40px; height: 3px; background: var(--orange); 
 }
@@ -429,9 +366,7 @@ body {
 .footer-list li { color: #94a3b8; font-size: 0.9rem; margin-bottom: 12px; }
 
 .contact-box-footer { display: flex; flex-direction: column; gap: 15px; }
-.contact-item { 
-    display: flex; align-items: center; gap: 12px; text-decoration: none; color: #94a3b8; transition: 0.3s; 
-}
+.contact-item { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #94a3b8; transition: 0.3s; }
 .contact-item:hover { color: var(--orange); }
 
 .footer-bottom {
@@ -446,7 +381,6 @@ body {
    7. MEDIA QUERIES (RESPONSIVE)
    ========================================================================== */
 
-/* Tablettes et Ordinateurs */
 @media (min-width: 992px) {
     .nav-menu { display: flex; }
     .burger { display: none; }
@@ -458,16 +392,18 @@ body {
     }
     
     .project-row.reverse { flex-direction: row-reverse; }
-    
     .project-image-wrapper, .project-text { flex: 1; }
-    
     .image-card img { height: 500px; }
 }
 
-/* Mobiles */
+@media (max-width: 991px) {
+    .nav-container { width: 95%; }
+}
+
 @media (max-width: 768px) {
-    .hero-title { font-size: 3rem; }
+    .hero-title { font-size: 2rem; }
     .slider-arrow { display: none; }
     .services-slider-container { max-width: 100%; }
-    .nav-phone span { display: none; } /* Cache le numéro texte, garde l'icône */
+    .nav-phone span { display: none; }
+    .card-img-container img { height: 300px; }
 }

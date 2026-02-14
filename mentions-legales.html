@@ -3,64 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termes & Conditions | Cyril BTP</title>
+    <title>Documents Légaux | Cyril BTP</title>
+    
+    <link rel="icon" type="image/png" href="images/lg.png" />
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        :root { --orange: #ff6600; --navy: #0f172a; }
-        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #334155; padding: 0; margin: 0; }
+        :root { 
+            --orange: #ff6b00; 
+            --navy: #0f172a; 
+            --slate: #475569;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            line-height: 1.6; 
+            color: var(--slate); 
+            background-color: #f8fafc;
+            margin: 0;
+        }
         
-        .legal-wrapper { max-width: 900px; margin: 100px auto; padding: 40px; }
+        /* Conteneur principal */
+        .legal-wrapper { 
+            max-width: 900px; 
+            margin: 150px auto 80px; 
+            padding: 20px; 
+        }
         
+        h1 { 
+            font-family: 'Anton'; 
+            font-size: 3rem; 
+            text-transform: uppercase; 
+            color: var(--navy); 
+            border-bottom: 5px solid var(--orange); 
+            display: inline-block; 
+            margin-bottom: 50px; 
+        }
+
         .legal-section { 
             background: #fff; 
-            padding: 30px; 
+            padding: 40px; 
             border-radius: 15px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             margin-bottom: 40px;
             border-left: 6px solid var(--orange);
         }
 
-        h1, h2 { font-family: 'Anton'; text-transform: uppercase; color: var(--navy); }
-        h1 { font-size: 2.5rem; border-bottom: 3px solid var(--orange); display: inline-block; margin-bottom: 40px; }
-        h2 { font-size: 1.5rem; margin-top: 0; }
+        h2 { 
+            font-family: 'Anton'; 
+            font-size: 1.8rem; 
+            text-transform: uppercase; 
+            color: var(--navy); 
+            margin-top: 0; 
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: var(--navy);
+            font-weight: 700;
+            margin-top: 25px;
+        }
         
-        .info-box { background: #f1f5f9; padding: 20px; border-radius: 8px; margin-bottom: 20px; font-style: italic; }
-        .contact-footer { margin-top: 50px; text-align: center; border-top: 1px solid #eee; padding-top: 30px; }
+        .info-box { 
+            background: #fff7ed; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 25px; 
+            font-style: italic; 
+            border: 1px dashed var(--orange);
+            color: #9a3412;
+        }
+
+        p { margin-bottom: 15px; }
+
+        .contact-footer { 
+            margin-top: 60px; 
+            text-align: center; 
+            padding: 40px;
+            background: var(--navy);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .contact-footer p { margin: 5px 0; }
+        .contact-footer strong { color: var(--orange); font-size: 1.2rem; }
     </style>
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-block">
+                <div class="logo-square"><img src="images/lg.png" alt="Logo Cyril BTP"></div>
+                <div class="logo-text">
+                    <h1>CYRIL <span>BTP</span></h1>
+                    <p>EXPERTISE & RIGUEUR</p>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">ACCUEIL</a></li>
+                <li><a href="service.html">SERVICES</a></li>
+                <li><a href="realisation.html">RÉALISATIONS</a></li>
+                <li><a href="about.html">A PROPOS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="legal-wrapper">
         <h1>Documents Légaux</h1>
 
         <div class="legal-section">
-            <h2>Termes et conditions</h2>
+            <h2>Conditions Générales d'Utilisation</h2>
             <div class="info-box">
-                Ce modèle est un exemple de texte. Il n’est pas complet et ne peut pas être publié.
+                Note : Ce document régit l'utilisation du site web. Pour les contrats de travaux (devis), veuillez vous référer aux Conditions Générales de Vente (CGV) présentes au dos de vos devis signés.
             </div>
-            <p>Les termes et conditions ont pour but de protéger les propriétaires de site. Ces derniers peuvent définir leurs propres conditions générales et répondre aux exigences qui s’imposent à eux en matière d’informations.</p>
-            <p>Dans le cas d’une boutique en ligne, les informations obligatoires peuvent être par exemple, l’ajout de détails concernant les articles, les prix, les termes du contrat, la résiliation et l’annulation. Les termes et conditions doivent également contenir des titres et être formulés en fonction des besoins de votre propre entreprise.</p>
-            <p>Afin de vous assurer que vous respectez pleinement vos obligations légales, nous vous conseillons vivement de demander conseil à un professionnel afin de mieux comprendre quelles sont les exigences qui vous concernent spécifiquement.</p>
-            <p><a href="#" style="color: var(--orange);">Cliquez ici</a> pour obtenir des informations plus détaillées sur la création de vos termes et conditions.</p>
+            <p>L'utilisation du site <strong>Cyril-BTP.fr</strong> implique l'acceptation pleine et entière des conditions générales d'utilisation ci-après décrites. Ces conditions d'utilisation sont susceptibles d'être modifiées ou complétées à tout moment.</p>
+            
+            <h3>Propriété intellectuelle</h3>
+            <p>Cyril BTP est propriétaire des droits de propriété intellectuelle ou détient les droits d’usage sur tous les éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes.</p>
+            
+            <h3>Limitation de responsabilité</h3>
+            <p>Cyril BTP ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l’utilisateur lors de l’accès au site. Le site a pour but de fournir une information concernant l’ensemble des activités de la société (Terrassement, Démolition, etc.).</p>
         </div>
 
         <div class="legal-section">
-            <h2>Politique de remboursement</h2>
-            <h3>Un avis juridique</h3>
-            <p>Les explications et informations fournies sur cette page ne sont que des explications et informations générales et de haut niveau sur la manière de rédiger votre propre document de politique de remboursement. Vous ne devez pas considérer cet article comme un conseil juridique ou une recommandation sur ce que vous devez faire, car nous ne pouvons pas savoir à l'avance quelles sont les politiques de remboursement spécifiques que vous souhaitez établir entre votre entreprise et vos clients. Nous vous recommandons de demander un avis juridique pour vous aider à comprendre et à créer votre propre politique de remboursement.</p>
+            <h2>Politique d'annulation et travaux</h2>
+            <h3>Acompte et Signature</h3>
+            <p>Dans le secteur du bâtiment, tout projet débute après signature d'un devis et versement d'un acompte (généralement 30%). Cet acompte permet de réserver les dates d'intervention et de commander les matériaux nécessaires.</p>
             
-            <h3>Politique de remboursement - les bases</h3>
-            <p>Cela dit, une politique de remboursement est un document juridiquement contraignant qui vise à établir les relations juridiques entre vous et vos clients en ce qui concerne la manière dont vous leur accorderez un remboursement et si vous le faites. Les entreprises en ligne qui vendent des articles sont parfois tenues (en fonction des lois et réglementations locales) de présenter leur politique de retour et de remboursement des articles. Dans certaines juridictions, cela est nécessaire pour se conformer aux lois de protection des consommateurs. Cela peut également vous aider à éviter les réclamations juridiques de clients qui ne sont pas satisfaits des articles qu'ils ont achetés.</p>
+            <h3>Droit de rétractation</h3>
+            <p>Conformément à la loi, vous disposez d'un délai de rétractation de 14 jours après la signature d'un contrat conclu hors établissement. Cependant, ce droit ne peut être exercé si les travaux ont déjà commencé, à votre demande, avant la fin de ce délai.</p>
             
-            <h3>Ce qu'il faut inclure dans la politique de remboursement</h3>
-            <p>D'une manière générale, une politique de remboursement aborde souvent ces types de questions : le délai pour demander un remboursement ; le remboursement sera-t-il total ou partiel ; dans quelles conditions le client recevra-t-il un remboursement ; et bien plus encore.</p>
+            <h3>Conditions d'annulation</h3>
+            <p>En cas d'annulation de la part du client hors délai légal, l'acompte versé pourra être conservé à titre de dédommagement pour les frais engagés (préparation, matériel, blocage du planning).</p>
         </div>
 
         <div class="contact-footer">
-            <p><strong>Cyril BTP</strong></p>
-            <p><i data-lucide="phone"></i> 06 22 89 29 16</p>
+            <p><strong>CYRIL BTP</strong></p>
+            <p>Entreprise de Travaux Publics à Marcheprime</p>
+            <p><i data-lucide="phone" style="width: 16px; vertical-align: middle;"></i> 06 22 89 29 16</p>
+            <p><i data-lucide="map-pin" style="width: 16px; vertical-align: middle;"></i> 33380 Marcheprime, France</p>
         </div>
     </div>
 

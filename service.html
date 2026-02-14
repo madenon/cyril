@@ -9,35 +9,63 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/service.css"> <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/service.css"> 
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo-block" style="text-decoration: none;">
+            <a href="index.html" class="logo-block">
                 <div class="logo-square"><img src="images/lg.png" alt="Logo Cyril BTP"></div>
                 <div class="logo-text">
                     <h1>CYRIL <span>BTP</span></h1>
                     <p>EXPERTISE & RIGUEUR</p>
                 </div>
             </a>
+
             <ul class="nav-menu">
                 <li><a href="index.html">ACCUEIL</a></li>
                 <li><a href="service.html" class="active">SERVICES</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="about.html">A PROPOS</a></li>
                 <li><a href="realisation.html">RÉALISATIONS</a></li>
+                <li><a href="about.html">A PROPOS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
             </ul>
+
+            <button class="burger" id="openDrawer">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
     </nav>
+
+    <div class="drawer-overlay" id="overlay"></div>
+    <div class="drawer" id="drawer">
+        <div class="drawer-header">
+            <span class="drawer-title">MENU</span>
+            <button class="close-btn" id="closeDrawer">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html">ACCUEIL <i data-lucide="chevron-right"></i></a></li>
+            <li><a href="service.html" class="active">SERVICES <i data-lucide="chevron-right"></i></a></li>
+            <li><a href="realisation.html">RÉALISATIONS <i data-lucide="chevron-right"></i></a></li>
+            <li><a href="about.html">A PROPOS <i data-lucide="chevron-right"></i></a></li>
+            <li><a href="contact.html">CONTACT <i data-lucide="chevron-right"></i></a></li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="tel:+33622892916" class="cta-mobile">
+                <i data-lucide="phone-call"></i> 06 22 89 29 16
+            </a>
+        </div>
+    </div>
 
     <section class="services-section">
         <div class="container" id="services-list">
             </div>
     </section>
 
-     <footer class="footer">
+    <footer class="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-column brand-info">
@@ -108,16 +136,34 @@
             © 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS
           </div>
           <div class="legal-links">
-            <a href="mentions-legales.html">MENTIONS LÉGALES & remboursement</a>
-            <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
+            <a href="mentions-legales.html">MENTIONS LÉGALES</a>
+            <a href="politique.html">CONFIDENTIALITÉ</a>
           </div>
         </div>
       </div>
     </footer>
 
     <script>
+        // Initialisation des icônes
         lucide.createIcons();
 
+        // --- GESTION DU MENU MOBILE ---
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('overlay');
+        const openBtn = document.getElementById('openDrawer');
+        const closeBtn = document.getElementById('closeDrawer');
+
+        function toggleMenu() {
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // --- DONNÉES SERVICES ---
         const servicesData = [
             { id: "01", titre: "Démolition de précision", tag: "SÉCURITÉ", desc: "Déconstruction sélective pour structures béton et métal.", img: "images/demoli.png", details: "Gestion du tri des matériaux et évacuation des gravats en centre agréé." },
             { id: "02", titre: "Terrassement complet", tag: "GROS OEUVRE", desc: "Préparation des sols pour fondations et piscines.", img: "images/_amen.png", details: "Nivellement de terrain, tranchées pour réseaux (VRD) et plateforme." },
@@ -127,6 +173,7 @@
             { id: "06", titre: "Aménagements Durables", tag: "FINITION", desc: "Création de terrasses, murets et accès extérieurs.", img: "images/_8ans.png", details: "Aménagements paysagers minéraux et accès carrossables." }
         ];
 
+        // --- INJECTION DES SERVICES ---
         const list = document.getElementById('services-list');
         servicesData.forEach((s, i) => {
             const isReverse = i % 2 !== 0 ? 'reverse' : '';
@@ -146,14 +193,19 @@
                 </div>
             `;
         });
+        
+        // Relancer lucide pour les icônes injectées
         lucide.createIcons();
 
+        // --- FONCTION ACCORDÉON ---
         function toggleDetails(btn) {
             const panel = btn.nextElementSibling;
             const icon = btn.querySelector('i');
             const label = btn.querySelector('span');
+            
             panel.classList.toggle('active');
             const isOpened = panel.classList.contains('active');
+            
             label.textContent = isOpened ? 'FERMER' : 'VOIR LES DÉTAILS';
             icon.setAttribute('data-lucide', isOpened ? 'minus' : 'plus');
             lucide.createIcons(); 
