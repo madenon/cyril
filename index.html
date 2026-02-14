@@ -108,11 +108,10 @@
     <main>
         <section class="hero" id="accueil">
             <div class="hero-content">
-                <p class="hero-subtitle animate__animated animate__fadeInDown">Travaux  de démolition et d'aménagement extérieur-intérieur par Cyril BTP </p>
+                <p class="hero-subtitle animate__animated animate__fadeInDown">Travaux de démolition et d'aménagement extérieur-intérieur par Cyril BTP </p>
                 <h1 class="hero-title hero-ma animate__animated animate__fadeInUp animate__delay-1s">Démolition aménagement<br><span>PAR CYRIL BTP</span></h1>
-                <span></span>
                 <div class="hero-desc-container">  
-                    <p class="hero-desc">Travaux de <strong>démolition</strong> et d'<strong>aménagement <span></span></strong> extérieur  <span>intérieur</span>.</p>
+                    <p class="hero-desc">Travaux de <strong>démolition</strong> et d'<strong>aménagement</strong> extérieur <span>intérieur</span>.</p>
                 </div>
                 <div class="hero-actions">
                     <a href="contact.html" class="btn-devis">DEMANDER UN DEVIS <i data-lucide="arrow-right"></i></a>
@@ -121,25 +120,74 @@
             </div>
         </section>
 
-        <section class="services-cards" id="services">
-            <div class="container grid-3">
-                
-                <article class="card">
-                    <div class="card-icon"><i data-lucide="building-2"></i></div>
-                    <h2>Travaux de Démolition</h2>
-                    <p>Démolition totale ou sélective de bâtiments avec gestion responsable des gravats.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon"><i data-lucide="ruler"></i></div>
-                    <h2>Aménagement Extérieur</h2>
-                    <p>Optimisation des extérieurs, préparation des sols et nivellement précis pour vos projets.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon"><i data-lucide="wrench"></i></div>
-                    <h2>Déconstruction Intérieur</h2>
-                    <p>Maçonnerie générale et remise à neuf de structures avec une finition impeccable.</p>
-                </article>
-                  
+        <section class="services-slider-section" id="services">
+            <div class="container">
+                <div class="slider-wrapper">
+                    <button class="slider-arrow prev" id="prevBtn" aria-label="Précédent">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+
+                    <div class="services-slider-container" id="sliderContainer">
+                        
+                        <article class="card service-slide active">
+                            <div class="card-img-container">
+                                <img src="images/n4.jpeg" alt="Démolition Cyril BTP">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-icon"><i data-lucide="building-2"></i></div>
+                                <h2>Travaux de construction</h2>
+                                <p>Emménagement extérieur
+Création parking avec caillot de finitionCréation d'une allée enrobée avec ses borduresSeuil de PortailTerrassementCréation, terrasse, bétonNettoyage de terrain
+Dessouchage, élagageAprès le reste démolition extérieure/intérieur</p>
+                            </div>
+                        </article>
+
+                        <article class="card service-slide">
+                            <div class="card-img-container">
+                                <img src="images/n3.jpeg" alt="Aménagement Extérieur Cyril BTP">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-icon"><i data-lucide="ruler"></i></div>
+                                <h2>Aménagement Extérieur</h2>
+                                <p>Emménagement extérieur
+Création parking avec caillot de finitionCréation d'une allée enrobée avec ses borduresSeuil de PortailTerrassementCréation, terrasse, bétonNettoyage de terrain
+Dessouchage, élagageAprès le reste démolition extérieure/intérieur</p>
+                            </div>
+                        </article>
+
+                        <article class="card service-slide">
+                            <div class="card-img-container">
+                                <img src="images/n2.jpeg" alt="Déconstruction Cyril BTP">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-icon"><i data-lucide="wrench"></i></div>
+                                <h2>Déconstruction Intérieur</h2>
+                                <p>Emménagement extérieur
+Création parking avec caillot de finitionCréation d'une allée enrobée avec ses borduresSeuil de PortailTerrassementCréation, terrasse, bétonNettoyage de terrain
+Dessouchage, élagageAprès le reste démolition extérieure/intérieur.</p>
+                            </div>
+                        </article>
+
+                        <article class="card service-slide">
+                            <div class="card-img-container">
+                                <img src="images/n1.jpeg" alt="Assainissement Cyril BTP">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-icon"><i data-lucide="droplet"></i></div>
+                                <h2>Assainissement & Élagage</h2>
+                                <p>Emménagement extérieur
+Création parking avec caillot de finitionCréation d'une allée enrobée avec ses borduresSeuil de PortailTerrassementCréation, terrasse, bétonNettoyage de terrain
+Dessouchage, élagageAprès le reste démolition extérieure/intérieur.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button class="slider-arrow next" id="nextBtn" aria-label="Suivant">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
         </section>
 
         <section class="realisations" id="realisations">
@@ -175,8 +223,7 @@
                     <div class="project-text">
                         <span class="project-id">Deconstructeur professionnel</span>
                         <h3 class="project-title">Cyril BTP à Marcheprime</h3>
-                        <p class="project-desc">  Si vous recherchez une entreprise spécialisée dans la démolition et la déconstruction à Marcheprime, ne cherchez pas plus loin que Cyril BTP. Fondée en 2018 avec une expertise de cinq ans dans le domaine, Cyril BTP propose une gamme de services allant de la démolition intérieure et extérieure à l'aménagement extérieur, en passant par l'assainissement et l'élagage/débroussaillage.
-                            Située à Marcheprime 33380, Cyril BTP s'efforce d'augmenter sa visibilité et d'attirer de nouveaux clients grâce à un site web informatif et convivial. Que vous ayez besoin de démolir un bâtiment, de déconstruire des structures intérieures, d'aménager votre espace extérieur ou d'entreprendre des travaux d'assainissement, Cyril BTP est là pour répondre à vos besoins de manière professionnelle et efficace. Grâce à son expérience et à son savoir-faire, Cyril BTP s'est forgé une solide réputation dans le secteur de la construction à Marche Prime. L'équipe hautement qualifiée de Cyril BTP est dédiée à fournir des services de haute qualité tout en respectant les normes de sécurité et en veillant à la satisfaction des clients. Si vous cherchez une entreprise fiable pour vos projets de démolition, de déconstruction ou d'aménagement extérieur à Marche Prime, faites confiance à Cyril BTP. Leur engagement envers l'excellence et leur expertise dans le domaine font de Cyril BTP le choix idéal pour tous vos besoins en matière de construction. N'hésitez pas à visiter leur site web pour en savoir plus sur leurs services et à les contacter pour obtenir un devis personnalisé..</p>
+                        <p class="project-desc">Si vous recherchez une entreprise spécialisée dans la démolition et la déconstruction à Marcheprime, ne cherchez pas plus loin que Cyril BTP. Fondée en 2018 avec une expertise de cinq ans dans le domaine, Cyril BTP propose une gamme de services allant de la démolition intérieure et extérieure à l'aménagement extérieur, en passant par l'assainissement et l'élagage/débroussaillage. Située à Marcheprime 33380, Cyril BTP s'efforce d'augmenter sa visibilité et d'attirer de nouveaux clients grâce à un site web informatif et convivial. Que vous ayez besoin de démolir un bâtiment, de déconstruire des structures intérieures, d'aménager votre espace extérieur ou d'entreprendre des travaux d'assainissement, Cyril BTP est là pour répondre à vos besoins de manière professionnelle et efficace. Grâce à son expérience et à son savoir-faire, Cyril BTP s'est forgé une solide réputation dans le secteur de la construction à Marche Prime.</p>
                         <div class="tech-tags">
                             <span class="tag"><i data-lucide="check-circle-2"></i> NIVELLEMENT</span>
                             <span class="tag"><i data-lucide="check-circle-2"></i> PRÉCISION</span>
@@ -184,8 +231,7 @@
                     </div>
                 </div>
 
-
-                <div class="project-row reverse">
+                <div class="project-row">
                     <div class="project-image-wrapper">
                         <div class="image-card">
                             <img src="images/ia.png" alt="Terrassement résidentiel" loading="lazy">
@@ -194,13 +240,7 @@
                     <div class="project-text">
                         <span class="project-id">Cyril BTP</span>
                         <h3 class="project-title">Travaux de démolition et d'aménagement extérieur par Cyril BTP</h3>
-                        <p class="project-desc"> 
-                           
-
-
-
-
-Aujourd'hui, nous aimerions vous présenter une entreprise de construction exceptionnelle, Cyril BTP, spécialisée dans les travaux de démolition intérieure et extérieure, de déconstruction intérieure, d'aménagement extérieur, de VRD, d'assainissement et d'élagage/débroussaillage. Fondée en mars 2018 et basée à Marcheprime 33380, cette entreprise dispose de cinq ans d'expérience dans le domaine, ce qui en fait un choix de confiance pour tous vos projets de construction et d'aménagement.
+                        <p class="project-desc">Aujourd'hui, nous aimerions vous présenter une entreprise de construction exceptionnelle, Cyril BTP, spécialisée dans les travaux de démolition intérieure et extérieure, de déconstruction intérieure, d'aménagement extérieur, de VRD, d'assainissement et d'élagage/débroussaillage. Fondée en mars 2018 et basée à Marcheprime 33380, cette entreprise dispose de cinq ans d'expérience dans le domaine, ce qui en fait un choix de confiance pour tous vos projets de construction et d'aménagement.</p>
                         <div class="tech-tags">
                             <span class="tag"><i data-lucide="check-circle-2"></i> NIVELLEMENT</span>
                             <span class="tag"><i data-lucide="check-circle-2"></i> PRÉCISION</span>
@@ -282,10 +322,9 @@ Aujourd'hui, nous aimerions vous présenter une entreprise de construction excep
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialisation des icônes
             lucide.createIcons();
 
-            // Gestion du menu mobile
+            // Menu Mobile
             const drawer = document.getElementById('mobileDrawer');
             const overlay = document.getElementById('drawerOverlay');
             const openBtn = document.getElementById('openMenu');
@@ -301,6 +340,35 @@ Aujourd'hui, nous aimerions vous présenter une entreprise de construction excep
             openBtn?.addEventListener('click', () => toggleMenu('open'));
             closeBtn?.addEventListener('click', () => toggleMenu('close'));
             overlay?.addEventListener('click', () => toggleMenu('close'));
+
+            // Carrousel Services
+            const slides = document.querySelectorAll('.service-slide');
+            const dotsContainer = document.getElementById('sliderDots');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIdx = 0;
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if(i === 0) dot.classList.add('active');
+                dot.onclick = () => showSlide(i);
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = document.querySelectorAll('.dot');
+
+            function showSlide(index) {
+                slides[currentIdx].classList.remove('active');
+                dots[currentIdx].classList.remove('active');
+                currentIdx = (index + slides.length) % slides.length;
+                slides[currentIdx].classList.add('active');
+                dots[currentIdx].classList.add('active');
+            }
+
+            nextBtn.onclick = () => showSlide(currentIdx + 1);
+            prevBtn.onclick = () => showSlide(currentIdx - 1);
+            setInterval(() => showSlide(currentIdx + 1), 5000);
         });
     </script>
 </body>
