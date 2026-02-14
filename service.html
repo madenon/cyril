@@ -9,59 +9,14 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/service.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <style>
-        /* Styles spécifiques à la page Services */
-        .services-section { padding: 80px 0; background: #f8fafc; }
-        .service-row { display: flex; flex-direction: column; gap: 30px; margin-bottom: 80px; align-items: center; }
-        
-        .service-image { width: 100%; }
-        .service-image img { 
-            width: 100%; 
-            height: 300px; 
-            object-fit: cover; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Correction ici: box-shadow */
-        }
-        
-        .service-content { width: 100%; }
-        .service-number { font-family: 'Anton'; font-size: 60px; color: rgba(15, 23, 42, 0.05); line-height: 1; display: block; }
-        .service-tag { color: #ff6b00; font-weight: 800; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
-        .service-title { font-family: 'Anton'; font-size: 2.2rem; margin: 10px 0; color: #0f172a; text-transform: uppercase; }
-        .service-description { color: #475569; line-height: 1.7; border-left: 4px solid #ff6b00; padding-left: 15px; margin-bottom: 25px; }
-
-        .btn-details { background: #0f172a; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
-        .btn-details:hover { background: #ff6b00; transform: translateY(-2px); }
-        
-        .details-panel { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: #ffffff; border-radius: 8px; }
-        .details-panel.active { max-height: 300px; opacity: 1; padding: 20px; margin-top: 15px; border: 1px solid #e2e8f0; }
-
-        /* Correction du Logo Footer pour qu'il soit clair */
-        .logo-footer { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
-        .logo-square-footer { 
-            width: 45px; height: 45px; background: white; border-radius: 8px; 
-            display: flex; align-items: center; justify-content: center; padding: 5px; 
-        }
-        .logo-square-footer img { width: 100%; object-fit: contain; }
-
-        @media (min-width: 850px) {
-            .service-row { flex-direction: row; gap: 80px; }
-            .service-row.reverse { flex-direction: row-reverse; }
-            .service-image, .service-content { width: 50%; }
-            .service-image img { height: 480px; }
-            .service-title { font-size: 3.2rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/service.css"> <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo-block" style="text-decoration: none;">
-                <div class="logo-square">
-                    <img src="images/lg.png" alt="Logo Cyril BTP">
-                </div>
+                <div class="logo-square"><img src="images/lg.png" alt="Logo Cyril BTP"></div>
                 <div class="logo-text">
                     <h1>CYRIL <span>BTP</span></h1>
                     <p>EXPERTISE & RIGUEUR</p>
@@ -69,132 +24,107 @@
             </a>
             <ul class="nav-menu">
                 <li><a href="index.html">ACCUEIL</a></li>
-                <li><a href="about.html">A PROPOS</a></li>
                 <li><a href="service.html" class="active">SERVICES</a></li>
-                <li><a href="realisation.html">RÉALISATIONS</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="about.html">A PROPOS</a></li>
+                <li><a href="realisation.html">RÉALISATIONS</a></li>
             </ul>
-            <div class="nav-contact-wrapper">
-                <a href="tel:+33622892916" class="nav-phone">
-                    <i data-lucide="phone"></i>
-                    <span>06 22 89 29 16</span>
-                </a>
-                <button class="burger" id="openMenu"><i data-lucide="menu"></i></button>
-            </div>
         </div>
     </nav>
-
-    <div class="drawer-overlay" id="drawerOverlay"></div> 
-    <div class="drawer" id="mobileDrawer">
-        <div class="drawer-content">
-            <div class="drawer-header">
-                <h2 class="drawer-title">NAVIGATION</h2>
-                <button class="close-btn" id="closeMenu"><i data-lucide="x"></i></button>
-            </div>
-            <nav class="drawer-body">
-                <ul class="mobile-links">
-                    <li><a href="index.html">ACCUEIL <i data-lucide="chevron-right"></i></a></li>
-                    <li><a href="about.html">À PROPOS <i data-lucide="chevron-right"></i></a></li>
-                    <li><a href="service.html">SERVICES <i data-lucide="chevron-right"></i></a></li>
-                    <li><a href="realisation.html">NOS RÉALISATIONS <i data-lucide="chevron-right"></i></a></li>
-                    <li><a href="contact.html">CONTACT <i data-lucide="chevron-right"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-    <section class="page-title-section">
-        <div class="container">
-            <h1 class="main-title">NOS <span>EXPERTISES</span></h1>
-            <div class="orange-divider"></div>
-            <p class="subtitle">QUALITÉ PROFESSIONNELLE ET SAVOIR-FAIRE GARANTI</p>
-        </div>
-    </section>
 
     <section class="services-section">
         <div class="container" id="services-list">
             </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column brand-info">
-                    <div class="logo-footer">
-                        <div class="logo-square-footer">
-                            <img src="images/lg.png" alt="Logo Cyril BTP">
-                        </div>
-                        <span style="font-family:'Anton'; font-size:1.7rem; margin-left:10px;">CYRIL <strong style="color:#ff6b00;">BTP</strong></span>
-                    </div>
-                    <p class="footer-desc">Expertise en démolition, terrassement et rénovation. Nous bâtissons vos projets avec rigueur.</p>
-                    <div class="social-links">
-                        <a href="#"><i data-lucide="facebook"></i></a>
-                        <a href="#"><i data-lucide="instagram"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h4 class="footer-title">NOS EXPERTISES</h4>
-                    <ul class="footer-list">
-                        <li>Démolition de précision</li>
-                        <li>Terrassement complet</li>
-                        <li>Maçonnerie Générale</li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4 class="footer-title">INFORMATIONS</h4>
-                    <div class="info-item-footer">
-                        <i data-lucide="clock"></i>
-                        <div><strong>Horaires</strong><span>Lun - Ven: 08:00 - 18:00</span></div>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h4 class="footer-title">CONTACT DIRECT</h4>
-                    <div class="contact-box-footer">
-                        <a href="tel:+33622892916" class="contact-item">
-                            <div class="icon-wrap"><i data-lucide="phone"></i></div>
-                            <span>06 22 89 29 16</span>
-                        </a>
-                    </div>
-                </div>
+     <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column brand-info">
+            <div class="logo-footer">
+              <img src="images/lg.png" alt="Cyril BTP" />
+              <span>CYRIL <strong>BTP</strong></span>
             </div>
-                    <div class="footer-bottom">
-    <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
-    <div class="legal-links">
-        <a href="mentions-legales.html">MENTIONS LÉGALES & remboursement</a>
-        <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
-    </div>
-</div>
+            <p class="footer-desc">
+              Expertise en démolition, terrassement et rénovation à Marcheprime.
+              Nous bâtissons vos projets avec rigueur et passion.
+            </p>
+            <div class="social-links">
+              <a href="#"><i data-lucide="facebook"></i></a>
+              <a href="#"><i data-lucide="instagram"></i></a>
+              <a href="#"><i data-lucide="linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-title">NOS EXPERTISES</h4>
+            <ul class="footer-list">
+              <li>Démolition de précision</li>
+              <li>Terrassement massif</li>
+              <li>Aménagement extérieur</li>
+              <li>Gros œuvre & Maçonnerie</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-title">INFORMATIONS</h4>
+            <div class="info-item-footer">
+              <i data-lucide="clock"></i>
+              <div>
+                <strong>HORAIRES D'OUVERTURE</strong>
+                <span>Lun - Ven: 08:00 - 18:00</span>
+              </div>
+            </div>
+            <div class="info-item-footer">
+              <i data-lucide="hash"></i>
+              <div>
+                <strong>IDENTIFICATION</strong>
+                <span>SIRET: 494 262 371</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-title">CONTACT DIRECT</h4>
+            <div class="contact-box-footer">
+              <a href="tel:+33622892916" class="contact-item">
+                <div class="icon-wrap"><i data-lucide="phone"></i></div>
+                <span>06 22 89 29 16</span>
+              </a>
+              <a href="mailto:cyrilbenony@gmail.com" class="contact-item">
+                <div class="icon-wrap"><i data-lucide="mail"></i></div>
+                <span>cyrilbenony@gmail.com</span>
+              </a>
+              <div class="contact-item">
+                <div class="icon-wrap"><i data-lucide="map-pin"></i></div>
+                <span>33380 Marcheprime, France</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            © 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS
+          </div>
+          <div class="legal-links">
+            <a href="mentions-legales.html">MENTIONS LÉGALES & remboursement</a>
+            <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        // Menu Mobile
-        const drawer = document.getElementById('mobileDrawer');
-        const overlay = document.getElementById('drawerOverlay');
-        const openBtn = document.getElementById('openMenu');
-        const closeBtn = document.getElementById('closeMenu');
-
-        const toggleMenu = (s) => {
-            drawer.classList.toggle('active', s === 'open');
-            overlay.classList.toggle('active', s === 'open');
-        };
-        openBtn.onclick = () => toggleMenu('open');
-        closeBtn.onclick = () => toggleMenu('close');
-        overlay.onclick = () => toggleMenu('close');
-
-        // Data Services
         const servicesData = [
             { id: "01", titre: "Démolition de précision", tag: "SÉCURITÉ", desc: "Déconstruction sélective pour structures béton et métal.", img: "images/demoli.png", details: "Gestion du tri des matériaux et évacuation des gravats en centre agréé." },
-            { id: "02", titre: "Terrassement complet", tag: "GROS OEUVRE", desc: "Préparation des sols pour fondations et piscines.", img: "images/_amen.png", details: "Nivellement de terrain, tranchées pour réseaux (VRD) et préparation de plateforme." },
-            { id: "03", titre: "Déconstruction Sélective", tag: "RÉNOVATION", desc: "Travaux de démolition intérieure et curage de bâtiments.", img: "images/desconst_.png", details: "Nous déposons cloisons, sols et plafonds avec une propreté exemplaire." },
-            { id: "04", titre: "Dessouchage & Nettoyage", tag: "EXTÉRIEUR", desc: "Préparation de terrain et retrait de souches encombrantes.", img: "images/desouchage.png", details: "Extraction de racines et nivellement final pour plantation." },
+            { id: "02", titre: "Terrassement complet", tag: "GROS OEUVRE", desc: "Préparation des sols pour fondations et piscines.", img: "images/_amen.png", details: "Nivellement de terrain, tranchées pour réseaux (VRD) et plateforme." },
+            { id: "03", titre: "Déconstruction Sélective", tag: "RÉNOVATION", desc: "Travaux de démolition intérieure et curage de bâtiments.", img: "images/desconst_.png", details: "Dépose propre des cloisons, sols et plafonds." },
+            { id: "04", titre: "Dessouchage & Nettoyage", tag: "EXTÉRIEUR", desc: "Préparation de terrain et retrait de souches encombrantes.", img: "images/desouchage.png", details: "Extraction de racines et nivellement pour vos futurs projets." },
             { id: "05", titre: "Maçonnerie Générale", tag: "STRUCTURE", desc: "Construction de murs, dalles et structures porteuses.", img: "images/im_1.png", details: "Réalisation de dalles béton, murets de clôture et extensions." },
-            { id: "06", titre: "Aménagements Durables", tag: "FINITION", desc: "Création de terrasses, murets et accès extérieurs.", img: "images/_8ans.png", details: "Allées en gravillons, terrasses béton ou pierres." }
+            { id: "06", titre: "Aménagements Durables", tag: "FINITION", desc: "Création de terrasses, murets et accès extérieurs.", img: "images/_8ans.png", details: "Aménagements paysagers minéraux et accès carrossables." }
         ];
 
         const list = document.getElementById('services-list');
@@ -211,22 +141,19 @@
                         <button class="btn-details" onclick="toggleDetails(this)">
                             <i data-lucide="plus"></i> <span>VOIR LES DÉTAILS</span>
                         </button>
-                        <div class="details-panel"><p style="font-size:15px; color:#64748b; line-height:1.6;">${s.details}</p></div>
+                        <div class="details-panel"><p>${s.details}</p></div>
                     </div>
                 </div>
             `;
         });
         lucide.createIcons();
 
-        // Fonction Toggle Corrigée
         function toggleDetails(btn) {
             const panel = btn.nextElementSibling;
             const icon = btn.querySelector('i');
             const label = btn.querySelector('span');
-            
             panel.classList.toggle('active');
             const isOpened = panel.classList.contains('active');
-            
             label.textContent = isOpened ? 'FERMER' : 'VOIR LES DÉTAILS';
             icon.setAttribute('data-lucide', isOpened ? 'minus' : 'plus');
             lucide.createIcons(); 
