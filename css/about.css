@@ -56,6 +56,15 @@
     margin-bottom: 20px;
 }
 
+.italic-quote-box {
+    border-left: 4px solid var(--orange);
+    padding: 20px;
+    font-style: italic;
+    background: white;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+}
+
 /* --- LE SLIDER (IMAGE ET NAVIGATION) --- */
 .about-image-wrapper {
     position: relative;
@@ -210,7 +219,6 @@
     text-transform: uppercase; 
 }
 
-/* Style spécifique pour les listes dans les cartes */
 .about-list {
     list-style: none;
     padding: 0;
@@ -231,6 +239,92 @@
     left: 0;
     color: var(--orange);
     font-weight: 900;
+}
+
+/* --- SECTION TÉMOIGNAGES (CARROUSEL 5S) --- */
+.testimonials-section {
+    padding: 100px 0;
+    background: white;
+    text-align: center;
+}
+
+.testimonials-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5rem;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.testimonials-title span { color: var(--orange); }
+
+.testimonial-container {
+    max-width: 800px;
+    margin: 30px auto 20px;
+    position: relative;
+    height: 450px; /* Hauteur fixe pour éviter les sauts lors du changement */
+}
+
+.testimonial-card {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    visibility: hidden;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.user-img {
+    width: 100%;
+    max-width: 900px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border: 5px solid white;
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    color: var(--slate-text);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    display: block;
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.testi-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.t-dot {
+    width: 12px;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.t-dot.active {
+    background: var(--orange);
+    width: 30px;
+    border-radius: 10px;
 }
 
 /* --- MENU MOBILE (DRAWER) --- */
@@ -262,10 +356,7 @@
 .mobile-links li a:hover { color: var(--orange); padding-left: 10px; }
 .mobile-links li a i { color: var(--orange); }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================== */
-
+/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 1024px) {
     .about-hero { gap: 40px; }
     .main-img-card { height: 500px; }
@@ -282,29 +373,15 @@
 @media (max-width: 768px) {
     .about-page { padding-top: 110px; }
     .about-title { font-size: 2.5rem; }
-    
     .main-img-card { height: 420px; border-radius: 30px; }
-    
-    .experience-badge { 
-        padding: 15px 20px; 
-        bottom: -20px; 
-        left: 50%; 
-        transform: translateX(-50%);
-        min-width: 150px;
-    }
-    
+    .experience-badge { padding: 15px 20px; bottom: -20px; left: 50%; transform: translateX(-50%); min-width: 150px; }
     .exp-number { font-size: 2.8rem; }
     .exp-label { font-size: 0.7rem; }
-
-    .stats-divider {
-        grid-template-columns: 1fr;
-        padding: 40px 20px;
-        gap: 30px;
-    }
-
+    .stats-divider { grid-template-columns: 1fr; padding: 40px 20px; gap: 30px; }
     .stat-value { font-size: 3rem; }
     .slider-nav { bottom: 20px; right: 20px; }
     .slider-nav button { width: 44px; height: 44px; }
+    .testimonial-container { height: 400px; }
 }
 
 @media (max-width: 480px) {

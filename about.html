@@ -4,157 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À Propos | Cyril BTP</title>
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/footer.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* Styles existants conservés */
-        .about-image-wrapper { position: relative; }
-        .main-img-card { 
-            position: relative; 
-            height: 550px; 
-            overflow: hidden; 
-            border-radius: 2rem; 
-            background: #eee;
-        }
-        .slider-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transform: scale(1.1);
-            transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
-        }
-        .slider-img.active { opacity: 1; transform: scale(1); z-index: 1; }
-        
-        .slider-nav {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10;
-            display: flex;
-            gap: 10px;
-        }
-        .slider-nav button {
-            background: white; border: none; width: 45px; height: 45px;
-            border-radius: 50%; cursor: pointer; display: flex;
-            align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-        .slider-nav button:hover { background: #ff6600; color: white; }
-
-        .slider-progress {
-            position: absolute; left: -15px; top: 50%;
-            transform: translateY(-50%); z-index: 10;
-            display: flex; flex-direction: column; gap: 8px;
-        }
-        .bar { width: 4px; height: 30px; background: #cbd5e1; border-radius: 10px; transition: 0.5s; }
-        .bar.active { height: 60px; background: #ff6600; }
-
-        .about-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 15px;
-            text-align: left;
-        }
-        .about-list li {
-            font-size: 0.9rem;
-            color: #475569;
-            padding-left: 20px;
-            position: relative;
-            margin-bottom: 6px;
-            line-height: 1.4;
-        }
-        .about-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #ff6600;
-            font-weight: bold;
-        }
-
-        /* --- NOUVEAUX STYLES POUR LE SLIDER AVIS --- */
-        .testimonials-section {
-            padding: 100px 0;
-            background: #f8fafc;
-            text-align: center;
-            overflow: hidden;
-        }
-        .testimonials-title {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: #0f172a;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        .testimonials-title span { color: #ff6600; }
-        
-        .testimonial-container {
-            max-width: 900px;
-            margin: 50px auto 0;
-            position: relative;
-            min-height: 350px;
-        }
-        .testimonial-card {
-            position: absolute;
-            width: 100%;
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        }
-        .testimonial-card.active {
-            opacity: 1;
-            transform: translateX(0);
-            pointer-events: auto;
-        }
-        .user-img {
-            width: 500px;
-            height: 310px;
-            border-radius: 5%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            border: 4px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .quote-text {
-            font-size: 1.2rem;
-            color: #334155;
-            line-height: 1.8;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        .user-name {
-            font-weight: 800;
-            color: #0f172a;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .user-role {
-            color: #ff6600;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .testi-dots {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 40px;
-        }
-        .t-dot {
-            width: 10px; height: 10px;
-            background: #cbd5e1;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .t-dot.active { background: #ff6600; width: 30px; border-radius: 5px; }
-    </style>
 </head>
 <body>
 
@@ -213,7 +69,7 @@
                     <p class="about-text">
                         Basée à <strong>Marcheprime</strong>, l'entreprise <span class="text-orange">Cyril BTP</span> incarne la rigueur du bâtiment en Gironde. Nous transformons vos visions en structures solides et durables.
                     </p>
-                    <p class="about-text italic-quote" style="border-left: 4px solid #ff6600; padding-left: 20px; font-style: italic; background: #f8fafc; padding-top: 15px; padding-bottom: 15px; border-radius: 0 15px 15px 0;">
+                    <p class="about-text italic-quote-box">
                         "De l'aménagement extérieur à la démolition complexe, notre engagement reste le même : la perfection technique et le respect total de vos exigences."
                     </p>
                 </div>
@@ -266,7 +122,7 @@
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon"><i data-lucide="pickaxe"></i></div>
-                    <h3>Emménagement extérieur</h3>
+                    <h3>Aménagement extérieur</h3>
                     <ul class="about-list">
                         <li>Création parking avec caillot de finition</li>
                         <li>Création d'une allée enrobée avec ses bordures</li>
@@ -281,7 +137,8 @@
                     <div class="value-icon"><i data-lucide="shrub"></i></div>
                     <h3>Terrain</h3>
                     <ul class="about-list">
-                        <li>Dessouchage, élagage</li>
+                        <li>Dessouchage</li>
+                        <li>Élagage</li>
                     </ul>
                 </div>
 
@@ -289,7 +146,8 @@
                     <div class="value-icon"><i data-lucide="anvil"></i></div>
                     <h3>Démolition</h3>
                     <ul class="about-list">
-                        <li>Démolition extérieure/intérieur</li>
+                        <li>Démolition extérieure</li>
+                        <li>Démolition intérieure</li>
                     </ul>
                 </div>
             </div>
@@ -303,24 +161,33 @@
             
             <div class="testimonial-container">
                 <div class="testimonial-card active">
-                    <img src="images/avi1.png" alt="Client 1" class="user-img">
-                    
+                    <img src="images/av1.png" alt="Avis 1" class="user-img">
+                    <p class="quote-text">"Visité en janvier 2025"</p>
+                    <span class="user-name">Jennifer Duville</span>
                 </div>
+                
                 <div class="testimonial-card">
-                    <img src="images/avis2.png" alt="Client 2" class="user-img">
-                    
+                    <img src="images/av2.png" alt="Avis 2" class="user-img">
+                    <p class="quote-text">"Visité en avril 2024"</p>
+                    <span class="user-name">Lili machado</span>
                 </div>
+                
                 <div class="testimonial-card">
-                    <img src="images/ema.png" alt="Client 3" class="user-img">
-                   
+                    <img src="images/av3.png" alt="Avis 3" class="user-img">
+                    <p class="quote-text">"Visité en janvier 2025."</p>
+                    <span class="user-name">Emmanuel Charazac</span>
                 </div>
+                
                 <div class="testimonial-card">
-                    <img src="images/avi4.png" alt="Client 4" class="user-img">
-                   
+                    <img src="images/av4.png" alt="Avis 4" class="user-img">
+                    <p class="quote-text">"Visité en mars 2025."</p>
+                    <span class="user-name">Away Schutt</span>
                 </div>
+                
                 <div class="testimonial-card">
-                    <img src="images/avi5.png" alt="Client 5" class="user-img">
-                   
+                    <img src="images/av5.png" alt="Avis 5" class="user-img">
+                    <p class="quote-text">"Visité en avril 2025"</p>
+                    <span class="user-name">Tony Carbonell</span>
                 </div>
             </div>
 
@@ -409,7 +276,7 @@
     <script>
         lucide.createIcons();
 
-        // 1. LOGIQUE DU SLIDER CHANTIER (HERO)
+        // 1. SLIDER CHANTIER
         const slides = document.querySelectorAll('.slider-img');
         const bars = document.querySelectorAll('.bar');
         const prevBtn = document.getElementById('prevSlide');
@@ -428,7 +295,7 @@
         prevBtn.onclick = () => showSlide(current - 1);
         setInterval(() => showSlide(current + 1), 5000);
 
-        // 2. LOGIQUE DU SLIDER AVIS (TESTIMONIALS) - 5 SECONDES
+        // 2. SLIDER AVIS
         const testiCards = document.querySelectorAll('.testimonial-card');
         const testiDots = document.querySelectorAll('.t-dot');
         let currentTesti = 0;
@@ -436,18 +303,14 @@
         function showTesti(index) {
             testiCards.forEach(card => card.classList.remove('active'));
             testiDots.forEach(dot => dot.classList.remove('active'));
-            
             currentTesti = (index + testiCards.length) % testiCards.length;
-            
             testiCards[currentTesti].classList.add('active');
             testiDots[currentTesti].classList.add('active');
         }
 
-        setInterval(() => {
-            showTesti(currentTesti + 1);
-        }, 5000); // Défilement toutes les 5 secondes
+        setInterval(() => showTesti(currentTesti + 1), 5000);
 
-        // 3. COMPTEURS ANIMÉS
+        // 3. COMPTEURS
         const stats = document.querySelectorAll('.stat-value');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -468,7 +331,6 @@
                 }
             });
         }, { threshold: 0.5 });
-
         stats.forEach(s => observer.observe(s));
 
         // 4. MENU MOBILE
