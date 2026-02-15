@@ -309,7 +309,7 @@
 @media (max-width: 992px) {
     .about-hero { grid-template-columns: 1fr; text-align: center; }
     .about-content { order: 2; align-items: center; display: flex; flex-direction: column; }
-    .about-image-wrapper { order: 1; margin-bottom: 50px; }
+    .about-image-wrapper { order: 1; margin-bottom: 30px; }
     .orange-bar { margin: 0 auto 30px; }
     .slider-progress { left: 10px; }
 }
@@ -321,16 +321,16 @@
     
     /* Ajustement Avis Tablette */
     .testimonial-container { min-height: 500px; }
-    .user-img { height: 300px; }
+    .user-img { height: 320px; }
 }
 
 @media (max-width: 480px) {
     .about-title { font-size: 2.2rem; }
-    .stats-divider { grid-template-columns: 1fr; padding: 40px 20px; }
+    .stats-divider { grid-template-columns: 1fr; padding: 30px 20px; }
     
-    .testimonial-container { min-height: 420px; margin-bottom: 0; }
+    .testimonial-container { min-height: 430px; margin-bottom: 0; }
     .user-img { 
-        height: 280px; 
+        height: 290px; 
         border-width: 3px;
         margin-bottom: 10px;
     }
