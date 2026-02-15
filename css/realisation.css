@@ -22,12 +22,12 @@
 body {
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
+    background-color: var(--bg-blank);
 }
 
 /* ==========================================================================
-   2. NAVIGATION & DRAWER MOBILE (OPTIMISÉ POUR LE HAUT)
+   2. NAVIGATION & DRAWER MOBILE
    ========================================================================== */
-
 .drawer {
     position: fixed;
     top: 0;
@@ -38,27 +38,25 @@ body {
     z-index: 2000;
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Aligne tout en haut */
+    justify-content: flex-start;
 }
 
 .drawer.active { transform: translateX(0); }
 
 .drawer-header {
-    padding: 15px 20px; /* Réduit pour gagner de la place en haut */
+    padding: 20px;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
 }
 
 .close-btn {
     background: var(--orange-btp);
     border: none;
     color: white;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2rem;
@@ -67,31 +65,27 @@ body {
     justify-content: center;
 }
 
-/* Liens remontés au maximum */
 .mobile-links {
     list-style: none !important;
-    padding: 10px 30px !important; /* Padding top réduit à 10px */
+    padding: 10px 30px !important;
     margin: 0 !important;
 }
 
 .mobile-links li {
-    list-style: none !important;
-    margin-bottom: 20px; /* Espace équilibré entre les liens */
+    margin-bottom: 25px;
 }
 
 .mobile-links li a {
     text-decoration: none !important;
     color: white !important;
     font-family: 'Anton', sans-serif;
-    font-size: 1.7rem; /* Taille légèrement ajustée pour mobile */
+    font-size: 1.8rem;
     display: block;
     text-transform: uppercase;
     transition: color 0.3s;
 }
 
-.mobile-links li a:hover {
-    color: var(--orange-btp) !important;
-}
+.mobile-links li a:hover { color: var(--orange-btp) !important; }
 
 .drawer-overlay {
     position: fixed;
@@ -144,10 +138,9 @@ body {
 }
 
 /* ==========================================================================
-   4. LISTE DES RÉALISATIONS
+   4. LISTE DES RÉALISATIONS (CORRECTION IMAGES & FLEX)
    ========================================================================== */
 .projects-list {
-    background-color: var(--bg-blank);
     padding: 100px 0;
 }
 
@@ -175,10 +168,14 @@ body {
 
 .project-image img {
     width: 100%;
-    height: 550px;
+    height: 550px; /* Hauteur fixe pour Desktop */
     object-fit: cover;
     display: block;
     transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.project-row:hover .project-image img {
+    transform: scale(1.05);
 }
 
 .project-content { flex: 1; }
@@ -236,6 +233,11 @@ body {
     transition: var(--transition);
 }
 
+.details-link:hover {
+    background: var(--orange-btp);
+    color: white;
+}
+
 /* ==========================================================================
    5. FOOTER
    ========================================================================== */
@@ -253,35 +255,30 @@ body {
 
 .logo-footer img {
     height: 45px;
-    background: white;
-    padding: 5px;
-    border-radius: 6px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 20px;
 }
 
 .footer-list { list-style: none; }
 .footer-list li { margin-bottom: 12px; color: var(--text-gray); font-size: 0.9rem; }
 
 /* ==========================================================================
-   6. RESPONSIVE
+   6. RESPONSIVE OPTIMISÉ
    ========================================================================== */
 
-/* Remplace ton bloc @media (max-width: 1024px) actuel par celui-ci */
 @media (max-width: 1024px) {
+    /* Navigation Mobile */
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%; 
-        width: 300px; /* Largeur fixe plus élégante */
+        width: 300px;
         height: 100vh;
-        background: #0f172a; 
+        background: var(--dark-blue); 
         display: flex !important;
         flex-direction: column;
-        
-        /* CORRECTION ICI : On aligne en haut */
         justify-content: flex-start !important; 
         align-items: flex-start !important;
-        
-        /* Espace pour ne pas coller au plafond */
         padding: 80px 30px 0 30px !important; 
         gap: 20px;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -290,13 +287,49 @@ body {
         box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
 
-    .nav-menu.active {
-        right: 0 !important;
-    }
+    .nav-menu.active { right: 0 !important; }
 
     .nav-menu li {
         width: 100%;
         border-bottom: 1px solid rgba(255,255,255,0.05);
         padding-bottom: 10px;
     }
+
+    .nav-menu li a {
+        color: white;
+        text-decoration: none;
+        font-family: 'Anton';
+        font-size: 1.5rem;
+    }
+
+    /* Correction des rangées Projets */
+    .project-row, .project-row.reverse {
+        flex-direction: column; 
+        gap: 40px;
+        margin-bottom: 100px;
+    }
+
+    .project-image, .project-content {
+        width: 100%;
+        flex: none;
+    }
+
+    .project-image img {
+        height: 350px; /* Évite que l'image disparaisse ou soit écrasée */
+    }
+
+    .project-description {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .project-number {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title-section { padding: 120px 0 60px; }
+    .project-image img { height: 280px; }
+    .project-name { font-size: 1.8rem; }
 }
