@@ -11,6 +11,42 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- STYLE DE LA CARTE DE VISITE --- */
+        .cart-cisite {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            perspective: 1000px;
+        }
+
+        .carte {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            display: block;
+        }
+
+        .carte:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(255, 102, 0, 0.3);
+        }
+
+        /* Ajustement Footer pour la carte */
+        .footer-bottom-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
 </head>
 <body>
 
@@ -124,11 +160,11 @@
                     <div class="value-icon"><i data-lucide="pickaxe"></i></div>
                     <h3>Aménagement extérieur</h3>
                     <ul class="about-list">
-                        <li>Création parking avec caillot de finition</li>
-                        <li>Création d'une allée enrobée avec ses bordures</li>
+                        <li>Création parking & finition</li>
+                        <li>Allée enrobée & bordures</li>
                         <li>Seuil de Portail</li>
-                        <li>Terrassement</li>
-                        <li>Création, terrasse, béton</li>
+                        <li>Terrassement complet</li>
+                        <li>Dalles Béton</li>
                         <li>Nettoyage de terrain</li>
                     </ul>
                 </div>
@@ -139,6 +175,7 @@
                     <ul class="about-list">
                         <li>Dessouchage</li>
                         <li>Élagage</li>
+                        <li>Préparation sol</li>
                     </ul>
                 </div>
 
@@ -147,7 +184,8 @@
                     <h3>Démolition</h3>
                     <ul class="about-list">
                         <li>Démolition extérieure</li>
-                        <li>Démolition intérieure</li>
+                        <li>Curage intérieur</li>
+                        <li>Évacuation gravats</li>
                     </ul>
                 </div>
             </div>
@@ -157,36 +195,36 @@
     <section class="testimonials-section">
         <div class="container">
             <h2 class="testimonials-title">Voici ce que les gens <span>disent de nous</span></h2>
-            <div class="orange-bar" style="margin: 0 auto;"></div>
+            <div class="orange-bar" style="margin: 0 auto 40px;"></div>
             
             <div class="testimonial-container">
                 <div class="testimonial-card active">
                     <img src="images/av1.png" alt="Avis 1" class="user-img">
-                    <p class="quote-text">"Visité en janvier 2025"</p>
+                    <p class="quote-text">"Travail soigné et équipe très professionnelle."</p>
                     <span class="user-name">Jennifer Duville</span>
                 </div>
                 
                 <div class="testimonial-card">
                     <img src="images/av2.png" alt="Avis 2" class="user-img">
-                    <p class="quote-text">"Visité en avril 2024"</p>
+                    <p class="quote-text">"Sérieux et ponctuel, je recommande Cyril BTP."</p>
                     <span class="user-name">Lili machado</span>
                 </div>
                 
                 <div class="testimonial-card">
                     <img src="images/av3.png" alt="Avis 3" class="user-img">
-                    <p class="quote-text">"Visité en janvier 2025."</p>
+                    <p class="quote-text">"Une réactivité rare dans le secteur."</p>
                     <span class="user-name">Emmanuel Charazac</span>
                 </div>
                 
                 <div class="testimonial-card">
                     <img src="images/av4.png" alt="Avis 4" class="user-img">
-                    <p class="quote-text">"Visité en mars 2025."</p>
+                    <p class="quote-text">"Parfait pour ma démolition intérieure."</p>
                     <span class="user-name">Away Schutt</span>
                 </div>
                 
                 <div class="testimonial-card">
                     <img src="images/av5.png" alt="Avis 5" class="user-img">
-                    <p class="quote-text">"Visité en avril 2025"</p>
+                    <p class="quote-text">"Rapport qualité/prix imbattable."</p>
                     <span class="user-name">Tony Carbonell</span>
                 </div>
             </div>
@@ -224,7 +262,7 @@
                         <li>Démolition & Curage</li>
                         <li>Aménagement extérieur</li>
                         <li>Enrobé & Bordures</li>
-                        <li>Terrassement & Maçonnerie</li>
+                        <li>Terrassement</li>
                     </ul>
                 </div>
 
@@ -241,8 +279,8 @@
                         <div class="info-item-footer">
                             <i data-lucide="hash"></i>
                             <div>
-                                <strong>Identification</strong>
-                                <span>SIRET: 494 262 371</span>
+                                <strong>SIRET</strong>
+                                <span>494 262 371</span>
                             </div>
                         </div>
                     </div>
@@ -263,11 +301,17 @@
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
-                <div class="legal-links">
-                    <a href="mentions-legales.html">MENTIONS LÉGALES & </a>
-                    <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
+            <div class="footer-bottom-wrapper">
+                <div class="cart-cisite">
+                    <img class="carte" src="images/carte.jpeg" alt="Carte de visite Cyril BTP">
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
+                    <div class="legal-links">
+                        <a href="mentions-legales.html">MENTIONS LÉGALES</a>
+                        <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -291,11 +335,11 @@
             bars[current].classList.add('active');
         }
 
-        nextBtn.onclick = () => showSlide(current + 1);
-        prevBtn.onclick = () => showSlide(current - 1);
+        if(nextBtn) nextBtn.onclick = () => showSlide(current + 1);
+        if(prevBtn) prevBtn.onclick = () => showSlide(current - 1);
         setInterval(() => showSlide(current + 1), 5000);
 
-        // 2. SLIDER AVIS
+        // 2. SLIDER AVIS (TESTIMONIALS)
         const testiCards = document.querySelectorAll('.testimonial-card');
         const testiDots = document.querySelectorAll('.t-dot');
         let currentTesti = 0;
@@ -308,9 +352,9 @@
             testiDots[currentTesti].classList.add('active');
         }
 
-        setInterval(() => showTesti(currentTesti + 1), 5000);
+        setInterval(() => showTesti(currentTesti + 1), 6000);
 
-        // 3. COMPTEURS
+        // 3. COMPTEURS (STATS)
         const stats = document.querySelectorAll('.stat-value');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -333,11 +377,11 @@
         }, { threshold: 0.5 });
         stats.forEach(s => observer.observe(s));
 
-        // 4. MENU MOBILE
+        // 4. MENU MOBILE (DRAWER)
         const drawer = document.getElementById('mobileDrawer');
         const overlay = document.getElementById('drawerOverlay');
-        const openMenu = document.getElementById('openMenu');
-        const closeMenu = document.getElementById('closeMenu');
+        const openBtn = document.getElementById('openMenu');
+        const closeBtn = document.getElementById('closeMenu');
 
         const toggleMenu = (state) => {
             drawer.classList.toggle('active', state);
@@ -345,9 +389,9 @@
             document.body.style.overflow = state ? 'hidden' : '';
         };
 
-        openMenu.onclick = () => toggleMenu(true);
-        closeMenu.onclick = () => toggleMenu(false);
-        overlay.onclick = () => toggleMenu(false);
+        if(openBtn) openBtn.onclick = () => toggleMenu(true);
+        if(closeBtn) closeBtn.onclick = () => toggleMenu(false);
+        if(overlay) overlay.onclick = () => toggleMenu(false);
     </script>
 </body>
 </html>
