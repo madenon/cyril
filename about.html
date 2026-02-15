@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Styles spécifiques au Slider et aux listes */
+        /* Styles existants conservés */
         .about-image-wrapper { position: relative; }
         .main-img-card { 
             position: relative; 
@@ -55,7 +55,6 @@
         .bar { width: 4px; height: 30px; background: #cbd5e1; border-radius: 10px; transition: 0.5s; }
         .bar.active { height: 60px; background: #ff6600; }
 
-        /* Style des listes d'expertise */
         .about-list {
             list-style: none;
             padding: 0;
@@ -77,6 +76,84 @@
             color: #ff6600;
             font-weight: bold;
         }
+
+        /* --- NOUVEAUX STYLES POUR LE SLIDER AVIS --- */
+        .testimonials-section {
+            padding: 100px 0;
+            background: #f8fafc;
+            text-align: center;
+            overflow: hidden;
+        }
+        .testimonials-title {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #0f172a;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .testimonials-title span { color: #ff6600; }
+        
+        .testimonial-container {
+            max-width: 900px;
+            margin: 50px auto 0;
+            position: relative;
+            min-height: 350px;
+        }
+        .testimonial-card {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        .testimonial-card.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+        .user-img {
+            width: 500px;
+            height: 310px;
+            border-radius: 5%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .quote-text {
+            font-size: 1.2rem;
+            color: #334155;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .user-name {
+            font-weight: 800;
+            color: #0f172a;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .user-role {
+            color: #ff6600;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .testi-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+        .t-dot {
+            width: 10px; height: 10px;
+            background: #cbd5e1;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .t-dot.active { background: #ff6600; width: 30px; border-radius: 5px; }
     </style>
 </head>
 <body>
@@ -186,7 +263,7 @@
                 </div>
             </div>
 
-          <div class="values-grid">
+            <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon"><i data-lucide="pickaxe"></i></div>
                     <h3>Emménagement extérieur</h3>
@@ -219,82 +296,120 @@
         </div>
     </section>
 
-   <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-column brand-info">
-                <div class="logo-footer">
-                    <img src="images/lg.png" alt="Logo Cyril BTP">
-                    <span>CYRIL <strong>BTP</strong></span>
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="testimonials-title">Voici ce que les gens <span>disent de nous</span></h2>
+            <div class="orange-bar" style="margin: 0 auto;"></div>
+            
+            <div class="testimonial-container">
+                <div class="testimonial-card active">
+                    <img src="images/avi1.png" alt="Client 1" class="user-img">
+                    
                 </div>
-                <p class="footer-desc">
-                    Expertise en démolition, terrassement et aménagement. Nous bâtissons vos projets avec la rigueur d'un artisan passionné à Marcheprime.
-                </p>
-                <div class="social-links">
-                    <a href="#"><i data-lucide="facebook"></i></a>
-                    <a href="#"><i data-lucide="instagram"></i></a>
+                <div class="testimonial-card">
+                    <img src="images/avis2.png" alt="Client 2" class="user-img">
+                    
+                </div>
+                <div class="testimonial-card">
+                    <img src="images/ema.png" alt="Client 3" class="user-img">
+                   
+                </div>
+                <div class="testimonial-card">
+                    <img src="images/avi4.png" alt="Client 4" class="user-img">
+                   
+                </div>
+                <div class="testimonial-card">
+                    <img src="images/avi5.png" alt="Client 5" class="user-img">
+                   
                 </div>
             </div>
 
-            <div class="footer-column">
-                <h4 class="footer-title">NOS EXPERTISES</h4>
-                <ul class="footer-list">
-                    <li>Démolition & Curage</li>
-                    <li>Aménagement extérieur</li>
-                    <li>Enrobé & Bordures</li>
-                    <li>Terrassement & Maçonnerie</li>
-                </ul>
+            <div class="testi-dots">
+                <div class="t-dot active" onclick="showTesti(0)"></div>
+                <div class="t-dot" onclick="showTesti(1)"></div>
+                <div class="t-dot" onclick="showTesti(2)"></div>
+                <div class="t-dot" onclick="showTesti(3)"></div>
+                <div class="t-dot" onclick="showTesti(4)"></div>
             </div>
+        </div>
+    </section>
 
-            <div class="footer-column">
-                <h4 class="footer-title">INFORMATIONS</h4>
-                <div class="info-block">
-                    <div class="info-item-footer">
-                        <i data-lucide="clock"></i>
-                        <div>
-                            <strong>Horaires</strong>
-                            <span>Lun - Ven: 08:00 - 18:00</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column brand-info">
+                    <div class="logo-footer">
+                        <img src="images/lg.png" alt="Logo Cyril BTP">
+                        <span>CYRIL <strong>BTP</strong></span>
+                    </div>
+                    <p class="footer-desc">
+                        Expertise en démolition, terrassement et aménagement. Nous bâtissons vos projets avec la rigueur d'un artisan passionné à Marcheprime.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">NOS EXPERTISES</h4>
+                    <ul class="footer-list">
+                        <li>Démolition & Curage</li>
+                        <li>Aménagement extérieur</li>
+                        <li>Enrobé & Bordures</li>
+                        <li>Terrassement & Maçonnerie</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">INFORMATIONS</h4>
+                    <div class="info-block">
+                        <div class="info-item-footer">
+                            <i data-lucide="clock"></i>
+                            <div>
+                                <strong>Horaires</strong>
+                                <span>Lun - Ven: 08:00 - 18:00</span>
+                            </div>
+                        </div>
+                        <div class="info-item-footer">
+                            <i data-lucide="hash"></i>
+                            <div>
+                                <strong>Identification</strong>
+                                <span>SIRET: 494 262 371</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="info-item-footer">
-                        <i data-lucide="hash"></i>
-                        <div>
-                            <strong>Identification</strong>
-                            <span>SIRET: 494 262 371</span>
-                        </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">CONTACT DIRECT</h4>
+                    <div class="contact-box-footer">
+                        <a href="tel:+33622892916" class="contact-item">
+                            <div class="icon-wrap"><i data-lucide="phone"></i></div>
+                            <span>06 22 89 29 16</span>
+                        </a>
+                        <a href="mailto:cyrilbenony@gmail.com" class="contact-item">
+                            <div class="icon-wrap"><i data-lucide="mail"></i></div>
+                            <span>cyrilbenony@gmail.com</span>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-column">
-                <h4 class="footer-title">CONTACT DIRECT</h4>
-                <div class="contact-box-footer">
-                    <a href="tel:+33622892916" class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="phone"></i></div>
-                        <span>06 22 89 29 16</span>
-                    </a>
-                    <a href="mailto:cyrilbenony@gmail.com" class="contact-item">
-                        <div class="icon-wrap"><i data-lucide="mail"></i></div>
-                        <span>cyrilbenony@gmail.com</span>
-                    </a>
+            <div class="footer-bottom">
+                <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
+                <div class="legal-links">
+                    <a href="mentions-legales.html">MENTIONS LÉGALES & </a>
+                    <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
                 </div>
             </div>
         </div>
-
-        <div class="footer-bottom">
-    <div class="copyright">© 2026 <strong>CYRIL BTP</strong> - TOUS DROITS RÉSERVÉS</div>
-    <div class="legal-links">
-        <a href="mentions-legales.html">MENTIONS LÉGALES & </a>
-        <a href="politique.html">POLITIQUE DE CONFIDENTIALITÉ</a>
-    </div>
-</div>
-    </div>
-</footer>
+    </footer>
 
     <script>
         lucide.createIcons();
 
-        // 1. LOGIQUE DU SLIDER
+        // 1. LOGIQUE DU SLIDER CHANTIER (HERO)
         const slides = document.querySelectorAll('.slider-img');
         const bars = document.querySelectorAll('.bar');
         const prevBtn = document.getElementById('prevSlide');
@@ -313,7 +428,26 @@
         prevBtn.onclick = () => showSlide(current - 1);
         setInterval(() => showSlide(current + 1), 5000);
 
-        // 2. COMPTEURS ANIMÉS
+        // 2. LOGIQUE DU SLIDER AVIS (TESTIMONIALS) - 5 SECONDES
+        const testiCards = document.querySelectorAll('.testimonial-card');
+        const testiDots = document.querySelectorAll('.t-dot');
+        let currentTesti = 0;
+
+        function showTesti(index) {
+            testiCards.forEach(card => card.classList.remove('active'));
+            testiDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentTesti = (index + testiCards.length) % testiCards.length;
+            
+            testiCards[currentTesti].classList.add('active');
+            testiDots[currentTesti].classList.add('active');
+        }
+
+        setInterval(() => {
+            showTesti(currentTesti + 1);
+        }, 5000); // Défilement toutes les 5 secondes
+
+        // 3. COMPTEURS ANIMÉS
         const stats = document.querySelectorAll('.stat-value');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -337,7 +471,7 @@
 
         stats.forEach(s => observer.observe(s));
 
-        // 3. MENU MOBILE
+        // 4. MENU MOBILE
         const drawer = document.getElementById('mobileDrawer');
         const overlay = document.getElementById('drawerOverlay');
         const openMenu = document.getElementById('openMenu');
