@@ -328,12 +328,11 @@
     .about-title { font-size: 2.2rem; }
     .stats-divider { grid-template-columns: 1fr; padding: 40px 20px; }
     
-    /* Ajustement Avis Mobile - Évite que ça ne mange l'écran */
     .testimonial-container { min-height: 420px; margin-bottom: 0; }
     .user-img { 
-        height: 220px; /* Taille compacte et propre sur mobile */
+        height: 280px; 
         border-width: 3px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     .quote-text { font-size: 1rem; padding: 0 15px; }
     .testimonials-title { font-size: 1.8rem; }
