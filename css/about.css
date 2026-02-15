@@ -65,7 +65,7 @@
     box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
 }
 
-/* --- LE SLIDER (CHANTIER) --- */
+/* --- LE SLIDER (IMAGES CHANTIER) --- */
 .about-image-wrapper {
     position: relative;
     z-index: 1;
@@ -211,7 +211,7 @@
 .about-list li { font-size: 0.95rem; color: var(--slate-text); padding-left: 25px; position: relative; margin-bottom: 10px; }
 .about-list li::before { content: "→"; position: absolute; left: 0; color: var(--orange); font-weight: 900; }
 
-/* --- SECTION TÉMOIGNAGES (CORRECTIFS MOBILE INCLUS) --- */
+/* --- SECTION TÉMOIGNAGES (CORRECTIFS AFFICHAGE GOOGLE) --- */
 .testimonials-section {
     padding: 100px 0;
     background: white;
@@ -232,13 +232,16 @@
     max-width: 900px;
     margin: 40px auto;
     position: relative;
-    min-height: 600px; /* Assure l'espace pour image + texte */
+    min-height: 600px;
 }
 
 .testimonial-card {
     position: absolute;
     inset: 0;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement le widget et le texte */
     opacity: 0;
     transform: scale(0.95);
     transition: all 0.8s ease-in-out;
@@ -255,11 +258,12 @@
     width: 100%;
     max-width: 800px;
     height: 450px;
-    object-fit: cover;
+    object-fit: contain; /* Évite de couper les bords de l'avis Google */
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     margin-bottom: 25px;
     border: 5px solid white;
+    background: white;
 }
 
 .quote-text {
@@ -300,7 +304,7 @@
     border-radius: 10px;
 }
 
-/* --- RESPONSIVE DESIGN (LÀ OÙ SE JOUE LA MAGIE) --- */
+/* --- RESPONSIVE DESIGN --- */
 
 @media (max-width: 1024px) {
     .main-img-card { height: 500px; }
@@ -319,20 +323,22 @@
     .main-img-card { height: 400px; }
     .experience-badge { left: 50%; transform: translateX(-50%); bottom: -20px; }
     
-    /* Ajustement Avis Tablette */
     .testimonial-container { min-height: 500px; }
-    .user-img { height: 320px; }
+    .user-img { height: 320px; width: 90%; }
 }
 
 @media (max-width: 480px) {
     .about-title { font-size: 2.2rem; }
     .stats-divider { grid-template-columns: 1fr; padding: 30px 20px; }
     
-    .testimonial-container { min-height: 430px; margin-bottom: 0; }
+    .testimonial-container { min-height: 450px; }
     .user-img { 
-        height: 290px; 
+        height: auto;
+        max-height: 280px;
+        width: 100%;
+        object-fit: contain;
         border-width: 3px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
     .quote-text { font-size: 1rem; padding: 0 15px; }
     .testimonials-title { font-size: 1.8rem; }
