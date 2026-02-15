@@ -334,23 +334,3 @@ body {
     .project-name { font-size: 1.8rem; }
 }
 
-/* Version optimisée et sans conflit */
-.cart-cisite {
-    width: 100%;
-    max-width: 500px; /* Aligné sur la taille de l'image */
-    margin: 40px auto;
-    display: flex;
-    justify-content: center;
-    perspective: 1000px;
-}
-
-.carte {
-    width: 100%;      /* Prend toute la place du parent (max 500px) */
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(15, 23, 42, 0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-    backface-visibility: hidden; /* Ajouté pour fluidifier l'animation 3D */
-}
